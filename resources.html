@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="BPO Resources | Newsletter, Podcast &amp; Framework | Evostr">
+  <title>Resources | Evostr</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;0,800;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* ---- Resources page ---- */
+
+    .res-hero h1 { max-width: 640px; margin-bottom: 16px; }
+    .res-hero p  { font-size: 18px; line-height: 1.7; color: var(--text-muted); max-width: 560px; }
+
+    /* Shared prose sections */
+    .res-prose {
+      max-width: 680px;
+    }
+
+    .res-prose h2 { margin-bottom: 20px; }
+
+    .res-prose p {
+      font-size: 17px;
+      line-height: 1.8;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .res-link {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--navy);
+      text-decoration: none;
+      border-bottom: 1px solid var(--navy);
+      padding-bottom: 1px;
+    }
+
+    .res-link:hover {
+      color: var(--liela-shade);
+      border-bottom-color: var(--liela-shade);
+    }
+
+    .res-link-pair {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    /* Articles grid */
+    .articles-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 28px;
+    }
+
+    .article-card {
+      background: var(--white);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      text-decoration: none;
+      transition: background 0.15s ease;
+    }
+
+    .article-card:hover { background: var(--matte-steel); }
+
+    .article-date {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .article-title {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.4;
+      flex: 1;
+    }
+
+    .article-card:hover .article-title { color: var(--navy); }
+
+    .article-read {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--liela-shade);
+    }
+
+    /* Email signup */
+    .signup-section h2 { max-width: 480px; margin-bottom: 12px; }
+    .signup-section p  { font-size: 16px; color: var(--text-muted); max-width: 480px; margin-bottom: 28px; }
+
+    .signup-form {
+      display: flex;
+      gap: 12px;
+      max-width: 440px;
+    }
+
+    .signup-form input[type="email"] {
+      flex: 1;
+      padding: 13px 16px;
+      font-family: var(--font-sans);
+      font-size: 15px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--white);
+      color: var(--text);
+    }
+
+    .signup-form input[type="email"]:focus {
+      outline: none;
+      border-color: var(--navy);
+    }
+
+    /* Frameworks */
+    .frameworks-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .framework-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .framework-card h3 { font-size: 21px; }
+
+    .framework-card p {
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--text-muted);
+      flex: 1;
+    }
+
+    .framework-terms {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    /* CTA */
+    .res-cta h2 { max-width: 520px; color: var(--white); margin-bottom: 28px; }
+
+    @media (max-width: 680px) {
+      .articles-grid    { grid-template-columns: 1fr; }
+      .frameworks-grid  { grid-template-columns: 1fr; }
+      .signup-form      { flex-direction: column; }
+      .res-link-pair    { flex-direction: column; gap: 16px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <header class="site-header">
+    <nav class="nav container" id="main-nav">
+      <a href="index.html" class="nav-logo" aria-label="Evostr – Home">
+        <img src="assets/logo-leila-h.svg" alt="Evostr" class="nav-logo-img" height="34" width="127">
+      </a>
+      <ul class="nav-links">
+        <li><a href="evolution-ladder.html">Evolution Ladder</a></li>
+        <li><a href="how-we-work.html">How We Work</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="resources.html" aria-current="page">Resources</a></li>
+      </ul>
+      <a href="book.html" class="btn btn-primary">Book a Conversation</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+
+  <!-- HERO -->
+  <section class="res-hero">
+    <div class="container">
+      <span class="section-label">Resources</span>
+      <h1>The thinking is here before the conversation is.</h1>
+      <p>Most operators find Evostr through LinkedIn — the analysis, the framework commentary, the direct observations that most industry voices don't say plainly. If the thinking applies to your situation, you'll know before you reach out. Everything here is free.</p>
+    </div>
+  </section>
+
+
+  <!-- LINKEDIN -->
+  <section class="cream">
+    <div class="container">
+      <div class="res-prose">
+        <span class="section-label">LinkedIn</span>
+        <h2>Where the thinking surfaces first.</h2>
+        <p>Amanda Quinn has built one of the more followed voices in the BPO space on LinkedIn — not by posting motivational content or recycling industry news, but by saying directly what she sees. It's where market analysis, Evolution Ladder commentary, and observations on what buyers and capital are actually doing appear most frequently. The content isn't a funnel. It's the work.</p>
+        <a class="res-link" href="https://www.linkedin.com/in/amandacquinn/" target="_blank" rel="noopener">Follow Amanda Quinn on LinkedIn &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ARTICLES -->
+  <section>
+    <div class="container">
+      <span class="section-label">Articles</span>
+      <h2 style="max-width: 480px; margin-bottom: 36px;">Direct observations on what's shifting in the BPO market.</h2>
+
+      <div class="articles-grid">
+
+        <a class="article-card" href="https://docs.google.com/document/d/1mcbqP5hseHDU-3j-MddV8BDvvX1J19tnQ7eYcY8HkLo/edit" target="_blank" rel="noopener">
+          <span class="article-date">May 2026</span>
+          <span class="article-title">BPO Buyer Expectations Takeaways</span>
+          <span class="article-read">Read &rarr;</span>
+        </a>
+
+        <a class="article-card" href="https://docs.google.com/document/d/1uFES0FVPVfSUGSYUHloahI37UYtdq7sv7FG8YNRa5BM/edit" target="_blank" rel="noopener">
+          <span class="article-date">May 2026</span>
+          <span class="article-title">Why Tech Agnostic is a Recipe for Disaster</span>
+          <span class="article-read">Read &rarr;</span>
+        </a>
+
+        <a class="article-card" href="https://docs.google.com/document/d/1g-HgY7joAKWL_Bxe-8gPIEjd0Lm53XA6Y_sAvrmBPGc/edit" target="_blank" rel="noopener">
+          <span class="article-date">April 2026</span>
+          <span class="article-title">Command &amp; Control</span>
+          <span class="article-read">Read &rarr;</span>
+        </a>
+
+        <a class="article-card" href="https://docs.google.com/document/d/1TSoDrUsIliT-wX4VRE7qjYku0y1vRmg5jeTfTJHgsaI/edit" target="_blank" rel="noopener">
+          <span class="article-date">March 2026</span>
+          <span class="article-title">3 reasons your AI deals aren&rsquo;t closing</span>
+          <span class="article-read">Read &rarr;</span>
+        </a>
+
+      </div>
+
+      <a class="res-link" href="#">Read all articles &rarr;</a>
+    </div>
+  </section>
+
+
+  <!-- EMAIL SIGNUP -->
+  <section class="signup-section cream">
+    <div class="container">
+      <h2>Get these delivered to your inbox.</h2>
+      <p>New articles twice a month. No product announcements, no conference promotion — just straight analysis of what's happening in the market.</p>
+      <!-- Replace action="#" with your email provider's form endpoint -->
+      <form class="signup-form" action="#" method="post" novalidate>
+        <label for="signup-email" class="sr-only">Email address</label>
+        <input type="email" id="signup-email" name="email" placeholder="your@email.com" autocomplete="email" required>
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+
+  <!-- PODCAST -->
+  <section>
+    <div class="container">
+      <div class="res-prose">
+        <span class="section-label">Podcast</span>
+        <h2>Build a Better BPO</h2>
+        <p>Focused conversations on what transformation actually requires — in practice, not in theory. Episodes are short and specific. Guests have included operators who've crossed the rift, buyers who explain real selection criteria, and investors with a clear view of what drives multiples.</p>
+        <div class="res-link-pair">
+          <a class="res-link" href="#" target="_blank" rel="noopener">Listen on Spotify &rarr;</a>
+          <a class="res-link" href="#" target="_blank" rel="noopener">Listen on Apple Podcasts &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FRAMEWORKS -->
+  <section class="cream">
+    <div class="container">
+      <span class="section-label">Frameworks</span>
+      <h2 style="max-width: 480px; margin-bottom: 40px;">The thinking behind the work.</h2>
+
+      <div class="frameworks-grid">
+
+        <div class="framework-card">
+          <h3>The BPO Evolution Ladder&trade;</h3>
+          <p>Seven rungs. Two rifts. A diagnostic for what a BPO is actually selling at every stage of maturity — and how the market values that position. Most operators find it changes how they see their own business. Some find it uncomfortable. Both reactions are correct.</p>
+          <a class="res-link" href="evolution-ladder.html">Read the full framework &rarr;</a>
+        </div>
+
+        <div class="framework-card">
+          <h3>The Strategic Growth Assessment</h3>
+          <p>If the Ladder tells you where you are, the assessment tells you what's in the way. A formal Ladder placement, market position scan, and prioritized roadmap for what needs to change and in what sequence.</p>
+          <p class="framework-terms">$7,500 &middot; 4&ndash;6 weeks &middot; Remote</p>
+          <a class="res-link" href="assessment.html">See what the assessment delivers &rarr;</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CTA -->
+  <section class="res-cta navy">
+    <div class="container">
+      <h2>When the conversation makes sense, you&rsquo;ll know. We&rsquo;ll be here.</h2>
+      <a href="book.html" class="btn btn-white">Book a Conversation</a>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo-link" aria-label="Evostr – Home">
+            <img src="assets/logo-leila-h.svg" alt="Evostr" class="footer-logo-img" height="32" width="120">
+          </a>
+          <p class="footer-tagline">Strategic growth consulting for mid-sized BPOs navigating the shift from selling hours to selling outcomes.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <h4 class="footer-col-heading">Navigate</h4>
+          <ul>
+            <li><a href="evolution-ladder.html">Evolution Ladder</a></li>
+            <li><a href="how-we-work.html">How We Work</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="assessment.html">Assessment</a></li>
+            <li><a href="qualification.html">Is This For You?</a></li>
+            <li><a href="book.html">Book a Conversation</a></li>
+          </ul>
+        </nav>
+        <div class="footer-newsletter">
+          <h4 class="footer-col-heading">Newsletter</h4>
+          <p>Market intelligence for BPO operators. Straight signal — no filler.</p>
+          <form class="newsletter-form" action="#" method="post" novalidate>
+            <label for="footer-email" class="sr-only">Email address</label>
+            <input type="email" id="footer-email" name="email" placeholder="your@email.com" autocomplete="email" required>
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 Evostr. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('main-nav').classList.toggle('open');
+    }
+    document.querySelectorAll('.nav-links a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        document.getElementById('main-nav').classList.remove('open');
+      });
+    });
+  </script>
+
+</body>
+</html>

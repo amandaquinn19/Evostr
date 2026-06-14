@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Evostr helps BPOs architect the transformation from selling hours to selling solutions. See where you sit on the Evolution Ladder.">
+  <title>BPO Transformation Consulting | Evostr</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;0,800;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* ---- Page-specific additions ---- */
+
+    /* Why Listen to Us */
+    .why-listen h2 {
+      max-width: 680px;
+      margin-bottom: 28px;
+    }
+
+    .principals-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      max-width: 860px;
+      margin-bottom: 36px;
+    }
+
+    .principal p {
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--text);
+    }
+
+    .founding-observation {
+      max-width: 700px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      font-size: 17px;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 640px) {
+      .principals-grid { grid-template-columns: 1fr; gap: 28px; }
+    }
+
+    /* Proof — narrative format */
+    .proof-section {
+      padding: 88px 0;
+    }
+
+    .proof-section h2 {
+      max-width: 680px;
+      margin-bottom: 40px;
+    }
+
+    .proof-narrative {
+      max-width: 680px;
+      font-size: 18px;
+      line-height: 1.75;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+
+    .proof-pull {
+      font-family: var(--font-serif);
+      font-size: 17px;
+      font-style: italic;
+      color: var(--oak);
+      margin-top: 28px;
+      margin-bottom: 36px;
+      max-width: 680px;
+    }
+
+    blockquote.proof-quote {
+      max-width: 680px;
+      border-left: 3px solid var(--navy);
+      padding-left: 28px;
+      margin-top: 0;
+    }
+
+    blockquote.proof-quote p {
+      font-family: var(--font-serif);
+      font-size: 19px;
+      font-style: italic;
+      line-height: 1.6;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+
+    /* Not Ready to Talk Yet */
+    .not-ready {
+      padding: 80px 0;
+    }
+
+    .not-ready h2 {
+      font-size: clamp(22px, 2.5vw, 30px);
+      max-width: 520px;
+      margin-bottom: 20px;
+    }
+
+    .not-ready > .container > p {
+      max-width: 620px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .not-ready .cta-link {
+      margin-top: 8px;
+    }
+
+    /* Navy hero — ensure body text goes white */
+    .hero.navy .hero-subhead,
+    .hero.navy .hero-body,
+    .hero.navy .hero-cta-note {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    /* Proof client header */
+    .proof-client-header {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+    }
+
+    /* Display-scale stat numbers */
+    .stat-number {
+      font-size: clamp(56px, 8vw, 96px);
+      font-family: var(--font-serif);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    /* Client Results callout */
+    .results-callout {
+      max-width: 680px;
+      padding: 24px 28px;
+      border-left: 3px solid var(--oak);
+      background: rgba(136, 109, 52, 0.05);
+      margin-top: 24px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+
+    .results-timeframe {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--oak);
+      margin-bottom: 10px;
+    }
+
+    .results-callout p {
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--text);
+      margin-top: 0;
+    }
+
+    /* Jon Keane pull-quote */
+    .proof-quote-featured {
+      max-width: 700px;
+      border-left: 4px solid var(--oak);
+      padding-left: 32px;
+      margin: 40px 0;
+    }
+
+    .proof-quote-featured > p:first-child {
+      font-family: var(--font-serif);
+      font-size: clamp(22px, 2.8vw, 30px);
+      font-style: normal;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--navy);
+      margin-bottom: 20px;
+    }
+
+    .proof-quote-featured .attribution {
+      font-family: var(--font-sans);
+      font-size: 15px;
+      font-weight: 600;
+      font-style: normal;
+      color: var(--text-muted);
+      margin-top: 0;
+    }
+
+    .proof-quote-featured .attribution span {
+      font-weight: 400;
+    }
+
+    /* Single engagement card */
+    .engagement-single {
+      max-width: 560px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 40px;
+      background: var(--white);
+    }
+
+    .engagement-single h3 {
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+
+    .engagement-single p {
+      font-size: 17px;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+      line-height: 1.65;
+    }
+
+    .engagement-single .engagement-meta {
+      margin-bottom: 24px;
+    }
+  </style>
+
+  <!-- Structured data: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Evostr",
+    "description": "Strategic growth consulting firm helping mid-sized BPOs architect the transformation from selling hours to selling solutions.",
+    "url": "https://evostr.com",
+    "foundingDate": "2024",
+    "areaServed": "US"
+  }
+  </script>
+</head>
+
+<body>
+
+  <!-- =====================
+       NAVIGATION
+       ===================== -->
+  <header class="site-header">
+    <nav class="nav container" id="main-nav">
+      <a href="index.html" class="nav-logo" aria-label="Evostr – Home">
+        <img src="assets/logo-leila-h.svg" alt="Evostr" class="nav-logo-img" height="34" width="127">
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="evolution-ladder.html">Evolution Ladder</a></li>
+        <li><a href="how-we-work.html">How We Work</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="resources.html">Resources</a></li>
+      </ul>
+
+      <a href="book.html" class="btn btn-primary">Book a Conversation</a>
+
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+
+  <!-- =====================
+       HERO
+       ===================== -->
+  <section class="hero navy">
+    <div class="container hero-container">
+
+      <div class="hero-text">
+        <h1>The BPO market is bifurcating.</h1>
+
+        <p class="hero-subhead">Labor-only providers are watching their enterprise value collapse. Vertical-specialized and tech-enabled BPOs are watching theirs grow. There's no middle anymore.</p>
+
+        <p class="hero-body">Labor arbitrage is no longer enough. The firms that thrive over the next five years won't be the ones still selling seats — they'll be the ones who built expertise and proprietary solutions.</p>
+
+        <p class="hero-body">That's the work.</p>
+
+        <div class="hero-cta">
+          <p class="hero-cta-note">Find out where you sit, and what it would take to climb.</p>
+          <div class="hero-cta-buttons">
+            <a href="assessment.html" class="btn btn-white">Take the Assessment</a>
+            <a href="book.html" class="cta-link">Book a Conversation &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =====================
+       MARKET REALITY
+       ===================== -->
+  <section class="market-reality cream">
+    <div class="container">
+
+      <span class="section-label">The Market</span>
+      <h2>The BPO industry has re-priced. Most operators don't yet see how fast.</h2>
+
+      <p>For two decades, every BPO sat on roughly the same valuation curve. That curve has broken. Buyers, capital, and AI have separated the market into two groups: commodity providers watching their value compress, and specialized partners watching theirs expand. The gap between them is now the largest financial fact in the industry — and it's growing.</p>
+
+      <div class="stats-grid">
+
+        <div class="stat">
+          <span class="stat-number">81%</span>
+          <p class="stat-desc">Drop in Teleperformance's valuation multiple since 2021. The industry's largest player is the clearest preview of the lower side of the rift.</p>
+          <span class="stat-source">Investing.com, 2025</span>
+        </div>
+
+        <div class="stat">
+          <span class="stat-number">$80B</span>
+          <p class="stat-desc">In traditional BPO revenue at risk from AI displacement. Already reshaping what buyers will and won't pay for.</p>
+          <span class="stat-source">Gartner, 2024</span>
+        </div>
+
+        <div class="stat">
+          <span class="stat-number">&lt;25%</span>
+          <p class="stat-desc">Of BPO contracts are structured around client outcomes. The firms with outcome-based contracts are crossing the rift. The rest are pricing themselves into commoditization.</p>
+          <span class="stat-source">Deloitte Global Outsourcing Survey, 2024</span>
+        </div>
+
+      </div>
+
+      <p class="closing">The firms crossing the rift aren't the biggest or the cheapest. They're the ones who restructured their business — narrative, organization, and commercial motion — before they had to.</p>
+
+    </div>
+  </section>
+
+
+  <!-- =====================
+       WHY LISTEN TO US
+       ===================== -->
+  <section class="why-listen">
+    <div class="container">
+
+      <span class="section-label">The Principals</span>
+      <h2>We don't advise on this industry from the outside. We're in the conversations shaping it.</h2>
+
+      <div class="principals-grid">
+
+        <div class="principal">
+          <p>Amanda Quinn covers the BPO market as an independent analyst for Fourcasters — working directly with the buyers, investors, and operators defining where this industry is heading. She was named to ICMI's Top 25 Thought Leaders in Customer Experience for 2026, co-hosts the <em>Build a Better BPO</em> podcast, and writes a newsletter read by more than 2,000 BPO executives.</p>
+        </div>
+
+        <div class="principal">
+          <p>Paul Smith brings deep commercial and operational expertise spanning BPO leadership, enterprise sales, and the practical mechanics of how outsourcing relationships are built, won, and retained.</p>
+        </div>
+
+      </div>
+
+      <p class="founding-observation">Together, they built Evostr around a specific observation: the corporate world has solved problems that the BPO industry hasn't adopted yet. The firms that close that gap fastest are the ones pulling away.</p>
+
+      <a href="about.html" class="cta-link" style="margin-top: 32px; display: inline-flex;">Meet the principals &rarr;</a>
+
+    </div>
+  </section>
+
+
+  <!-- =====================
+       EVOLUTION LADDER
+       ===================== -->
+  <section class="ladder-section cream">
+    <div class="container">
+
+      <span class="section-label">The Framework</span>
+      <h2>The BPO Evolution Ladder™</h2>
+      <p class="section-intro">Seven rungs. Each describes what a BPO is selling — and how the market values it.</p>
+
+      <div class="ladder">
+
+        <div class="ladder-rung rung-above">
+          <span class="rung-num">07</span>
+          <span class="rung-title">Functional Owner</span>
+          <span class="rung-value">Irreplaceable</span>
+        </div>
+
+        <div class="ladder-rung rung-above">
+          <span class="rung-num">06</span>
+          <span class="rung-title">AI-Native Ops</span>
+          <span class="rung-value">Valuation surge</span>
+        </div>
+
+        <div class="ladder-rung rung-above">
+          <span class="rung-num">05</span>
+          <span class="rung-title">Value Creator</span>
+          <span class="rung-value">Margin expansion</span>
+        </div>
+
+        <div class="ladder-rung rung-above">
+          <span class="rung-num">04</span>
+          <span class="rung-title">Tech-Enabled</span>
+          <span class="rung-value">Differentiated</span>
+        </div>
+
+        <div class="ladder-rift">
+          <span class="rift-label">The Widening Rift</span>
+          <span class="rift-sub">Expertise becomes leverage · 3–6× EBITDA multiple expansion</span>
+        </div>
+
+        <div class="ladder-rung rung-below rung-mid">
+          <span class="rung-num">03</span>
+          <span class="rung-title">Domain Specialist</span>
+          <span class="rung-value">Premium pricing</span>
+        </div>
+
+        <div class="ladder-rift">
+          <span class="rift-label">The First Rift</span>
+          <span class="rift-sub">Labor becomes expertise · 1–2× EBITDA multiple expansion</span>
+        </div>
+
+        <div class="ladder-rung rung-below">
+          <span class="rung-num">02</span>
+          <span class="rung-title">Operational Scale</span>
+          <span class="rung-value">Commoditized</span>
+        </div>
+
+        <div class="ladder-rung rung-below">
+          <span class="rung-num">01</span>
+          <span class="rung-title">Labor Arbitrage</span>
+          <span class="rung-value">Race to the bottom</span>
+        </div>
+
+      </div>
+
+      <p class="closing">Two rifts define this market. The first opens between rungs 2 and 3 — where labor businesses become expertise businesses. The second opens between rungs 3 and 4 — where expertise becomes leverage. Crossing either is what changes your multiple.</p>
+
+      <p class="closing">Most operators sit below the first rift. Most don't realize how fast the floor is dropping.</p>
+
+      <div style="display: flex; gap: 28px; align-items: center; flex-wrap: wrap; margin-top: 8px;">
+        <a href="assessment.html" class="btn btn-primary">Find out where you sit</a>
+        <a href="evolution-ladder.html" class="cta-link">See the full framework &rarr;</a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =====================
+       WHAT EVOSTR DOES
+       ===================== -->
+  <section class="what-we-do">
+    <div class="container">
+
+      <span class="section-label">The Work</span>
+      <h2>We architect and lead the full transformation.</h2>
+
+      <p class="definition-para"><strong>Evostr is a strategic growth consulting firm helping mid-sized BPOs architect the transformation from selling hours to selling solutions.</strong> We work with operators typically between $5M and $100M in revenue who have made the call to evolve — and need the outside perspective, in-industry expertise, and implementation capacity to get there.</p>
+
+      <div class="architecture-domains">
+
+        <div class="domain">
+          <span class="domain-num">01</span>
+          <span class="domain-label">Strategic Architecture</span>
+          <h3>The work of deciding what you're going to be.</h3>
+          <p>Market identity, vertical strategy, ideal client profile, narrative, value proposition, IP development. The clarity that everything else is built around.</p>
+        </div>
+
+        <div class="domain">
+          <span class="domain-num">02</span>
+          <span class="domain-label">Organizational Architecture</span>
+          <h3>The work of preparing the organization for it.</h3>
+          <p>Expertise development, organizational design, leadership development, team composition, right people in the right seats, and silo elimination. The infrastructure that makes the new positioning real inside your business.</p>
+        </div>
+
+        <div class="domain">
+          <span class="domain-num">03</span>
+          <span class="domain-label">Commercial Architecture</span>
+          <h3>The work of selling it.</h3>
+          <p>Sales process design, pricing strategy, contract structure, and account management transformation. The capability that turns the new positioning into revenue.</p>
+        </div>
+
+        <div class="domain">
+          <span class="domain-num">04</span>
+          <span class="domain-label">Operational Architecture</span>
+          <h3>The work of sustaining it.</h3>
+          <p>Technology selection and rollout, process standardization, QBR systems, training, and ongoing coaching. The systems that make the transformation stick after the engagement closes.</p>
+        </div>
+
+      </div>
+
+      <p class="footnote">These aren't service lines we sell separately. They're the dimensions of a single transformation. Engagements move across all four — sequenced to your starting point and the rift you need to cross.</p>
+
+    </div>
+  </section>
+
+
+  <!-- =====================
+       HOW ENGAGEMENTS START
+       ===================== -->
+  <section class="engagements cream">
+    <div class="container">
+
+      <span class="section-label">Getting Started</span>
+      <h2>Every engagement begins with a diagnostic.</h2>
+      <p class="intro">From there, the roadmap is built from what we find.</p>
+
+      <div class="engagement-single">
+        <h3>Strategic Growth Assessment</h3>
+        <p>A four-area diagnostic of your business: go-to-market, account management, business strategy, and organization. Independent market scan, stakeholder interviews, and placement on the Evolution Ladder. You receive a Market Position Scan, a Ladder Placement, and a prioritized Areas of Focus report.</p>
+        <span class="engagement-meta">$7,500 &nbsp;·&nbsp; 4–6 weeks &nbsp;·&nbsp; Remote</span>
+        <a href="assessment.html" class="cta-link">See the assessment &rarr;</a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =====================
+       PROOF — CASE 1
+       ===================== -->
+  <section class="proof-section">
+    <div class="container">
+
+      <span class="section-label">Client Results</span>
+      <h2>Activity without direction. Five months later.</h2>
+
+      <span class="proof-client-header">Mid-Market BPO &nbsp;|&nbsp; 18 Years in Market</span>
+
+      <p class="proof-narrative">A mid-market BPO had already made the right investments — an outbound sales team, digital advertising, a partner network built over nearly two decades. None of it was working together. No defined vertical. No clear message. A sales team without a story and ad spend without a target. Activity without direction.</p>
+
+      <div class="results-callout">
+        <span class="results-timeframe">Within five months</span>
+        <p>A defined vertical focus with three specific sub-markets. A messaging architecture built around that focus. A sales narrative the team could actually use in the field. The engagement expanded into sales training to activate the strategy. Outbound and digital marketing are now running with a foundation underneath them — for the first time.</p>
+      </div>
+
+      <p class="proof-pull">&ldquo;I can finally see how this translates to pipeline.&rdquo; &mdash; Head of Marketing</p>
+
+    </div>
+  </section>
+
+
+  <!-- =====================
+       PROOF — CASE 2
+       ===================== -->
+  <section class="proof-testimonial cream">
+    <div class="container">
+
+      <span class="proof-client-header">Boutique BPO &nbsp;|&nbsp; 400 Seats</span>
+
+      <blockquote class="proof-quote-featured">
+        <p>Amanda has a way of seeing what you can't see when you're inside your own business. She helped us identify where we were leaving value on the table and gave us the clarity — and the courage — to start building toward something bigger. If you're a BPO leader who knows you need to evolve but doesn't know where to start, she's the right person in the room.</p>
+        <p class="attribution">Jon Keane &mdash; <span>CEO, CustomerHD</span></p>
+      </blockquote>
+
+    </div>
+  </section>
+
+
+  <!-- =====================
+       WHY EVOSTR
+       ===================== -->
+  <section class="why-evostr navy">
+    <div class="container">
+
+      <span class="section-label">Why Evostr</span>
+      <h2>Not generalists who learned BPO. We live in this market.</h2>
+      <p class="intro">There's a difference between a consultant who can read your industry report and one who was on the podcast circuit last week, talking to the people you're trying to sell to.</p>
+
+      <div class="why-points">
+
+        <div class="why-point">
+          <h3>Intelligence from inside the conversations, not outside them.</h3>
+          <p>Evostr's principals cover the BPO industry as independent analysts and podcast hosts. We're in direct contact with the buyers, investors, and operators defining where this market is heading — which means the strategy we build is grounded in what the market actually wants right now.</p>
+        </div>
+
+        <div class="why-point">
+          <h3>Built for BPO — informed by what the rest of the market figured out first.</h3>
+          <p>We understand buyer psychology, contract structure, vertical dynamics, and the operational realities you navigate. We also know what best-in-class looks like outside this industry — because we've seen it. Evostr exists partly because the corporate world has solved problems that BPO hasn't adopted yet. We bring both.</p>
+        </div>
+
+        <div class="why-point">
+          <h3>Architecture and execution, not just advice.</h3>
+          <p>Evostr doesn't drop a strategy deck and disappear. Engagements include the heavy lift — positioning design, org redesign, sales system build, leadership development, and implementation. Your team executes inside what we build. The work survives the engagement.</p>
+        </div>
+
+        <div class="why-point">
+          <h3>Phased commitment.</h3>
+          <p>Start with a diagnostic. See real output. Decide how far the work goes from there. Crossing the rift is structural, but it doesn't require a leap of faith on day one.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =====================
+       NOT READY TO TALK YET
+       ===================== -->
+  <section class="not-ready cream">
+    <div class="container">
+
+      <h2>Not ready to talk yet?</h2>
+
+      <p>Deciding to restructure your business isn't a small thing. That's worth sitting with — provided the floor isn't moving faster than you think.</p>
+
+      <p>If a conversation isn't the right next step yet, the best thing to do is stay informed. The <em>Build a Better BPO</em> podcast and the resources section go deeper on specific topics if you want to move at your own pace.</p>
+
+      <a href="resources.html" class="cta-link">Explore the resources &rarr;</a>
+
+      <div class="not-ready-newsletter">
+        <h3>Stay in the market</h3>
+        <p>Market intelligence for BPO operators — published weekly. No headlines, no filler.</p>
+        <!-- Wire action to your email provider endpoint (ConvertKit, Mailchimp, etc.) -->
+        <form class="inline-newsletter-form" action="#" method="post" novalidate>
+          <label for="nr-email" class="sr-only">Email address</label>
+          <input
+            type="email"
+            id="nr-email"
+            name="email"
+            placeholder="your@email.com"
+            autocomplete="email"
+            required
+          >
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =====================
+       FINAL CTA
+       ===================== -->
+  <section class="final-cta navy">
+    <div class="container">
+
+      <h2>If you recognize yourself in any of this, the next step is a conversation.</h2>
+
+      <p class="cta-body">Not a pitch. A direct conversation about whether your situation is one Evostr can move — and what that would look like.</p>
+
+      <div class="final-cta-actions">
+        <a href="book.html" class="btn btn-white">Schedule a Conversation</a>
+        <a href="qualification.html" class="cta-secondary">Is this for you? &rarr;</a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =====================
+       FOOTER
+       ===================== -->
+  <footer class="site-footer">
+    <div class="container">
+
+      <div class="footer-top">
+
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo-link" aria-label="Evostr – Home">
+            <img src="assets/logo-leila-h.svg" alt="Evostr" class="footer-logo-img" height="32" width="120">
+          </a>
+          <p class="footer-tagline">Strategic growth consulting for mid-sized BPOs navigating the shift from selling hours to selling outcomes.</p>
+        </div>
+
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <h4 class="footer-col-heading">Navigate</h4>
+          <ul>
+            <li><a href="evolution-ladder.html">Evolution Ladder</a></li>
+            <li><a href="how-we-work.html">How We Work</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="assessment.html">Assessment</a></li>
+            <li><a href="qualification.html">Is This For You?</a></li>
+            <li><a href="book.html">Book a Conversation</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer-newsletter">
+          <h4 class="footer-col-heading">Newsletter</h4>
+          <p>Market intelligence for BPO operators. Straight signal — no filler.</p>
+          <!-- Wire action to your email provider endpoint -->
+          <form class="newsletter-form" action="#" method="post" novalidate>
+            <label for="footer-email" class="sr-only">Email address</label>
+            <input
+              type="email"
+              id="footer-email"
+              name="email"
+              placeholder="your@email.com"
+              autocomplete="email"
+              required
+            >
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+          </form>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 Evostr. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- =====================
+       SCRIPTS
+       ===================== -->
+  <script>
+    function toggleNav() {
+      document.getElementById('main-nav').classList.toggle('open');
+    }
+
+    document.querySelectorAll('.nav-links a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        document.getElementById('main-nav').classList.remove('open');
+      });
+    });
+  </script>
+
+</body>
+</html>

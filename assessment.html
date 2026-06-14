@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A six-week BPO diagnostic. Ladder placement, market position scan, and prioritized transformation roadmap. Fixed scope. Fixed fee. $7,500.">
+  <title>Strategic Growth Assessment for BPOs | $7,500 | Evostr</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;0,800;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* ---- Assessment page ---- */
+
+    /* Hero — max visual weight */
+    .assessment-hero {
+      max-width: 860px;
+      padding-bottom: 16px;
+    }
+
+    .assessment-hero h1 {
+      font-size: clamp(36px, 5.5vw, 72px);
+      max-width: 800px;
+      margin-bottom: 24px;
+      line-height: 1.08;
+    }
+
+    .assessment-hero .hero-subhead {
+      max-width: 700px;
+      margin-bottom: 36px;
+    }
+
+    .assessment-hero .hero-body {
+      max-width: 680px;
+      font-size: 18px;
+      line-height: 1.75;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .assessment-hero .hero-cta {
+      margin-top: 40px;
+    }
+
+    /* What the Assessment Is */
+    .what-section h2 {
+      max-width: 600px;
+      margin-bottom: 20px;
+    }
+
+    .what-section .what-label {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .what-intro {
+      max-width: 700px;
+      font-size: 18px;
+      line-height: 1.75;
+      color: var(--text-muted);
+      margin-bottom: 52px;
+    }
+
+    /* Deliverables */
+    .deliverable-outputs {
+      max-width: 740px;
+      border-top: 1px solid var(--border);
+    }
+
+    .deliverable-output {
+      padding: 32px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .deliverable-output-name {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .deliverable-output p {
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--text-muted);
+      max-width: 640px;
+    }
+
+    .what-close {
+      max-width: 700px;
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--text-muted);
+      margin-top: 36px;
+    }
+
+    /* Six Weeks, Defined — three columns, all visible */
+    .weeks-section h2 {
+      max-width: 520px;
+      margin-bottom: 52px;
+    }
+
+    .weeks-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 32px;
+      max-width: 960px;
+    }
+
+    .week-block {
+      padding: 32px 28px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--white);
+    }
+
+    .week-range {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .week-block h3 {
+      font-size: 18px;
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+
+    .week-block p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+
+    /* The Decision That Follows */
+    .decision-section h2 {
+      max-width: 540px;
+      margin-bottom: 16px;
+    }
+
+    .decision-section .decision-label {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .decision-outcomes {
+      max-width: 680px;
+      margin-top: 40px;
+    }
+
+    .decision-outcome {
+      padding: 28px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .decision-outcome:last-child {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .decision-outcome p {
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--text);
+    }
+
+    .decision-close {
+      max-width: 620px;
+      margin-top: 32px;
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* Who This Is For */
+    .who-section h2 {
+      max-width: 560px;
+      margin-bottom: 32px;
+    }
+
+    .who-section .who-body {
+      max-width: 700px;
+    }
+
+    .who-section .who-body p {
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .who-section .who-body p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .who-section .who-cta {
+      margin-top: 36px;
+    }
+
+    /* The Investment */
+    .investment-section h2 {
+      max-width: 480px;
+      margin-bottom: 32px;
+    }
+
+    .investment-terms {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+    }
+
+    .investment-term {
+      font-family: var(--font-sans);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: 0.02em;
+    }
+
+    .investment-sep {
+      margin: 0 16px;
+      color: var(--border);
+      font-size: 18px;
+      font-weight: 300;
+    }
+
+    .investment-body {
+      max-width: 660px;
+    }
+
+    .investment-body p {
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .investment-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .investment-body strong {
+      font-family: var(--font-serif);
+      font-weight: 700;
+      color: var(--text);
+      font-size: 18px;
+    }
+
+    /* FAQ */
+    .faq-section h2 {
+      max-width: 480px;
+      margin-bottom: 48px;
+    }
+
+    .faq-list {
+      max-width: 720px;
+    }
+
+    .faq-list details {
+      border-top: 1px solid var(--border);
+    }
+
+    .faq-list details:last-child {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-list summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 22px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      user-select: none;
+    }
+
+    .faq-list summary::-webkit-details-marker { display: none; }
+
+    .faq-list summary::after {
+      content: '+';
+      font-family: var(--font-sans);
+      font-size: 22px;
+      font-weight: 300;
+      color: var(--text-muted);
+      flex-shrink: 0;
+      line-height: 1;
+      transition: transform 0.2s;
+    }
+
+    .faq-list details[open] summary::after {
+      content: '−';
+    }
+
+    .faq-answer {
+      padding: 0 0 28px;
+    }
+
+    .faq-answer p {
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--text-muted);
+    }
+
+    /* Final CTA — vertical padding handled by section rule */
+
+    .final-cta-assessment h2 {
+      max-width: 600px;
+      color: var(--white);
+      margin-bottom: 40px;
+    }
+
+    .cta-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .cta-secondaries {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .cta-secondary-link {
+      font-family: var(--font-sans);
+      font-size: 15px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .cta-secondary-link:hover {
+      color: rgba(255,255,255,0.9);
+    }
+
+    /* Responsive */
+    @media (max-width: 760px) {
+      .weeks-grid {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =====================
+       NAVIGATION
+       ===================== -->
+  <header class="site-header">
+    <nav class="nav container" id="main-nav">
+      <a href="index.html" class="nav-logo" aria-label="Evostr – Home">
+        <img src="assets/logo-leila-h.svg" alt="Evostr" class="nav-logo-img" height="34" width="127">
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="evolution-ladder.html">Evolution Ladder</a></li>
+        <li><a href="how-we-work.html">How We Work</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="resources.html">Resources</a></li>
+      </ul>
+
+      <a href="book.html" class="btn btn-primary">Book a Conversation</a>
+
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+
+  <!-- =====================
+       HERO
+       ===================== -->
+  <section>
+    <div class="container">
+      <div class="assessment-hero">
+
+        <h1>Before you restructure anything, you need to know what's actually broken.</h1>
+        <p class="hero-subhead">Most operators know the business needs to move. Few know exactly what to fix first — or what fixing the wrong thing first costs them.</p>
+        <p class="hero-body">You've felt the pressure. You've had the conversations. You know the business needs to evolve — away from the margin squeeze, toward something the market will actually pay a premium for. What you don't have is a clear picture of where the specific failures are, or what to address in what sequence.</p>
+        <p class="hero-body">That isn't a failure of analysis. It's a failure of perspective. When you're inside the business every day, the symptoms are everywhere. The causes are harder to see.</p>
+        <p class="hero-body">The Strategic Growth Assessment was built to close that gap. Six weeks. Four diagnostic domains. One honest placement on the Evolution Ladder — and a prioritized roadmap for what needs to change and in what order.</p>
+        <div class="hero-cta">
+          <a href="book.html" class="btn btn-primary">Request the Assessment</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================
+       WHAT THE ASSESSMENT IS
+       ===================== -->
+  <section class="what-section cream">
+    <div class="container">
+
+      <span class="section-label">What the Assessment Is</span>
+      <h2>A diagnostic, not a pitch. A starting point, not a long-term commitment.</h2>
+
+      <p class="what-intro">Six weeks. Fixed scope. Fixed fee. No ambiguity about what you're getting or what it costs. The assessment covers four areas — go-to-market strategy, account management, business strategy, and organizational readiness — through structured stakeholder interviews with your leadership team and an independent market scan conducted from the outside.</p>
+
+      <div class="deliverable-outputs">
+
+        <div class="deliverable-output">
+          <span class="deliverable-output-name">Market Position Scan</span>
+          <p>Where you sit relative to your competitive set. How the market actually prices what you're selling — not how you describe it on the website, but how buyers and competitors experience it.</p>
+        </div>
+
+        <div class="deliverable-output">
+          <span class="deliverable-output-name">Evolution Ladder Placement</span>
+          <p>Which rung you're on. Which rift is immediately in front of you. What crossing it requires structurally — and what's in the way right now.</p>
+        </div>
+
+        <div class="deliverable-output">
+          <span class="deliverable-output-name">Prioritized Areas of Focus Report</span>
+          <p>The gaps most likely to limit your revenue, retention, or enterprise value, ranked by urgency and impact, with a clear sequence for addressing them.</p>
+        </div>
+
+      </div>
+
+      <p class="what-close">These deliverables are built to be used. You leave with a clear picture of where the business is, where it needs to go, and what a structured path forward looks like. That picture is the basis for everything that follows — whether the next phase of work is done with Evostr or not.</p>
+
+    </div>
+  </section>
+
+
+  <!-- =====================
+       SIX WEEKS, DEFINED
+       ===================== -->
+  <section>
+    <div class="container">
+
+      <span class="section-label">Six Weeks, Defined</span>
+      <h2>Fixed milestones. No ambiguity about what happens when.</h2>
+
+      <div class="weeks-grid">
+
+        <div class="week-block">
+          <span class="week-range">Weeks 1–2</span>
+          <h3>Intelligence Gathering</h3>
+          <p>Structured stakeholder interviews across your leadership team. Review of current go-to-market materials, commercial data, and organizational structure. The independent market scan runs in parallel — your competitive positioning examined from the outside.</p>
+        </div>
+
+        <div class="week-block">
+          <span class="week-range">Weeks 3–4</span>
+          <h3>Analysis and Placement</h3>
+          <p>Findings are mapped across all four diagnostic domains. Gaps are prioritized by their impact on revenue, retention, and enterprise value — not by what's easiest to fix. The Evolution Ladder placement is completed here.</p>
+        </div>
+
+        <div class="week-block">
+          <span class="week-range">Weeks 5–6</span>
+          <h3>Deliverables and Findings Session</h3>
+          <p>The Market Position Scan, Ladder Placement, and Areas of Focus report are prepared and reviewed. The engagement closes with a structured findings session — a direct conversation about what we found and what it means for the business.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =====================
+       THE DECISION THAT FOLLOWS
+       ===================== -->
+  <section class="decision-section cream">
+    <div class="container">
+
+      <span class="section-label">The Decision That Follows</span>
+      <h2>The assessment ends with a decision, not a pitch.</h2>
+
+      <p style="max-width: 660px; font-size: 18px; line-height: 1.75; color: var(--text-muted);">At the close of the assessment, we present the findings and the roadmap. From there, one of three outcomes happens — and we'll tell you directly which one applies.</p>
+
+      <div class="decision-outcomes">
+
+        <div class="decision-outcome">
+          <p>The work ahead is clear and you want to move into architecture and implementation with Evostr. We scope the next phase and begin.</p>
+        </div>
+
+        <div class="decision-outcome">
+          <p>The work ahead is clear and your team can execute it without outside architecture. You take the roadmap and run. That's a legitimate outcome, and we'll say so directly if we think it's true.</p>
+        </div>
+
+        <div class="decision-outcome">
+          <p>The assessment surfaces something that isn't a fit for Evostr's model. We tell you that, refer you where we can, and don't waste your time.</p>
+        </div>
+
+      </div>
+
+      <p class="decision-close">There's no pressure to continue. The assessment is designed to produce real value regardless of what comes next.</p>
+
+    </div>
+  </section>
+
+
+  <!-- =====================
+       WHO THIS IS FOR
+       ===================== -->
+  <section class="who-section">
+    <div class="container">
+
+      <span class="section-label">Who This Is For</span>
+      <h2>This diagnostic makes the most sense in a specific situation.</h2>
+
+      <div class="who-body">
+        <p>You're operating a mid-sized BPO — likely between $5M and $100M in revenue — and the current business model is under pressure. Not collapsing. Under pressure. The RFPs are harder to win on anything other than price. The margin conversation comes up in every client renewal. You've made investments — in sales, in technology, in new service lines — but the return hasn't matched the intention.</p>
+        <p>Something in the foundation isn't working. You're not sure whether the problem is how you're positioned, how you're organized, how you're selling, or some combination of the three.</p>
+        <p>That's exactly the situation this assessment was built for.</p>
+        <p>It is not the right first step if you're still deciding whether transformation is necessary. That's a different conversation — and the qualification page is direct about who this work is and isn't for.</p>
+      </div>
+
+      <div class="who-cta">
+        <a href="qualification.html" class="cta-link">Is this the right moment? &rarr;</a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =====================
+       THE INVESTMENT
+       ===================== -->
+  <section class="investment-section cream">
+    <div class="container">
+
+      <span class="section-label">The Investment</span>
+      <h2>Fixed fee. Fixed scope. Fixed timeline.</h2>
+
+      <div class="investment-terms">
+        <span class="investment-term">$7,500</span>
+        <span class="investment-sep">&middot;</span>
+        <span class="investment-term">4–6 weeks</span>
+        <span class="investment-sep">&middot;</span>
+        <span class="investment-term">Conducted remotely</span>
+      </div>
+
+      <div class="investment-body">
+        <p>No hourly billing. No scope creep. If the work expands beyond the assessment, the next phase is scoped and priced as its own engagement before it begins.</p>
+        <p>The return on a well-sequenced six weeks is not theoretical. Operators who know exactly what's broken — and what to address first — avoid the most expensive mistake in transformation: spending time and capital fixing the wrong things in the wrong order.</p>
+        <p><strong>Six weeks of clarity is worth more than twelve months of motion in the wrong direction.</strong></p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =====================
+       FAQ
+       ===================== -->
+  <section class="faq-section">
+    <div class="container">
+
+      <span class="section-label">FAQ</span>
+      <h2>Common questions about the assessment.</h2>
+
+      <div class="faq-list">
+
+        <details>
+          <summary>What does the Strategic Growth Assessment include?</summary>
+          <div class="faq-answer">
+            <p>The assessment covers four diagnostic domains — go-to-market strategy, account management, business strategy, and organizational readiness — through structured stakeholder interviews with your leadership team and an independent market scan. It closes with three deliverables: a Market Position Scan, an Evolution Ladder Placement, and a Prioritized Areas of Focus report, presented in a structured findings session.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>How much does the assessment cost?</summary>
+          <div class="faq-answer">
+            <p>The Strategic Growth Assessment is $7,500. Fixed fee, fixed scope, no hourly billing. If work expands beyond the assessment, the next phase is scoped and priced as its own engagement before it begins.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>How long does the assessment take?</summary>
+          <div class="faq-answer">
+            <p>Four to six weeks, conducted entirely remotely. Intelligence gathering and market scan in weeks 1–2, analysis and Ladder placement in weeks 3–4, deliverables and findings session in weeks 5–6.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Who conducts the assessment?</summary>
+          <div class="faq-answer">
+            <p>The assessment is conducted directly by Evostr's principals — Amanda Quinn and Paul Smith. There are no junior associates or intake coordinators involved in the diagnostic work.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>What happens after the assessment?</summary>
+          <div class="faq-answer">
+            <p>The engagement closes with a structured findings session. From there, one of three outcomes follows: you move into architecture and implementation with Evostr; your team takes the roadmap and executes independently; or the assessment surfaces something outside Evostr's model and we'll tell you that directly. There is no pressure to continue.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Do I need to commit to a longer engagement to do the assessment?</summary>
+          <div class="faq-answer">
+            <p>No. The Strategic Growth Assessment is a standalone engagement with its own defined scope, fee, and deliverables. It is designed to produce real value regardless of what comes next.</p>
+          </div>
+        </details>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =====================
+       FINAL CTA
+       ===================== -->
+  <section class="navy">
+    <div class="container final-cta-assessment">
+
+      <h2>If you've made the call to move, the assessment is where the structured work begins.</h2>
+
+      <div class="cta-stack">
+        <a href="book.html" class="btn btn-white">Request the Assessment</a>
+        <div class="cta-secondaries">
+          <a href="qualification.html" class="cta-secondary-link">Not sure if this is the right moment? Read the qualification page &rarr;</a>
+        </div>
+        <div class="cta-secondaries">
+          <a href="book.html" class="cta-secondary-link">Want to talk it through first? Book a 45-minute conversation &rarr;</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =====================
+       FOOTER
+       ===================== -->
+  <footer class="site-footer">
+    <div class="container">
+
+      <div class="footer-top">
+
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo-link" aria-label="Evostr – Home">
+            <img src="assets/logo-leila-h.svg" alt="Evostr" class="footer-logo-img" height="32" width="120">
+          </a>
+          <p class="footer-tagline">Strategic growth consulting for mid-sized BPOs navigating the shift from selling hours to selling outcomes.</p>
+        </div>
+
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <h4 class="footer-col-heading">Navigate</h4>
+          <ul>
+            <li><a href="evolution-ladder.html">Evolution Ladder</a></li>
+            <li><a href="how-we-work.html">How We Work</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="assessment.html">Assessment</a></li>
+            <li><a href="qualification.html">Is This For You?</a></li>
+            <li><a href="book.html">Book a Conversation</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer-newsletter">
+          <h4 class="footer-col-heading">Newsletter</h4>
+          <p>Market intelligence for BPO operators. Straight signal — no filler.</p>
+          <form class="newsletter-form" action="#" method="post" novalidate>
+            <label for="footer-email" class="sr-only">Email address</label>
+            <input
+              type="email"
+              id="footer-email"
+              name="email"
+              placeholder="your@email.com"
+              autocomplete="email"
+              required
+            >
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+          </form>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 Evostr. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- =====================
+       SCRIPTS
+       ===================== -->
+  <script>
+    function toggleNav() {
+      document.getElementById('main-nav').classList.toggle('open');
+    }
+
+    document.querySelectorAll('.nav-links a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        document.getElementById('main-nav').classList.remove('open');
+      });
+    });
+  </script>
+
+</body>
+</html>

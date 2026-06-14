@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Schedule a 45-minute conversation with Evostr. No deck, no pitch — just a direct conversation about where your BPO sits and what the path forward looks like.">
+  <title>Book a Conversation | Evostr</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;0,800;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* ---- Book a Conversation page ---- */
+
+    /* Hero */
+    .book-hero h1 {
+      max-width: 580px;
+      margin-bottom: 18px;
+    }
+
+    .book-hero .hero-subhead {
+      max-width: 560px;
+    }
+
+    /* Two-column booking layout */
+    .book-section {
+      background: var(--matte-steel);
+    }
+
+    .book-grid {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 72px;
+      align-items: start;
+    }
+
+    /* Left column — framing copy */
+    .book-copy h2 {
+      font-size: clamp(22px, 2.2vw, 28px);
+      margin-bottom: 20px;
+    }
+
+    .book-copy p {
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .book-expect {
+      margin-top: 36px;
+    }
+
+    .book-expect-label {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .book-expect-item {
+      display: flex;
+      gap: 16px;
+      align-items: start;
+      margin-bottom: 20px;
+    }
+
+    .book-expect-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .book-expect-num {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--oak);
+      line-height: 1;
+      flex-shrink: 0;
+      padding-top: 2px;
+    }
+
+    .book-expect-text h4 {
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .book-expect-text p {
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    .book-terms {
+      margin-top: 36px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .book-term {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .book-term-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--oak);
+      flex-shrink: 0;
+    }
+
+    /* Right column — Calendly */
+    .book-calendly {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .calendly-inline-widget {
+      min-width: 320px;
+      height: 700px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .book-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .book-calendly {
+        order: -1;
+      }
+
+      .calendly-inline-widget {
+        height: 660px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <header class="site-header">
+    <nav class="nav container" id="main-nav">
+      <a href="index.html" class="nav-logo" aria-label="Evostr – Home">
+        <img src="assets/logo-leila-h.svg" alt="Evostr" class="nav-logo-img" height="34" width="127">
+      </a>
+      <ul class="nav-links">
+        <li><a href="evolution-ladder.html">Evolution Ladder</a></li>
+        <li><a href="how-we-work.html">How We Work</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="resources.html">Resources</a></li>
+      </ul>
+      <a href="book.html" class="btn btn-primary" aria-current="page">Book a Conversation</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+
+  <!-- HERO -->
+  <section class="book-hero">
+    <div class="container">
+      <span class="section-label">Book a Conversation</span>
+      <h1>Let's talk about what's next for your BPO.</h1>
+      <p class="hero-subhead">This is a straightforward conversation about where your business is today and where you need it to be tomorrow.</p>
+    </div>
+  </section>
+
+
+  <!-- BOOKING SECTION -->
+  <section class="book-section">
+    <div class="container">
+      <div class="book-grid">
+
+        <!-- Left: framing copy -->
+        <div class="book-copy">
+
+          <h2>We'll spend 45 minutes discussing:</h2>
+
+          <div class="book-expect">
+
+            <div class="book-expect-item">
+              <span class="book-expect-num">01</span>
+              <div class="book-expect-text">
+                <p>The specific growth or positioning challenges you're facing</p>
+              </div>
+            </div>
+
+            <div class="book-expect-item">
+              <span class="book-expect-num">02</span>
+              <div class="book-expect-text">
+                <p>Whether traditional approaches are still working — or why they've stopped</p>
+              </div>
+            </div>
+
+            <div class="book-expect-item">
+              <span class="book-expect-num">03</span>
+              <div class="book-expect-text">
+                <p>What a strategic path forward might look like for your business</p>
+              </div>
+            </div>
+
+          </div>
+
+          <p style="font-size: 15px; line-height: 1.75; color: var(--text-muted); margin-top: 28px;">There's no pitch deck, no generic advice, and no obligation. Just an honest conversation about whether we're the right fit to help you navigate this moment in the industry.</p>
+          <p style="font-size: 15px; line-height: 1.75; color: var(--text-muted);">If we're aligned, we'll talk about next steps. If we're not, I'll tell you that too.</p>
+
+          <div class="book-terms">
+            <div class="book-term">
+              <span class="book-term-dot"></span>
+              45 minutes via Google Meet or Teams
+            </div>
+            <div class="book-term">
+              <span class="book-term-dot"></span>
+              No preparation required
+            </div>
+            <div class="book-term">
+              <span class="book-term-dot"></span>
+              No obligation to continue
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right: Calendly embed -->
+        <!-- Calendly inline widget begin -->
+        <div class="book-calendly">
+          <div class="calendly-inline-widget" data-url="https://calendly.com/amandacquinn/discovery?hide_event_type_details=1&text_color=4b4b4b&primary_color=3a63c8" style="min-width:320px;height:700px;"></div>
+          <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        </div>
+        <!-- Calendly inline widget end -->
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo-link" aria-label="Evostr – Home">
+            <img src="assets/logo-leila-h.svg" alt="Evostr" class="footer-logo-img" height="32" width="120">
+          </a>
+          <p class="footer-tagline">Strategic growth consulting for mid-sized BPOs navigating the shift from selling hours to selling outcomes.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <h4 class="footer-col-heading">Navigate</h4>
+          <ul>
+            <li><a href="evolution-ladder.html">Evolution Ladder</a></li>
+            <li><a href="how-we-work.html">How We Work</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="assessment.html">Assessment</a></li>
+            <li><a href="qualification.html">Is This For You?</a></li>
+            <li><a href="book.html">Book a Conversation</a></li>
+          </ul>
+        </nav>
+        <div class="footer-newsletter">
+          <h4 class="footer-col-heading">Newsletter</h4>
+          <p>Market intelligence for BPO operators. Straight signal — no filler.</p>
+          <form class="newsletter-form" action="#" method="post" novalidate>
+            <label for="footer-email" class="sr-only">Email address</label>
+            <input type="email" id="footer-email" name="email" placeholder="your@email.com" autocomplete="email" required>
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 Evostr. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('main-nav').classList.toggle('open');
+    }
+    document.querySelectorAll('.nav-links a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        document.getElementById('main-nav').classList.remove('open');
+      });
+    });
+  </script>
+
+</body>
+</html>

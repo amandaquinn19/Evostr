@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Sanity
+.sanity/
+sanity/dist/
+
+# Environment variables — NEVER commit these
+.env
+.env.local
+.env.*.local
+
+# Netlify
+.netlify/
+
+# OS clutter
+.DS_Store
+Thumbs.db
+
+# Editor config (optional — some teams commit these)
+.vscode/
+.idea/

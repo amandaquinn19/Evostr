@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <title>Article | Evostr</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;0,800;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <style>
+    .article-hero {
+      padding-top: 64px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .article-meta span + span::before {
+      content: '·';
+      margin-right: 16px;
+    }
+
+    .article-hero h1 {
+      max-width: 720px;
+      font-size: clamp(28px, 5vw, 48px);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .article-excerpt {
+      max-width: 640px;
+      font-size: 19px;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+
+    .article-cover {
+      width: 100%;
+      max-height: 480px;
+      object-fit: cover;
+      display: block;
+      margin: 40px 0;
+      border-radius: var(--radius);
+    }
+
+    .article-body {
+      max-width: 680px;
+      font-size: 18px;
+      line-height: 1.85;
+      color: var(--text);
+      padding: 56px 0 80px;
+    }
+
+    .article-body h2 {
+      font-size: 26px;
+      margin-top: 48px;
+      margin-bottom: 16px;
+    }
+
+    .article-body h3 {
+      font-size: 21px;
+      margin-top: 36px;
+      margin-bottom: 12px;
+    }
+
+    .article-body p {
+      margin-bottom: 24px;
+    }
+
+    .article-body blockquote {
+      border-left: 3px solid var(--navy);
+      margin: 36px 0;
+      padding: 8px 0 8px 24px;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 20px;
+      color: var(--navy);
+    }
+
+    .article-body a {
+      color: var(--navy);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .article-body img {
+      width: 100%;
+      border-radius: var(--radius);
+      margin: 32px 0;
+    }
+
+    .article-body figcaption {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: -20px;
+      margin-bottom: 32px;
+    }
+
+    .article-back {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 40px;
+    }
+
+    .article-back:hover { color: var(--navy); }
+
+    .article-loading {
+      padding: 80px 0;
+      font-family: var(--font-sans);
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+
+    .article-error {
+      padding: 80px 0;
+      font-family: var(--font-sans);
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <header class="site-header">
+    <nav class="nav container" id="main-nav">
+      <a href="index.html" class="nav-logo" aria-label="Evostr – Home">
+        <img src="assets/logo-leila-h.svg" alt="Evostr" class="nav-logo-img" height="34" width="127">
+      </a>
+      <ul class="nav-links">
+        <li><a href="evolution-ladder.html">Evolution Ladder</a></li>
+        <li><a href="how-we-work.html">How We Work</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="resources.html">Resources</a></li>
+      </ul>
+      <a href="book.html" class="btn btn-primary">Book a Conversation</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+
+  <!-- ARTICLE -->
+  <main>
+    <div class="container">
+      <a class="article-back" href="resources.html">&larr; Back to Resources</a>
+      <div id="article-content">
+        <p class="article-loading">Loading article…</p>
+      </div>
+    </div>
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo-link" aria-label="Evostr – Home">
+            <img src="assets/logo-leila-h.svg" alt="Evostr" class="footer-logo-img" height="32" width="120">
+          </a>
+          <p class="footer-tagline">Strategic growth consulting for mid-sized BPOs navigating the shift from selling hours to selling outcomes.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <h4 class="footer-col-heading">Navigate</h4>
+          <ul>
+            <li><a href="evolution-ladder.html">Evolution Ladder</a></li>
+            <li><a href="how-we-work.html">How We Work</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="assessment.html">Assessment</a></li>
+            <li><a href="qualification.html">Is This For You?</a></li>
+            <li><a href="book.html">Book a Conversation</a></li>
+          </ul>
+        </nav>
+        <div class="footer-newsletter">
+          <h4 class="footer-col-heading">Newsletter</h4>
+          <p>Market intelligence for BPO operators. Straight signal — no filler.</p>
+          <form class="newsletter-form" action="#" method="post" novalidate>
+            <label for="footer-email" class="sr-only">Email address</label>
+            <input type="email" id="footer-email" name="email" placeholder="your@email.com" autocomplete="email" required>
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 Evostr. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('main-nav').classList.toggle('open');
+    }
+    document.querySelectorAll('.nav-links a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        document.getElementById('main-nav').classList.remove('open');
+      });
+    });
+
+    // Render Sanity portable text (blocks) to HTML
+    function blocksToHtml(blocks) {
+      if (!blocks) return '';
+      return blocks.map(function(block) {
+        if (block._type === 'image') {
+          var src = block.asset ? block.asset.url : '';
+          var caption = block.caption ? '<figcaption>' + block.caption + '</figcaption>' : '';
+          return '<figure><img src="' + src + '" alt="' + (block.alt || '') + '">' + caption + '</figure>';
+        }
+        if (block._type !== 'block') return '';
+
+        var tag = block.style === 'h2' ? 'h2'
+                : block.style === 'h3' ? 'h3'
+                : block.style === 'blockquote' ? 'blockquote'
+                : 'p';
+
+        var text = (block.children || []).map(function(span) {
+          var t = span.text
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+          if (span.marks && span.marks.length) {
+            span.marks.forEach(function(mark) {
+              if (mark === 'strong') t = '<strong>' + t + '</strong>';
+              else if (mark === 'em') t = '<em>' + t + '</em>';
+            });
+          }
+          return t;
+        }).join('');
+
+        return '<' + tag + '>' + text + '</' + tag + '>';
+      }).join('\n');
+    }
+
+    // Pull slug from URL ?slug=
+    var slug = new URLSearchParams(window.location.search).get('slug');
+
+    if (!slug) {
+      document.getElementById('article-content').innerHTML =
+        '<p class="article-error">No article specified.</p>';
+    } else {
+      var PROJECT_ID = '85zx9za3';
+      var DATASET    = 'production';
+      var QUERY      = encodeURIComponent(
+        '*[_type == "article" && slug.current == "' + slug + '"][0]{ title, publishedAt, author, category, excerpt, "coverImage": coverImage{ "url": asset->url, alt }, body }'
+      );
+      var URL = 'https://' + PROJECT_ID + '.api.sanity.io/v2021-10-21/data/query/' + DATASET + '?query=' + QUERY;
+
+      fetch(URL)
+        .then(function(res) { return res.json(); })
+        .then(function(data) {
+          var a = data.result;
+          if (!a) {
+            document.getElementById('article-content').innerHTML =
+              '<p class="article-error">Article not found.</p>';
+            return;
+          }
+
+          // Update page title and meta description
+          document.title = a.title + ' | Evostr';
+          if (a.excerpt) {
+            document.querySelector('meta[name="description"]').setAttribute('content', a.excerpt);
+          }
+
+          var date = a.publishedAt
+            ? new Date(a.publishedAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
+            : '';
+
+          var cover = a.coverImage && a.coverImage.url
+            ? '<img class="article-cover" src="' + a.coverImage.url + '" alt="' + (a.coverImage.alt || a.title) + '">'
+            : '';
+
+          var meta = [date, a.author, a.category].filter(Boolean).map(function(item, i) {
+            return '<span>' + item + '</span>';
+          }).join('');
+
+          document.getElementById('article-content').innerHTML =
+            '<section class="article-hero">'
+            + '<div class="article-meta">' + meta + '</div>'
+            + '<h1>' + a.title + '</h1>'
+            + (a.excerpt ? '<p class="article-excerpt">' + a.excerpt + '</p>' : '')
+            + '</section>'
+            + cover
+            + '<article class="article-body">' + blocksToHtml(a.body) + '</article>';
+        })
+        .catch(function() {
+          document.getElementById('article-content').innerHTML =
+            '<p class="article-error">Unable to load article. Please try again.</p>';
+        });
+    }
+  </script>
+
+</body>
+</html>

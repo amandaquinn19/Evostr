@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="All articles from Evostr — direct observations on what's shifting in the BPO market.">
+  <title>Articles | Evostr</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;0,800;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <style>
+    .articles-hero h1 { max-width: 640px; margin-bottom: 16px; }
+    .articles-hero p  { font-size: 18px; line-height: 1.7; color: var(--text-muted); max-width: 560px; }
+
+    .articles-filter {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .filter-btn {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 16px;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      background: var(--white);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: var(--white);
+    }
+
+    .articles-list {
+      display: grid;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 60px;
+    }
+
+    .article-row {
+      background: var(--white);
+      padding: 28px 32px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 24px;
+      text-decoration: none;
+      transition: background 0.15s ease;
+    }
+
+    .article-row:hover { background: var(--matte-steel); }
+
+    .article-row-meta {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .article-row-title {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.35;
+      margin-bottom: 8px;
+    }
+
+    .article-row:hover .article-row-title { color: var(--navy); }
+
+    .article-row-excerpt {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text-muted);
+    }
+
+    .article-row-arrow {
+      font-family: var(--font-sans);
+      font-size: 18px;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    .article-row:hover .article-row-arrow { color: var(--navy); }
+
+    .articles-empty {
+      padding: 60px 32px;
+      font-family: var(--font-sans);
+      font-size: 15px;
+      color: var(--text-muted);
+      background: var(--white);
+    }
+
+    @media (max-width: 600px) {
+      .article-row { grid-template-columns: 1fr; }
+      .article-row-arrow { display: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <header class="site-header">
+    <nav class="nav container" id="main-nav">
+      <a href="index.html" class="nav-logo" aria-label="Evostr – Home">
+        <img src="assets/logo-leila-h.svg" alt="Evostr" class="nav-logo-img" height="34" width="127">
+      </a>
+      <ul class="nav-links">
+        <li><a href="evolution-ladder.html">Evolution Ladder</a></li>
+        <li><a href="how-we-work.html">How We Work</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="resources.html" aria-current="page">Resources</a></li>
+      </ul>
+      <a href="book.html" class="btn btn-primary">Book a Conversation</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+
+  <!-- HERO -->
+  <section class="articles-hero">
+    <div class="container">
+      <span class="section-label">Articles</span>
+      <h1>Direct observations on what's shifting in the BPO market.</h1>
+      <p>No trend pieces. No recycled industry news. Analysis of what buyers, capital, and operators are actually doing — and what it means for your position.</p>
+    </div>
+  </section>
+
+
+  <!-- ARTICLES LIST -->
+  <section>
+    <div class="container">
+
+      <div class="articles-filter" id="filter-bar">
+        <button class="filter-btn active" data-category="all">All</button>
+        <button class="filter-btn" data-category="thought-leadership">Thought Leadership</button>
+        <button class="filter-btn" data-category="operations">Operations</button>
+        <button class="filter-btn" data-category="technology">Technology</button>
+        <button class="filter-btn" data-category="growth">Growth</button>
+      </div>
+
+      <div class="articles-list" id="articles-list">
+        <div class="articles-empty">Loading articles…</div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- CTA -->
+  <section class="navy">
+    <div class="container">
+      <h2 style="max-width:520px; color:var(--white); margin-bottom:28px;">When the conversation makes sense, you'll know. We'll be here.</h2>
+      <a href="book.html" class="btn btn-white">Book a Conversation</a>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo-link" aria-label="Evostr – Home">
+            <img src="assets/logo-leila-h.svg" alt="Evostr" class="footer-logo-img" height="32" width="120">
+          </a>
+          <p class="footer-tagline">Strategic growth consulting for mid-sized BPOs navigating the shift from selling hours to selling outcomes.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <h4 class="footer-col-heading">Navigate</h4>
+          <ul>
+            <li><a href="evolution-ladder.html">Evolution Ladder</a></li>
+            <li><a href="how-we-work.html">How We Work</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="assessment.html">Assessment</a></li>
+            <li><a href="qualification.html">Is This For You?</a></li>
+            <li><a href="book.html">Book a Conversation</a></li>
+          </ul>
+        </nav>
+        <div class="footer-newsletter">
+          <h4 class="footer-col-heading">Newsletter</h4>
+          <p>Market intelligence for BPO operators. Straight signal — no filler.</p>
+          <form class="newsletter-form" action="#" method="post" novalidate>
+            <label for="footer-email" class="sr-only">Email address</label>
+            <input type="email" id="footer-email" name="email" placeholder="your@email.com" autocomplete="email" required>
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 Evostr. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('main-nav').classList.toggle('open');
+    }
+    document.querySelectorAll('.nav-links a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        document.getElementById('main-nav').classList.remove('open');
+      });
+    });
+
+    var allArticles = [];
+
+    function renderArticles(articles) {
+      var list = document.getElementById('articles-list');
+      if (!articles || articles.length === 0) {
+        list.innerHTML = '<div class="articles-empty">No articles published yet.</div>';
+        return;
+      }
+      list.innerHTML = articles.map(function(a) {
+        var date = a.publishedAt
+          ? new Date(a.publishedAt).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
+          : '';
+        var meta = [date, a.author].filter(Boolean).join(' &middot; ');
+        return '<a class="article-row" href="article.html?slug=' + a.slug.current + '">'
+          + '<div>'
+          + (meta ? '<div class="article-row-meta">' + meta + '</div>' : '')
+          + '<div class="article-row-title">' + a.title + '</div>'
+          + (a.excerpt ? '<div class="article-row-excerpt">' + a.excerpt + '</div>' : '')
+          + '</div>'
+          + '<span class="article-row-arrow">&rarr;</span>'
+          + '</a>';
+      }).join('');
+    }
+
+    // Category filter
+    document.getElementById('filter-bar').addEventListener('click', function(e) {
+      var btn = e.target.closest('.filter-btn');
+      if (!btn) return;
+      document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      var cat = btn.dataset.category;
+      if (cat === 'all') {
+        renderArticles(allArticles);
+      } else {
+        renderArticles(allArticles.filter(function(a) { return a.category === cat; }));
+      }
+    });
+
+    // Fetch all articles from Sanity
+    var PROJECT_ID = '85zx9za3';
+    var DATASET    = 'production';
+    var QUERY      = encodeURIComponent(
+      '*[_type == "article"] | order(publishedAt desc) { title, slug, publishedAt, author, category, excerpt }'
+    );
+    var URL = 'https://' + PROJECT_ID + '.api.sanity.io/v2021-10-21/data/query/' + DATASET + '?query=' + QUERY;
+
+    fetch(URL)
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        allArticles = data.result || [];
+        renderArticles(allArticles);
+      })
+      .catch(function() {
+        document.getElementById('articles-list').innerHTML =
+          '<div class="articles-empty">Unable to load articles. Please try again.</div>';
+      });
+  </script>
+
+</body>
+</html>

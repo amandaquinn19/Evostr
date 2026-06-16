@@ -275,9 +275,9 @@
       var QUERY      = encodeURIComponent(
         '*[_type == "article" && slug.current == "' + slug + '"][0]{ title, publishedAt, author, category, excerpt, "coverImage": coverImage{ "url": asset->url, alt }, body }'
       );
-      var URL = 'https://' + PROJECT_ID + '.api.sanity.io/v2021-10-21/data/query/' + DATASET + '?query=' + QUERY;
+      var endpoint = 'https://' + PROJECT_ID + '.api.sanity.io/v2021-10-21/data/query/' + DATASET + '?query=' + QUERY;
 
-      fetch(URL)
+      fetch(endpoint)
         .then(function(res) { return res.json(); })
         .then(function(data) {
           var a = data.result;

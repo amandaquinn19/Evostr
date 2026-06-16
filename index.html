@@ -6,6 +6,8 @@
   <meta name="description" content="Evostr helps BPOs architect the transformation from selling hours to selling solutions. See where you sit on the Evolution Ladder.">
   <title>BPO Transformation Consulting | Evostr</title>
 
+<script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/5692e46898c5e3c0bd1785643/c4a7d6acbec505fc350db056f.js");</script>
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,7 +37,7 @@
     .principal p {
       font-size: 17px;
       line-height: 1.7;
-      color: var(--text);
+      color: var(--white);
     }
 
     .founding-observation {
@@ -94,32 +96,42 @@
       margin-bottom: 20px;
     }
 
-    /* Not Ready to Talk Yet */
-    .not-ready {
-      padding: 80px 0;
-    }
-
-    .not-ready h2 {
-      font-size: clamp(22px, 2.5vw, 30px);
-      max-width: 520px;
-      margin-bottom: 20px;
-    }
-
-    .not-ready > .container > p {
-      max-width: 620px;
-      color: var(--text-muted);
-      margin-bottom: 20px;
-    }
-
-    .not-ready .cta-link {
-      margin-top: 8px;
-    }
-
     /* Navy hero — ensure body text goes white */
     .hero.navy .hero-subhead,
     .hero.navy .hero-body,
     .hero.navy .hero-cta-note {
       color: rgba(255, 255, 255, 0.8);
+    }
+
+    /* Final CTA — photo background */
+    .final-cta.navy {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .final-cta.navy::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('assets/images/skyscrapers.jpg') center center / cover no-repeat;
+      opacity: 0.18;
+      z-index: 0;
+    }
+
+    .final-cta.navy .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Principals — photo above bio */
+    .principal-photo {
+      width: 200px;
+      height: 200px;
+      border-radius: 4px;
+      object-fit: cover;
+      object-position: center top;
+      margin-bottom: 20px;
+      display: block;
     }
 
     /* Proof client header */
@@ -183,11 +195,11 @@
 
     .proof-quote-featured > p:first-child {
       font-family: var(--font-serif);
-      font-size: clamp(22px, 2.8vw, 30px);
-      font-style: normal;
+      font-size: clamp(24px, 3.2vw, 36px);
+      font-style: italic;
       font-weight: 700;
       line-height: 1.4;
-      color: var(--navy);
+      color: var(--oak);
       margin-bottom: 20px;
     }
 
@@ -225,8 +237,43 @@
       line-height: 1.65;
     }
 
-    .engagement-single .engagement-meta {
-      margin-bottom: 24px;
+    /* The Work domain sub-headers */
+    .domain h3 {
+      font-size: 14px;
+    }
+
+    /* Oak button variant */
+    .btn-oak {
+      background: var(--oak-bright);
+      color: var(--navy);
+      padding: 11px 22px;
+    }
+
+    .btn-oak:hover {
+      opacity: 0.9;
+    }
+
+    /* Remove dividing line below definition paragraph */
+    .definition-para {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    /* Proof callout — bold/larger body text */
+    .results-callout p:not(.proof-pull) {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.65;
+    }
+
+    /* Proof-pull quote when inside the callout box */
+    .results-callout .proof-pull {
+      font-family: var(--font-serif);
+      font-size: 17px;
+      font-style: italic;
+      color: var(--oak);
+      margin-top: 20px;
+      margin-bottom: 0;
     }
   </style>
 
@@ -278,18 +325,18 @@
     <div class="container hero-container">
 
       <div class="hero-text">
-        <h1>The BPO market is bifurcating.</h1>
+        <h1>The BPO market is <span style="color: var(--oak-bright); font-style: italic;">bifurcating</span>.</h1>
 
-        <p class="hero-subhead">Labor-only providers are watching their enterprise value collapse. Vertical-specialized and tech-enabled BPOs are watching theirs grow. There's no middle anymore.</p>
+        <p class="hero-subhead" style="font-weight: 700;">Labor-only providers are watching their enterprise value collapse. Vertical-specialized and tech-enabled BPOs are watching theirs grow. There's no middle anymore.</p>
 
         <p class="hero-body">Labor arbitrage is no longer enough. The firms that thrive over the next five years won't be the ones still selling seats — they'll be the ones who built expertise and proprietary solutions.</p>
 
         <p class="hero-body">That's the work.</p>
 
-        <div class="hero-cta">
+        <div class="hero-cta" style="margin-top: 8px;">
           <p class="hero-cta-note">Find out where you sit, and what it would take to climb.</p>
           <div class="hero-cta-buttons">
-            <a href="assessment.html" class="btn btn-white">Take the Assessment</a>
+            <a href="assessment.html" class="btn btn-oak">Get an Assessment</a>
             <a href="book.html" class="cta-link">Book a Conversation &rarr;</a>
           </div>
         </div>
@@ -302,7 +349,7 @@
   <!-- =====================
        MARKET REALITY
        ===================== -->
-  <section class="market-reality cream">
+  <section class="market-reality grey">
     <div class="container">
 
       <span class="section-label">The Market</span>
@@ -341,7 +388,7 @@
   <!-- =====================
        WHY LISTEN TO US
        ===================== -->
-  <section class="why-listen">
+  <section class="why-listen navy">
     <div class="container">
 
       <span class="section-label">The Principals</span>
@@ -350,10 +397,12 @@
       <div class="principals-grid">
 
         <div class="principal">
+          <img src="assets/images/photo-amanda-nobg.png" alt="Amanda Quinn" class="principal-photo">
           <p>Amanda Quinn covers the BPO market as an independent analyst for Fourcasters — working directly with the buyers, investors, and operators defining where this industry is heading. She was named to ICMI's Top 25 Thought Leaders in Customer Experience for 2026, co-hosts the <em>Build a Better BPO</em> podcast, and writes a newsletter read by more than 2,000 BPO executives.</p>
         </div>
 
         <div class="principal">
+          <img src="assets/images/photo-paul-nobg.png" alt="Paul Smith" class="principal-photo">
           <p>Paul Smith brings deep commercial and operational expertise spanning BPO leadership, enterprise sales, and the practical mechanics of how outsourcing relationships are built, won, and retained.</p>
         </div>
 
@@ -370,7 +419,7 @@
   <!-- =====================
        EVOLUTION LADDER
        ===================== -->
-  <section class="ladder-section cream">
+  <section class="ladder-section grey">
     <div class="container">
 
       <span class="section-label">The Framework</span>
@@ -449,7 +498,7 @@
   <!-- =====================
        WHAT EVOSTR DOES
        ===================== -->
-  <section class="what-we-do">
+  <section class="what-we-do navy">
     <div class="container">
 
       <span class="section-label">The Work</span>
@@ -496,9 +545,32 @@
 
 
   <!-- =====================
+       PROOF — CASE 1 (Client Results)
+       ===================== -->
+  <section class="proof-section">
+    <div class="container">
+
+      <span class="section-label">Client Results</span>
+      <h2>Go-to-market clarity in a few short months.</h2>
+
+      <span class="proof-client-header">Mid-Market BPO &nbsp;|&nbsp; 18 Years in Market</span>
+
+      <p class="proof-narrative">A mid-market BPO had already made the right investments — an outbound sales team, digital advertising, a partner network built over nearly two decades. None of it was working together. No defined vertical. No clear message. A sales team without a story and ad spend without a target. Activity without direction.</p>
+
+      <div class="results-callout">
+        <span class="results-timeframe">Within five months</span>
+        <p>A defined vertical focus with three specific sub-markets. A messaging architecture built around that focus. A sales narrative the team could actually use in the field. The engagement expanded into sales training to activate the strategy. Outbound and digital marketing are now running with a foundation underneath them — for the first time.</p>
+        <p class="proof-pull">&ldquo;I can finally see how this translates to pipeline.&rdquo; &mdash; Head of Marketing</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =====================
        HOW ENGAGEMENTS START
        ===================== -->
-  <section class="engagements cream">
+  <section class="engagements grey">
     <div class="container">
 
       <span class="section-label">Getting Started</span>
@@ -508,50 +580,8 @@
       <div class="engagement-single">
         <h3>Strategic Growth Assessment</h3>
         <p>A four-area diagnostic of your business: go-to-market, account management, business strategy, and organization. Independent market scan, stakeholder interviews, and placement on the Evolution Ladder. You receive a Market Position Scan, a Ladder Placement, and a prioritized Areas of Focus report.</p>
-        <span class="engagement-meta">$7,500 &nbsp;·&nbsp; 4–6 weeks &nbsp;·&nbsp; Remote</span>
         <a href="assessment.html" class="cta-link">See the assessment &rarr;</a>
       </div>
-
-    </div>
-  </section>
-
-
-  <!-- =====================
-       PROOF — CASE 1
-       ===================== -->
-  <section class="proof-section">
-    <div class="container">
-
-      <span class="section-label">Client Results</span>
-      <h2>Activity without direction. Five months later.</h2>
-
-      <span class="proof-client-header">Mid-Market BPO &nbsp;|&nbsp; 18 Years in Market</span>
-
-      <p class="proof-narrative">A mid-market BPO had already made the right investments — an outbound sales team, digital advertising, a partner network built over nearly two decades. None of it was working together. No defined vertical. No clear message. A sales team without a story and ad spend without a target. Activity without direction.</p>
-
-      <div class="results-callout">
-        <span class="results-timeframe">Within five months</span>
-        <p>A defined vertical focus with three specific sub-markets. A messaging architecture built around that focus. A sales narrative the team could actually use in the field. The engagement expanded into sales training to activate the strategy. Outbound and digital marketing are now running with a foundation underneath them — for the first time.</p>
-      </div>
-
-      <p class="proof-pull">&ldquo;I can finally see how this translates to pipeline.&rdquo; &mdash; Head of Marketing</p>
-
-    </div>
-  </section>
-
-
-  <!-- =====================
-       PROOF — CASE 2
-       ===================== -->
-  <section class="proof-testimonial cream">
-    <div class="container">
-
-      <span class="proof-client-header">Boutique BPO &nbsp;|&nbsp; 400 Seats</span>
-
-      <blockquote class="proof-quote-featured">
-        <p>Amanda has a way of seeing what you can't see when you're inside your own business. She helped us identify where we were leaving value on the table and gave us the clarity — and the courage — to start building toward something bigger. If you're a BPO leader who knows you need to evolve but doesn't know where to start, she's the right person in the room.</p>
-        <p class="attribution">Jon Keane &mdash; <span>CEO, CustomerHD</span></p>
-      </blockquote>
 
     </div>
   </section>
@@ -596,36 +626,15 @@
 
 
   <!-- =====================
-       NOT READY TO TALK YET
+       PROOF — CASE 2
        ===================== -->
-  <section class="not-ready cream">
+  <section class="proof-testimonial">
     <div class="container">
 
-      <h2>Not ready to talk yet?</h2>
-
-      <p>Deciding to restructure your business isn't a small thing. That's worth sitting with — provided the floor isn't moving faster than you think.</p>
-
-      <p>If a conversation isn't the right next step yet, the best thing to do is stay informed. The <em>Build a Better BPO</em> podcast and the resources section go deeper on specific topics if you want to move at your own pace.</p>
-
-      <a href="resources.html" class="cta-link">Explore the resources &rarr;</a>
-
-      <div class="not-ready-newsletter">
-        <h3>Stay in the market</h3>
-        <p>Market intelligence for BPO operators — published weekly. No headlines, no filler.</p>
-        <!-- Wire action to your email provider endpoint (ConvertKit, Mailchimp, etc.) -->
-        <form class="inline-newsletter-form" action="#" method="post" novalidate>
-          <label for="nr-email" class="sr-only">Email address</label>
-          <input
-            type="email"
-            id="nr-email"
-            name="email"
-            placeholder="your@email.com"
-            autocomplete="email"
-            required
-          >
-          <button type="submit" class="btn btn-primary">Subscribe</button>
-        </form>
-      </div>
+      <blockquote class="proof-quote-featured">
+        <p>Amanda has a way of seeing what you can't see when you're inside your own business. She helped us identify where we were leaving value on the table and gave us the clarity — and the courage — to start building toward something bigger. If you're a BPO leader who knows you need to evolve but doesn't know where to start, she's the right person in the room.</p>
+        <p class="attribution">Jon Keane &mdash; <span>CEO, CustomerHD</span></p>
+      </blockquote>
 
     </div>
   </section>
@@ -682,28 +691,25 @@
           <h4 class="footer-col-heading">Newsletter</h4>
           <p>Market intelligence for BPO operators. Straight signal — no filler.</p>
           <!-- Wire action to your email provider endpoint -->
-          <form class="newsletter-form" action="#" method="post" novalidate>
+          <form class="newsletter-form" id="mc-form" novalidate>
             <label for="footer-email" class="sr-only">Email address</label>
             <input
               type="email"
               id="footer-email"
-              name="email"
+              name="EMAIL"
               placeholder="your@email.com"
               autocomplete="email"
               required
             >
             <button type="submit" class="btn btn-primary">Subscribe</button>
           </form>
+          <p id="mc-message" style="display:none; margin-top:12px; font-size:14px; font-family:var(--font-sans);"></p>
         </div>
 
       </div>
 
       <div class="footer-bottom">
         <p class="footer-copy">&copy; 2026 Evostr. All rights reserved.</p>
-        <div class="footer-legal">
-          <a href="privacy.html">Privacy Policy</a>
-          <a href="terms.html">Terms</a>
-        </div>
       </div>
 
     </div>
@@ -725,5 +731,6 @@
     });
   </script>
 
+  <script src="js/newsletter.js"></script>
 </body>
 </html>

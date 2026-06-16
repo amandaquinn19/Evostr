@@ -46,6 +46,15 @@
       margin-top: 16px;
     }
 
+    /* Hero on navy */
+    .navy .about-hero .hero-subhead {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .navy .about-hero .hero-body {
+      color: rgba(255, 255, 255, 0.65);
+    }
+
     /* Where We Sit — single-column stacked blocks */
     .market-section h2 {
       max-width: 640px;
@@ -132,9 +141,9 @@
     }
 
     .principal-photo {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
+      width: 200px;
+      height: 250px;
+      border-radius: var(--radius);
       background: var(--border);
       overflow: hidden;
       margin-bottom: 24px;
@@ -145,6 +154,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: top;
       display: block;
     }
 
@@ -259,10 +269,12 @@
       flex-wrap: wrap;
     }
 
-    /* Principal photo — slightly larger now that real photos are in place */
-    .principal-photo {
-      width: 96px;
-      height: 96px;
+    .navy .final-cta-simple .cta-secondary {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .navy .final-cta-simple .cta-secondary:hover {
+      color: var(--white);
     }
 
     /* Numbered beliefs */
@@ -272,7 +284,7 @@
       font-size: 60px;
       font-weight: 800;
       line-height: 1;
-      color: var(--border);
+      color: var(--navy);
       margin-bottom: 12px;
       letter-spacing: -0.04em;
     }
@@ -373,8 +385,9 @@
   <!-- =====================
        HERO
        ===================== -->
-  <section>
-    <div class="container">
+  <section class="navy" style="position: relative; overflow: hidden;">
+    <div style="position: absolute; inset: 0; background: url('assets/images/audience-event.jpg') center/cover; opacity: 0.18; z-index: 0;"></div>
+    <div class="container" style="position: relative; z-index: 1;">
       <div class="about-hero">
 
         <h1>We don't observe this industry. We're in the conversations shaping it.</h1>
@@ -424,7 +437,7 @@
   <!-- =====================
        WHAT WE BELIEVE
        ===================== -->
-  <section class="beliefs-section">
+  <section class="beliefs-section grey">
     <div class="container">
 
       <span class="section-label">What We Believe</span>
@@ -505,8 +518,9 @@
           <span class="principal-name">Paul Smith</span>
           <span class="principal-title">Principal</span>
           <div class="principal-divider"></div>
-          <p>Paul brings deep commercial and operational expertise spanning BPO leadership, revenue strategy, and enterprise sales — the practical knowledge of how the work actually gets sold, delivered, and renewed.</p>
-          <p>At Evostr he leads operational and commercial architecture: sales motion design, account management transformation, organizational structure, and the team-execution work that ensures strategic shifts hold after the engagement closes.</p>
+          <p>Paul has been inside the transitions BPO operators are now being asked to navigate. He founded and ran a contact center in Denver. He founded InfinitAI, building AI technology specifically for contact center operations. He's held CEO, CSO, COO, and Head of Sales roles at companies building conversational AI platforms and BPO services, and has closed enterprise deals with Google, Microsoft, and BMW.</p>
+          <p>He's also navigated several technology transition waves — licensed software to SaaS, server infrastructure to cloud, hard-coded systems to conversational AI. Each one demanded the same thing: realigning the commercial model, the go-to-market motion, and the operational execution at the same time. He's done it, more than once. That's what he brings to clients navigating the AI transition now.</p>
+          <p>At Evostr, Paul leads operational and commercial architecture: sales motion design, account management transformation, organizational structure, and the implementation work that makes strategic change hold after the engagement closes.</p>
           <div class="principal-links">
             <a href="https://www.linkedin.com/in/swsalesexec/" class="principal-link" target="_blank" rel="noopener">LinkedIn ↗</a>
           </div>
@@ -521,7 +535,7 @@
   <!-- =====================
        PARTNER NETWORK
        ===================== -->
-  <section class="partners-section">
+  <section class="partners-section grey">
     <div class="container">
 
       <span class="section-label">The Partner Network</span>
@@ -570,8 +584,9 @@
   <!-- =====================
        FINAL CTA
        ===================== -->
-  <section class="navy">
-    <div class="container final-cta-simple">
+  <section class="navy" style="position: relative; overflow: hidden;">
+    <div style="position: absolute; inset: 0; background: url('assets/images/business-conversation.jpg') center/cover; opacity: 0.18; z-index: 0;"></div>
+    <div class="container final-cta-simple" style="position: relative; z-index: 1;">
 
       <h2>If your situation is one Evostr can move, the next step is a 45-minute conversation.</h2>
 
@@ -615,28 +630,25 @@
         <div class="footer-newsletter">
           <h4 class="footer-col-heading">Newsletter</h4>
           <p>Market intelligence for BPO operators. Straight signal — no filler.</p>
-          <form class="newsletter-form" action="#" method="post" novalidate>
+          <form class="newsletter-form" id="mc-form" novalidate>
             <label for="footer-email" class="sr-only">Email address</label>
             <input
               type="email"
               id="footer-email"
-              name="email"
+              name="EMAIL"
               placeholder="your@email.com"
               autocomplete="email"
               required
             >
             <button type="submit" class="btn btn-primary">Subscribe</button>
           </form>
+          <p id="mc-message" style="display:none; margin-top:12px; font-size:14px; font-family:var(--font-sans);"></p>
         </div>
 
       </div>
 
       <div class="footer-bottom">
         <p class="footer-copy">&copy; 2026 Evostr. All rights reserved.</p>
-        <div class="footer-legal">
-          <a href="privacy.html">Privacy Policy</a>
-          <a href="terms.html">Terms</a>
-        </div>
       </div>
 
     </div>
@@ -658,5 +670,6 @@
     });
   </script>
 
+  <script src="js/newsletter.js"></script>
 </body>
 </html>

@@ -55,27 +55,7 @@
     .el-hero-image {
       border-radius: var(--radius);
       overflow: hidden;
-      min-height: 480px;
-      background: var(--matte-steel);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .el-hero-img {
-      width: 100%;
-      height: 100%;
-      min-height: 480px;
-      object-fit: contain;
-      display: block;
-    }
-
-    .el-hero-placeholder {
-      font-family: var(--font-sans);
-      font-size: 13px;
-      color: var(--text-muted);
-      text-align: center;
-      padding: 40px;
+      align-self: start;
     }
 
     /* Why the Ladder Exists */
@@ -531,11 +511,8 @@
       }
 
       .el-hero-image {
-        min-height: 300px;
         order: -1;
       }
-
-      .el-hero-img { min-height: 300px; }
 
       .rung-meta-pair {
         grid-template-columns: 1fr;
@@ -585,8 +562,7 @@
       <div class="el-hero-text">
         <h1>The BPO Evolution Ladder™</h1>
         <p class="hero-subhead">Seven rungs. Two rifts. One framework for what your business is actually worth.</p>
-        <p class="el-intro"><strong>The BPO Evolution Ladder™ is a strategic framework developed by Evostr that defines seven stages of BPO business maturity — from labor arbitrage to functional ownership — and identifies two structural rifts where enterprise value either expands or collapses.</strong> It is used to diagnose where a BPO sits in the market, what crossing the next rift requires structurally, and what the financial impact of that crossing is.</p>
-        <p class="el-intro">The Evolution Ladder is a diagnostic. It describes what a BPO is selling at every stage of maturity, how the market values that posture, and what it takes — structurally — to climb.</p>
+        <p class="el-intro">The BPO Evolution Ladder™ is a diagnostic framework that maps seven stages of BPO maturity and identifies the two structural breaks that determine your enterprise value.</p>
         <p class="el-intro">It exists because the old way of valuing BPOs has broken. Buyers, capital, and AI have re-priced the industry. The firms that understand the new pricing are restructuring. The firms that don't are watching their multiples compress in real time.</p>
         <div class="el-hero-cta">
           <a href="assessment.html" class="btn btn-primary">Take the Assessment</a>
@@ -594,11 +570,88 @@
         </div>
       </div>
 
-      <div class="el-hero-image">
-        <!-- Replace with ladder diagram: assets/images/photo-ladder.jpg or .svg -->
-        <img src="assets/images/photo-ladder.jpg" alt="BPO Evolution Ladder diagram" class="el-hero-img"
-          onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-        <p class="el-hero-placeholder" style="display:none;">Ladder diagram — replace with<br>assets/images/photo-ladder.jpg</p>
+      <div class="el-hero-image" style="background: transparent; padding: 0;">
+        <svg viewBox="0 0 560 640" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto; display: block;" role="img" aria-label="BPO Evolution Ladder™ — 7 rungs, 2 structural rifts">
+          <title>BPO Evolution Ladder™</title>
+
+          <!-- ↑ ENTERPRISE VALUE label -->
+          <text x="16" y="18" style="font-family: 'Inter', -apple-system, sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 1.5px;" fill="#6C6C72">&#8593; ENTERPRISE VALUE</text>
+
+          <!-- ════════════════════════════════════
+               ABOVE WIDENING RIFT
+               ════════════════════════════════════ -->
+
+          <!-- Rung 7: Functional Owner -->
+          <rect x="0" y="30" width="560" height="60" fill="#1E3D7A"/>
+          <text x="22" y="68" style="font-family: 'Noto Serif', Georgia, serif; font-size: 17px; font-weight: 800;" fill="#D4AB52">07</text>
+          <text x="60" y="68" style="font-family: 'Noto Serif', Georgia, serif; font-size: 15px; font-weight: 700;" fill="#FFFFFF">Functional Owner</text>
+          <text x="544" y="68" style="font-family: 'Inter', -apple-system, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.8px;" fill="#D4AB52" text-anchor="end">IRREPLACEABLE</text>
+
+          <!-- Rung 6: AI-Native Ops -->
+          <rect x="0" y="94" width="560" height="60" fill="#1E3D7A"/>
+          <text x="22" y="132" style="font-family: 'Noto Serif', Georgia, serif; font-size: 17px; font-weight: 800;" fill="#D4AB52">06</text>
+          <text x="60" y="132" style="font-family: 'Noto Serif', Georgia, serif; font-size: 15px; font-weight: 700;" fill="#FFFFFF">AI-Native Ops</text>
+          <text x="544" y="132" style="font-family: 'Inter', -apple-system, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.8px;" fill="#D4AB52" text-anchor="end">VALUATION SURGE</text>
+
+          <!-- Rung 5: Value Creator -->
+          <rect x="0" y="158" width="560" height="60" fill="#1E3D7A"/>
+          <text x="22" y="196" style="font-family: 'Noto Serif', Georgia, serif; font-size: 17px; font-weight: 800;" fill="#D4AB52">05</text>
+          <text x="60" y="196" style="font-family: 'Noto Serif', Georgia, serif; font-size: 15px; font-weight: 700;" fill="#FFFFFF">Value Creator</text>
+          <text x="544" y="196" style="font-family: 'Inter', -apple-system, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.8px;" fill="#D4AB52" text-anchor="end">MARGIN EXPANSION</text>
+
+          <!-- Rung 4: Tech-Enabled -->
+          <rect x="0" y="222" width="560" height="60" fill="#1E3D7A"/>
+          <text x="22" y="260" style="font-family: 'Noto Serif', Georgia, serif; font-size: 17px; font-weight: 800;" fill="#D4AB52">04</text>
+          <text x="60" y="260" style="font-family: 'Noto Serif', Georgia, serif; font-size: 15px; font-weight: 700;" fill="#FFFFFF">Tech-Enabled</text>
+          <text x="544" y="260" style="font-family: 'Inter', -apple-system, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.8px;" fill="#D4AB52" text-anchor="end">DIFFERENTIATED</text>
+
+          <!-- ════════════════════════════════════
+               THE WIDENING RIFT
+               ════════════════════════════════════ -->
+          <rect x="0" y="288" width="560" height="68" fill="#20294F"/>
+          <rect x="0" y="288" width="560" height="2" fill="#D4AB52"/>
+          <rect x="0" y="354" width="560" height="2" fill="#D4AB52"/>
+          <text x="280" y="309" style="font-family: 'Inter', -apple-system, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 2.2px;" fill="#D4AB52" text-anchor="middle">THE WIDENING RIFT</text>
+          <text x="280" y="330" style="font-family: 'Noto Serif', Georgia, serif; font-size: 13px; font-style: italic;" fill="rgba(255,255,255,0.72)" text-anchor="middle">Expertise becomes leverage</text>
+          <text x="280" y="349" style="font-family: 'Inter', -apple-system, sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.4px;" fill="#D4AB52" text-anchor="middle">3&#8211;6&#215; EBITDA MULTIPLE EXPANSION</text>
+
+          <!-- ════════════════════════════════════
+               BETWEEN RIFTS — Cream
+               ════════════════════════════════════ -->
+
+          <!-- Rung 3: Domain Specialist -->
+          <rect x="0" y="362" width="560" height="60" fill="#F5F3EE"/>
+          <text x="22" y="400" style="font-family: 'Noto Serif', Georgia, serif; font-size: 17px; font-weight: 800;" fill="#886D34">03</text>
+          <text x="60" y="400" style="font-family: 'Noto Serif', Georgia, serif; font-size: 15px; font-weight: 700;" fill="#1A1A22">Domain Specialist</text>
+          <text x="544" y="400" style="font-family: 'Inter', -apple-system, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.8px;" fill="#886D34" text-anchor="end">PREMIUM PRICING</text>
+
+          <!-- ════════════════════════════════════
+               THE FIRST RIFT
+               ════════════════════════════════════ -->
+          <rect x="0" y="428" width="560" height="68" fill="#20294F"/>
+          <rect x="0" y="428" width="560" height="2" fill="#D4AB52"/>
+          <rect x="0" y="494" width="560" height="2" fill="#D4AB52"/>
+          <text x="280" y="449" style="font-family: 'Inter', -apple-system, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 2.2px;" fill="#D4AB52" text-anchor="middle">THE FIRST RIFT</text>
+          <text x="280" y="470" style="font-family: 'Noto Serif', Georgia, serif; font-size: 13px; font-style: italic;" fill="rgba(255,255,255,0.72)" text-anchor="middle">Labor becomes expertise</text>
+          <text x="280" y="489" style="font-family: 'Inter', -apple-system, sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.4px;" fill="#D4AB52" text-anchor="middle">1&#8211;2&#215; EBITDA MULTIPLE EXPANSION</text>
+
+          <!-- ════════════════════════════════════
+               BELOW FIRST RIFT — Matte steel
+               ════════════════════════════════════ -->
+
+          <!-- Rung 2: Operational Scale -->
+          <rect x="0" y="502" width="560" height="60" fill="#E0E4E5"/>
+          <text x="22" y="540" style="font-family: 'Noto Serif', Georgia, serif; font-size: 17px; font-weight: 800;" fill="#6C6C72">02</text>
+          <text x="60" y="540" style="font-family: 'Noto Serif', Georgia, serif; font-size: 15px; font-weight: 700;" fill="#1A1A22">Operational Scale</text>
+          <text x="544" y="540" style="font-family: 'Inter', -apple-system, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.8px;" fill="#C0432F" text-anchor="end">COMMODITIZED</text>
+
+          <!-- Rung 1: Labor Arbitrage -->
+          <rect x="0" y="566" width="560" height="60" fill="#E0E4E5"/>
+          <text x="22" y="604" style="font-family: 'Noto Serif', Georgia, serif; font-size: 17px; font-weight: 800;" fill="#6C6C72">01</text>
+          <text x="60" y="604" style="font-family: 'Noto Serif', Georgia, serif; font-size: 15px; font-weight: 700;" fill="#1A1A22">Labor Arbitrage</text>
+          <text x="544" y="604" style="font-family: 'Inter', -apple-system, sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.8px;" fill="#C0432F" text-anchor="end">RACE TO THE BOTTOM</text>
+
+        </svg>
       </div>
 
     </div>
@@ -606,7 +659,7 @@
 
 
   <!-- ===================== WHY THE LADDER EXISTS ===================== -->
-  <section class="why-section cream">
+  <section class="why-section grey">
     <div class="container">
 
       <span class="section-label">Why the Ladder Exists</span>
@@ -915,7 +968,7 @@
 
 
   <!-- ===================== HOW TO USE ===================== -->
-  <section class="how-to-section cream">
+  <section class="how-to-section grey">
     <div class="container">
 
       <span class="section-label">How to Use the Framework</span>
@@ -1018,14 +1071,17 @@
 
 
   <!-- ===================== FINAL CTA ===================== -->
-  <section class="navy el-cta">
+  <section class="navy el-cta" style="position: relative; overflow: hidden;">
+    <div style="position: absolute; inset: 0; background: url('assets/images/team-meeting.jpg') center center / cover no-repeat; opacity: 0.18; z-index: 0;"></div>
     <div class="container">
 
+      <div style="position: relative; z-index: 1;">
       <h2>Ready to know where you actually stand?</h2>
       <p>Most BPO operators place themselves one rung higher than the market does. Find out where you actually sit — and what it takes to move.</p>
       <div class="el-cta-actions">
         <a href="assessment.html" class="btn btn-white">See the Assessment</a>
         <a href="book.html" class="cta-link">Book a Conversation &rarr;</a>
+      </div>
       </div>
 
     </div>
@@ -1057,19 +1113,16 @@
         <div class="footer-newsletter">
           <h4 class="footer-col-heading">Newsletter</h4>
           <p>Market intelligence for BPO operators. Straight signal — no filler.</p>
-          <form class="newsletter-form" action="#" method="post" novalidate>
+          <form class="newsletter-form" id="mc-form" novalidate>
             <label for="footer-email" class="sr-only">Email address</label>
-            <input type="email" id="footer-email" name="email" placeholder="your@email.com" autocomplete="email" required>
+            <input type="email" id="footer-email" name="EMAIL" placeholder="your@email.com" autocomplete="email" required>
             <button type="submit" class="btn btn-primary">Subscribe</button>
           </form>
+          <p id="mc-message" style="display:none; margin-top:12px; font-size:14px; font-family:var(--font-sans);"></p>
         </div>
       </div>
       <div class="footer-bottom">
         <p class="footer-copy">&copy; 2026 Evostr. All rights reserved.</p>
-        <div class="footer-legal">
-          <a href="privacy.html">Privacy Policy</a>
-          <a href="terms.html">Terms</a>
-        </div>
       </div>
     </div>
   </footer>
@@ -1085,5 +1138,6 @@
     });
   </script>
 
+  <script src="js/newsletter.js"></script>
 </body>
 </html>

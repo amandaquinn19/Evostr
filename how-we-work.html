@@ -188,10 +188,10 @@
       font-size: clamp(22px, 2.5vw, 30px);
       font-style: italic;
       font-weight: 700;
-      color: var(--navy);
+      color: var(--white);
       line-height: 1.5;
       padding-left: 28px;
-      border-left: 4px solid var(--oak);
+      border-left: 4px solid var(--oak-bright);
       margin: 0;
     }
 
@@ -216,6 +216,21 @@
 
     .principles-section.navy .principle p {
       color: rgba(255,255,255,0.72);
+    }
+
+    /* Operating Principles — grey variant */
+    .principles-section.grey .principle {
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+    }
+
+    .principles-section.grey .principle:first-child {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .principles-section.grey .principle-accent {
+      background: var(--oak);
     }
 
     /* Operating Principles */
@@ -247,6 +262,21 @@
       color: var(--text-muted);
     }
 
+    /* Assessment two-column grid */
+    .assessment-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .assessment-right img {
+      width: 100%;
+      border-radius: var(--radius);
+      display: block;
+      object-fit: cover;
+    }
+
     /* Final CTA — vertical padding handled by section rule */
 
     .final-cta-simple h2 {
@@ -259,6 +289,15 @@
       font-size: 18px;
       color: var(--text-muted);
       margin-bottom: 40px;
+    }
+
+    /* Final CTA on navy */
+    .navy .final-cta-simple .cta-sub {
+      color: rgba(255,255,255,0.65);
+    }
+
+    .navy .cta-link {
+      color: rgba(255,255,255,0.8);
     }
 
     .cta-pair {
@@ -280,6 +319,13 @@
         transform: rotate(90deg);
       }
 
+      .assessment-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .assessment-right {
+        display: none;
+      }
     }
   </style>
 </head>
@@ -314,8 +360,9 @@
   <!-- =====================
        HERO
        ===================== -->
-  <section class="navy">
-    <div class="container">
+  <section class="navy" style="position: relative; overflow: hidden;">
+    <div style="position: absolute; inset: 0; background: url('assets/images/team-working-at-table.jpg') center center / cover no-repeat; opacity: 0.18; z-index: 0;"></div>
+    <div class="container" style="position: relative; z-index: 1;">
       <div class="hww-hero">
 
         <h1>Most consultancies sell strategy.</h1>
@@ -330,7 +377,7 @@
   <!-- =====================
        HOW IT WORKS
        ===================== -->
-  <section class="how-it-works cream">
+  <section class="how-it-works grey">
     <div class="container">
 
       <span class="section-label">How It Works</span>
@@ -375,7 +422,7 @@
   <!-- =====================
        PULL QUOTE
        ===================== -->
-  <section>
+  <section class="navy">
     <div class="container">
       <div class="hww-pull">
         <blockquote>The assessment isn't the beginning of a relationship. It's the first piece of real work.</blockquote>
@@ -387,23 +434,31 @@
   <!-- =====================
        THE ASSESSMENT
        ===================== -->
-  <section class="assessment-section cream">
+  <section class="assessment-section">
     <div class="container">
 
       <span class="section-label">The Assessment</span>
       <h2>Strategic Growth Assessment</h2>
       <p class="assessment-intro">For operators who know something needs to change but aren't yet certain where the structural problems are — or how to sequence the fix.</p>
 
-      <div class="assessment-left">
-        <p>The assessment covers four areas: go-to-market, account management, business strategy, and organizational readiness. It includes an independent market scan, stakeholder interviews, and a placement on the BPO Evolution Ladder.</p>
-        <p>At the end of six weeks, you have a clear picture of where the business is, where it needs to go, and what a structured path forward looks like. That picture is the basis for everything that follows — whether that work is done with Evostr or not.</p>
+      <div class="assessment-grid">
 
-        <div class="assessment-meta">
-          <div style="display:flex; align-items:center; gap:24px; flex-wrap:wrap;">
-            <a href="assessment.html" class="btn btn-primary">Learn about the Assessment</a>
-            <a href="book.html" class="cta-link">Book a Conversation &rarr;</a>
+        <div class="assessment-left">
+          <p>The assessment covers four areas: go-to-market, account management, business strategy, and organizational readiness. It includes an independent market scan, stakeholder interviews, and a placement on the BPO Evolution Ladder.</p>
+          <p>At the end of six weeks, you have a clear picture of where the business is, where it needs to go, and what a structured path forward looks like. That picture is the basis for everything that follows — whether that work is done with Evostr or not.</p>
+
+          <div class="assessment-meta">
+            <div style="display:flex; align-items:center; gap:24px; flex-wrap:wrap;">
+              <a href="assessment.html" class="btn btn-primary">Learn about the Assessment</a>
+              <a href="book.html" class="cta-link">Book a Conversation &rarr;</a>
+            </div>
           </div>
         </div>
+
+        <div class="assessment-right">
+          <img src="assets/images/business-strategy-meeting.jpg" alt="Business strategy session" loading="lazy">
+        </div>
+
       </div>
 
     </div>
@@ -413,7 +468,7 @@
   <!-- =====================
        OPERATING PRINCIPLES
        ===================== -->
-  <section class="principles-section navy">
+  <section class="principles-section grey">
     <div class="container">
 
       <span class="section-label">How We Work</span>
@@ -460,15 +515,16 @@
   <!-- =====================
        FINAL CTA
        ===================== -->
-  <section class="cream">
-    <div class="container final-cta-simple">
+  <section class="navy" style="position: relative; overflow: hidden;">
+    <div style="position: absolute; inset: 0; background: url('assets/images/empty-office-bw.jpg') center center / cover no-repeat; opacity: 0.18; z-index: 0;"></div>
+    <div class="container final-cta-simple" style="position: relative; z-index: 1;">
 
       <h2>If the model fits how you'd want to work, the assessment is where it starts.</h2>
 
       <p class="cta-sub">Six weeks. Fixed fee. A clear picture of where your business sits and what it would take to move it.</p>
 
       <div class="cta-pair">
-        <a href="assessment.html" class="btn btn-primary">Request the Assessment</a>
+        <a href="assessment.html" class="btn btn-white">Learn about the Assessment</a>
         <a href="qualification.html" class="cta-link">Is this for you? &rarr;</a>
       </div>
 
@@ -508,27 +564,25 @@
           <h4 class="footer-col-heading">Newsletter</h4>
           <p>Market intelligence for BPO operators. Straight signal — no filler.</p>
           <!-- Wire action to your email provider endpoint -->
-          <form class="newsletter-form" action="#" method="post" novalidate>
+          <form class="newsletter-form" id="mc-form" novalidate>
             <label for="footer-email" class="sr-only">Email address</label>
             <input
               type="email"
               id="footer-email"
-              name="email"
+              name="EMAIL"
               placeholder="your@email.com"
               autocomplete="email"
               required
             >
             <button type="submit" class="btn btn-primary">Subscribe</button>
           </form>
+          <p id="mc-message" style="display:none; margin-top:12px; font-size:14px; font-family:var(--font-sans);"></p>
         </div>
 
       </div>
 
       <div class="footer-bottom">
         <p class="footer-copy">&copy; 2026 Evostr. All rights reserved.</p>
-        <div class="footer-legal">
-          <a href="privacy.html">Privacy Policy</a>
-          <a href="terms.html">Terms</a>
         </div>
       </div>
 
@@ -551,5 +605,6 @@
     });
   </script>
 
+  <script src="js/newsletter.js"></script>
 </body>
 </html>

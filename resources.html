@@ -227,7 +227,8 @@
       <span class="section-label">Articles</span>
       <h2 style="max-width: 480px; margin-bottom: 36px;">Direct observations on what's shifting in the BPO market.</h2>
 
-      <div class="articles-grid" id="articles-grid">
+      <div class="articles-grid">
+
         <div class="article-card" style="grid-column: 1/-1; color: var(--text-muted); font-family: var(--font-sans); font-size: 15px;">Loading articles…</div>
       </div>
 
@@ -241,12 +242,12 @@
     <div class="container">
       <h2>Get these delivered to your inbox.</h2>
       <p>New articles twice a month. No product announcements, no conference promotion — just straight analysis of what's happening in the market.</p>
-      <!-- Replace action="#" with your email provider's form endpoint -->
-      <form class="signup-form" action="#" method="post" novalidate>
+      <form class="signup-form" id="mc-form-resources" novalidate>
         <label for="signup-email" class="sr-only">Email address</label>
-        <input type="email" id="signup-email" name="email" placeholder="your@email.com" autocomplete="email" required>
+        <input type="email" id="signup-email" name="EMAIL" placeholder="your@email.com" autocomplete="email" required>
         <button type="submit" class="btn btn-primary">Subscribe</button>
       </form>
+      <p id="mc-message-resources" style="display:none; margin-top:12px; font-size:14px; font-family:var(--font-sans);"></p>
     </div>
   </section>
 
@@ -327,19 +328,16 @@
         <div class="footer-newsletter">
           <h4 class="footer-col-heading">Newsletter</h4>
           <p>Market intelligence for BPO operators. Straight signal — no filler.</p>
-          <form class="newsletter-form" action="#" method="post" novalidate>
+          <form class="newsletter-form" id="mc-form" novalidate>
             <label for="footer-email" class="sr-only">Email address</label>
-            <input type="email" id="footer-email" name="email" placeholder="your@email.com" autocomplete="email" required>
+            <input type="email" id="footer-email" name="EMAIL" placeholder="your@email.com" autocomplete="email" required>
             <button type="submit" class="btn btn-primary">Subscribe</button>
           </form>
+          <p id="mc-message" style="display:none; margin-top:12px; font-size:14px; font-family:var(--font-sans);"></p>
         </div>
       </div>
       <div class="footer-bottom">
         <p class="footer-copy">&copy; 2026 Evostr. All rights reserved.</p>
-        <div class="footer-legal">
-          <a href="privacy.html">Privacy Policy</a>
-          <a href="terms.html">Terms</a>
-        </div>
       </div>
     </div>
   </footer>
@@ -353,44 +351,8 @@
         document.getElementById('main-nav').classList.remove('open');
       });
     });
-
-    // Fetch latest 4 articles from Sanity
-    (function() {
-      var PROJECT_ID = '85zx9za3';
-      var DATASET    = 'production';
-      var QUERY      = encodeURIComponent(
-        '*[_type == "article"] | order(publishedAt desc) [0..3] { title, slug, publishedAt, excerpt }'
-      );
-      var URL = 'https://' + PROJECT_ID + '.api.sanity.io/v2021-10-21/data/query/' + DATASET + '?query=' + QUERY;
-
-      fetch(URL)
-        .then(function(res) { return res.json(); })
-        .then(function(data) {
-          var articles = data.result;
-          var grid = document.getElementById('articles-grid');
-
-          if (!articles || articles.length === 0) {
-            grid.innerHTML = '<p style="padding:28px; font-family:var(--font-sans); font-size:15px; color:var(--text-muted); grid-column:1/-1;">No articles published yet.</p>';
-            return;
-          }
-
-          grid.innerHTML = articles.map(function(article) {
-            var date = article.publishedAt
-              ? new Date(article.publishedAt).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
-              : '';
-            return '<a class="article-card" href="article.html?slug=' + article.slug.current + '">'
-              + '<span class="article-date">' + date + '</span>'
-              + '<span class="article-title">' + article.title + '</span>'
-              + '<span class="article-read">Read &rarr;</span>'
-              + '</a>';
-          }).join('');
-        })
-        .catch(function() {
-          document.getElementById('articles-grid').innerHTML =
-            '<p style="padding:28px; font-family:var(--font-sans); font-size:15px; color:var(--text-muted); grid-column:1/-1;">Articles unavailable. Please check back soon.</p>';
-        });
-    })();
   </script>
 
+  <script src="js/newsletter.js"></script>
 </body>
 </html>

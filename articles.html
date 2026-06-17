@@ -159,11 +159,13 @@
     <div class="container">
 
       <div class="articles-filter" id="filter-bar">
-        <button class="filter-btn active" data-category="all">All</button>
-        <button class="filter-btn" data-category="thought-leadership">Thought Leadership</button>
-        <button class="filter-btn" data-category="operations">Operations</button>
-        <button class="filter-btn" data-category="technology">Technology</button>
-        <button class="filter-btn" data-category="growth">Growth</button>
+        <button class="filter-btn active" data-tag="all">All</button>
+        <button class="filter-btn" data-tag="growth">Growth</button>
+        <button class="filter-btn" data-tag="expertise">Expertise</button>
+        <button class="filter-btn" data-tag="leadership">Leadership</button>
+        <button class="filter-btn" data-tag="evolution">Evolution</button>
+        <button class="filter-btn" data-tag="technology">Technology</button>
+        <button class="filter-btn" data-tag="valuation">Valuation</button>
       </div>
 
       <div class="articles-list" id="articles-list">
@@ -259,17 +261,17 @@
       }).join('');
     }
 
-    // Category filter
+    // Tag filter
     document.getElementById('filter-bar').addEventListener('click', function(e) {
       var btn = e.target.closest('.filter-btn');
       if (!btn) return;
       document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
       btn.classList.add('active');
-      var cat = btn.dataset.category;
-      if (cat === 'all') {
+      var tag = btn.dataset.tag;
+      if (tag === 'all') {
         renderArticles(allArticles);
       } else {
-        renderArticles(allArticles.filter(function(a) { return a.category === cat; }));
+        renderArticles(allArticles.filter(function(a) { return a.tags && a.tags.indexOf(tag) !== -1; }));
       }
     });
 
@@ -277,7 +279,7 @@
     var PROJECT_ID = '85zx9za3';
     var DATASET    = 'production';
     var QUERY      = encodeURIComponent(
-      '*[_type == "article"] | order(publishedAt desc) { title, slug, publishedAt, author, category, excerpt }'
+      '*[_type == "article"] | order(publishedAt desc) { title, slug, publishedAt, author, tags, excerpt }'
     );
     var endpoint = 'https://' + PROJECT_ID + '.api.sanity.io/v2021-10-21/data/query/' + DATASET + '?query=' + QUERY;
 

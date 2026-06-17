@@ -27,16 +27,20 @@ export default {
       type: 'string',
     },
     {
-      name: 'category',
-      title: 'Category',
-      type: 'string',
+      name: 'tags',
+      title: 'Tags',
+      type: 'array',
+      of: [{ type: 'string' }],
       options: {
         list: [
-          { title: 'Thought Leadership', value: 'thought-leadership' },
-          { title: 'Operations', value: 'operations' },
-          { title: 'Technology', value: 'technology' },
           { title: 'Growth', value: 'growth' },
+          { title: 'Expertise', value: 'expertise' },
+          { title: 'Leadership', value: 'leadership' },
+          { title: 'Evolution', value: 'evolution' },
+          { title: 'Technology', value: 'technology' },
+          { title: 'Valuation', value: 'valuation' },
         ],
+        layout: 'tags',
       },
     },
     {

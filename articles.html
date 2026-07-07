@@ -169,7 +169,61 @@
       </div>
 
       <div class="articles-list" id="articles-list">
-        <div class="articles-empty">Loading articles…</div>
+
+        <a class="article-row" href="articles/stop-quoting-against-their-brief-why-bpo-discovery-wins.html" data-tags="growth leadership expertise">
+          <div>
+            <div class="article-row-meta">July 2026 &middot; Amanda Quinn</div>
+            <div class="article-row-title">Stop Quoting Against Their Brief: Why BPO Discovery Wins</div>
+            <div class="article-row-excerpt">When a BPO quotes against a prospect's stated headcount without first understanding the problem behind it, the proposal is interchangeable with every competitor's — and that's what turns BPO sales into a price war.</div>
+          </div>
+          <span class="article-row-arrow">&rarr;</span>
+        </a>
+
+        <a class="article-row" href="articles/5-signals-that-every-bpo-leader-needs-to-heed.html" data-tags="leadership growth evolution">
+          <div>
+            <div class="article-row-meta">June 2026 &middot; Amanda Quinn</div>
+            <div class="article-row-title">5 Signals That Every BPO Leader Needs to Heed</div>
+            <div class="article-row-excerpt">At CxOutsourcers in Ottawa, five themes dominated every panel and presentation — with no coordination between speakers. The market is rewriting its criteria for BPO partners right now.</div>
+          </div>
+          <span class="article-row-arrow">&rarr;</span>
+        </a>
+
+        <a class="article-row" href="articles/what-enterprise-buyers-want-2026.html" data-tags="leadership growth expertise">
+          <div>
+            <div class="article-row-meta">May 2026 &middot; Amanda Quinn</div>
+            <div class="article-row-title">What Enterprise Buyers Want from BPO Partners in 2026</div>
+            <div class="article-row-excerpt">Five themes dominated every panel at CXOutsourcers 2026 — with no coordination between speakers. The BPO market is sending a clear signal about where it's heading.</div>
+          </div>
+          <span class="article-row-arrow">&rarr;</span>
+        </a>
+
+        <a class="article-row" href="articles/tech-agnostic-is-the-riskiest-strategy-in-bpo-right-now.html" data-tags="technology evolution leadership">
+          <div>
+            <div class="article-row-meta">May 2026 &middot; Amanda Quinn</div>
+            <div class="article-row-title">"We're Tech Agnostic" Is the Riskiest Strategy in BPO Right Now</div>
+            <div class="article-row-excerpt">Tech agnosticism sounds like flexibility. What it actually signals is an abdication of strategy — one that's squeezing margins and locking firms out of new business.</div>
+          </div>
+          <span class="article-row-arrow">&rarr;</span>
+        </a>
+
+        <a class="article-row" href="articles/the-thing-that-built-your-bpo-might-be-the-thing-holding-it-back.html" data-tags="leadership evolution">
+          <div>
+            <div class="article-row-meta">April 2026 &middot; Amanda Quinn</div>
+            <div class="article-row-title">The Thing That Built Your BPO Might Be the Thing Holding It Back</div>
+            <div class="article-row-excerpt">Most BPOs are organized around the people who built them. It made sense when consistency was the product. But clients aren't just buying execution anymore — and that requires a different kind of organization.</div>
+          </div>
+          <span class="article-row-arrow">&rarr;</span>
+        </a>
+
+        <a class="article-row" href="articles/the-hardest-rung-to-climb.html" data-tags="expertise growth valuation">
+          <div>
+            <div class="article-row-meta">April 2026 &middot; Amanda Quinn</div>
+            <div class="article-row-title">The Hardest Rung to Climb: Why BPO Specialization Beats Generalism</div>
+            <div class="article-row-excerpt">Turning down business isn't a growth strategy. Except when it is. Nick Schrock built Valoroo by serving one industry exclusively — and his margins are 3 to 4 times the industry average.</div>
+          </div>
+          <span class="article-row-arrow">&rarr;</span>
+        </a>
+
       </div>
 
     </div>
@@ -237,30 +291,6 @@
       });
     });
 
-    var allArticles = [];
-
-    function renderArticles(articles) {
-      var list = document.getElementById('articles-list');
-      if (!articles || articles.length === 0) {
-        list.innerHTML = '<div class="articles-empty">No articles published yet.</div>';
-        return;
-      }
-      list.innerHTML = articles.map(function(a) {
-        var date = a.publishedAt
-          ? new Date(a.publishedAt).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
-          : '';
-        var meta = [date, a.author].filter(Boolean).join(' &middot; ');
-        return '<a class="article-row" href="article.html?slug=' + a.slug.current + '">'
-          + '<div>'
-          + (meta ? '<div class="article-row-meta">' + meta + '</div>' : '')
-          + '<div class="article-row-title">' + a.title + '</div>'
-          + (a.excerpt ? '<div class="article-row-excerpt">' + a.excerpt + '</div>' : '')
-          + '</div>'
-          + '<span class="article-row-arrow">&rarr;</span>'
-          + '</a>';
-      }).join('');
-    }
-
     // Tag filter
     document.getElementById('filter-bar').addEventListener('click', function(e) {
       var btn = e.target.closest('.filter-btn');
@@ -268,31 +298,14 @@
       document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
       btn.classList.add('active');
       var tag = btn.dataset.tag;
-      if (tag === 'all') {
-        renderArticles(allArticles);
-      } else {
-        renderArticles(allArticles.filter(function(a) { return a.tags && a.tags.indexOf(tag) !== -1; }));
-      }
-    });
-
-    // Fetch all articles from Sanity
-    var PROJECT_ID = '85zx9za3';
-    var DATASET    = 'production';
-    var QUERY      = encodeURIComponent(
-      '*[_type == "article"] | order(publishedAt desc) { title, slug, publishedAt, author, tags, excerpt }'
-    );
-    var endpoint = 'https://' + PROJECT_ID + '.api.sanity.io/v2021-10-21/data/query/' + DATASET + '?query=' + QUERY;
-
-    fetch(endpoint)
-      .then(function(res) { return res.json(); })
-      .then(function(data) {
-        allArticles = data.result || [];
-        renderArticles(allArticles);
-      })
-      .catch(function() {
-        document.getElementById('articles-list').innerHTML =
-          '<div class="articles-empty">Unable to load articles. Please try again.</div>';
+      document.querySelectorAll('.article-row').forEach(function(row) {
+        if (tag === 'all' || (row.dataset.tags && row.dataset.tags.indexOf(tag) !== -1)) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
       });
+    });
   </script>
 
 </body>

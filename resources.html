@@ -231,9 +231,32 @@
       <span class="section-label">Articles</span>
       <h2 style="max-width: 480px; margin-bottom: 36px;">Direct observations on what's shifting in the BPO market.</h2>
 
-      <div class="articles-grid" id="articles-grid">
+      <div class="articles-grid">
 
-        <div class="article-card" style="grid-column: 1/-1; color: var(--text-muted); font-family: var(--font-sans); font-size: 15px;">Loading articles…</div>
+        <a class="article-card" href="articles/stop-quoting-against-their-brief-why-bpo-discovery-wins.html">
+          <span class="article-date">July 2026</span>
+          <span class="article-title">Stop Quoting Against Their Brief: Why BPO Discovery Wins</span>
+          <span class="article-read">Read &rarr;</span>
+        </a>
+
+        <a class="article-card" href="articles/5-signals-that-every-bpo-leader-needs-to-heed.html">
+          <span class="article-date">June 2026</span>
+          <span class="article-title">5 Signals That Every BPO Leader Needs to Heed</span>
+          <span class="article-read">Read &rarr;</span>
+        </a>
+
+        <a class="article-card" href="articles/what-enterprise-buyers-want-2026.html">
+          <span class="article-date">May 2026</span>
+          <span class="article-title">What Enterprise Buyers Want from BPO Partners in 2026</span>
+          <span class="article-read">Read &rarr;</span>
+        </a>
+
+        <a class="article-card" href="articles/tech-agnostic-is-the-riskiest-strategy-in-bpo-right-now.html">
+          <span class="article-date">May 2026</span>
+          <span class="article-title">"We're Tech Agnostic" Is the Riskiest Strategy in BPO Right Now</span>
+          <span class="article-read">Read &rarr;</span>
+        </a>
+
       </div>
 
       <a class="res-link" href="articles.html">Read all articles &rarr;</a>
@@ -356,41 +379,6 @@
       });
     });
 
-    (function() {
-      var PROJECT_ID = '85zx9za3';
-      var DATASET    = 'production';
-      var QUERY      = encodeURIComponent(
-        '*[_type == "article"] | order(publishedAt desc) [0..3] { title, slug, publishedAt, excerpt }'
-      );
-      var endpoint = 'https://' + PROJECT_ID + '.api.sanity.io/v2021-10-21/data/query/' + DATASET + '?query=' + QUERY;
-
-      fetch(endpoint)
-        .then(function(res) { return res.json(); })
-        .then(function(data) {
-          var articles = data.result;
-          var grid = document.getElementById('articles-grid');
-
-          if (!articles || articles.length === 0) {
-            grid.innerHTML = '<p style="padding:28px; font-family:var(--font-sans); font-size:15px; color:var(--text-muted); grid-column:1/-1;">No articles published yet.</p>';
-            return;
-          }
-
-          grid.innerHTML = articles.map(function(article) {
-            var date = article.publishedAt
-              ? new Date(article.publishedAt).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
-              : '';
-            return '<a class="article-card" href="article.html?slug=' + article.slug.current + '">'
-              + '<span class="article-date">' + date + '</span>'
-              + '<span class="article-title">' + article.title + '</span>'
-              + '<span class="article-read">Read &rarr;</span>'
-              + '</a>';
-          }).join('');
-        })
-        .catch(function() {
-          document.getElementById('articles-grid').innerHTML =
-            '<p style="padding:28px; font-family:var(--font-sans); font-size:15px; color:var(--text-muted); grid-column:1/-1;">Articles unavailable. Please check back soon.</p>';
-        });
-    })();
   </script>
 
   <script src="js/newsletter.js"></script>

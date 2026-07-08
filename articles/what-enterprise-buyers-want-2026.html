@@ -75,17 +75,46 @@
     .article-body p { margin-bottom: 24px; }
 
     .article-body blockquote {
-      border-left: 3px solid var(--navy);
+      position: relative;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
       margin: 36px 0;
-      padding: 8px 0 8px 24px;
+      padding: 32px 32px 28px;
       font-family: var(--font-serif);
       font-style: italic;
       font-size: 20px;
+      line-height: 1.55;
       color: var(--navy);
+    }
+
+    .article-body blockquote::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(to right, var(--oak-bright, #D4AB52), var(--navy, #20294F));
+    }
+
+    .article-body blockquote::before {
+      content: 'KEY INSIGHT';
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--oak, #886D34);
+      margin-bottom: 14px;
+      font-style: normal;
     }
 
     .article-body a {
       color: var(--navy);
+      font-weight: 600;
       text-decoration: underline;
       text-underline-offset: 3px;
     }

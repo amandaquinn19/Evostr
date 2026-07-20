@@ -4,8 +4,8 @@
 <!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-MK5CJCPJBT"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'G-MK5CJCPJBT');</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Why sales teams can't close BPO deals on AI platforms they already built — and why better demos won't fix it.">
-  <title>You Built the AI Platform. Your Sales Team Still Can't Sell It. | Evostr</title>
+  <meta name="description" content="Why tech-enabled BPOs struggle to close deals on the AI capability they've built or partnered for — and what actually fixes it.">
+  <title>The AI Capability Is There. The Deals Still Aren't Closing. | Evostr</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -113,6 +113,114 @@
       border-radius: 100px;
       padding: 4px 12px;
     }
+
+    .article-stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin: 36px 0;
+    }
+
+    .article-tldr {
+      background: rgba(58, 99, 200, 0.07);
+      border: 1px solid rgba(58, 99, 200, 0.15);
+      padding: 24px 28px;
+      margin-bottom: 40px;
+    }
+
+    .article-tldr-label {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--liela-shade, #3A63C8);
+      margin-bottom: 10px;
+    }
+
+    .article-tldr p {
+      font-size: 16px;
+      color: var(--text);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .article-stat {
+      background: var(--navy);
+      padding: 24px 20px;
+    }
+
+    .article-stat-number {
+      font-family: var(--font-serif);
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--oak-bright, #D4AB52);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .article-stat-label {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .article-cta-box {
+      border: 1px solid var(--border);
+      background: var(--matte-steel);
+      padding: 28px 32px;
+      margin: 40px 0;
+    }
+
+    .article-cta-box-label {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--oak, #886D34);
+      margin-bottom: 12px;
+    }
+
+    .article-cta-box p {
+      margin-bottom: 16px;
+      font-size: 16px;
+      color: var(--text-muted);
+    }
+
+    .article-cta-box p:last-child { margin-bottom: 0; }
+
+    .article-more-links {
+      border-top: 1px solid var(--border);
+      margin-top: 48px;
+      padding-top: 32px;
+    }
+
+    .article-more-links-label {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .article-more-links ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .article-more-links ul li {
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 560px) {
+      .article-stat-row { grid-template-columns: 1fr; }
+    }
   </style>
 <!-- Start of HubSpot Embed Code -->
 <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44733462.js"></script>
@@ -140,7 +248,8 @@
     </nav>
   </header>
 
-<!-- ARTICLE -->
+
+  <!-- ARTICLE -->
   <main>
     <div class="container">
       <a class="article-back" href="../articles.html">&larr; Back to Articles</a>
@@ -150,99 +259,201 @@
           <span>July 2026</span>
           <span>Amanda Quinn</span>
         </div>
-        <h1>You Built the AI Platform. Your Sales Team Still Can&rsquo;t Sell It.</h1>
-        <p class="article-excerpt">You made the investment. The platform is built. The integrations work. Your team knows the product cold. They still can&rsquo;t close a BPO deal. The problem isn&rsquo;t the pitch. It&rsquo;s the motion.</p>
+        <h1>The AI Capability Is There. The Deals Still Aren&rsquo;t Closing.</h1>
+        <p class="article-excerpt">Tech-enabled BPOs rarely lose AI deals for one reason. The comp plan often still pays reps far less to sell tech than seats, the sales process wasn&rsquo;t built for a multi-stakeholder purchase, account managers are fielding tech questions with no training, and the narrative leads with features instead of outcomes. Fixing one of these without the others won&rsquo;t move the numbers.</p>
         <div class="article-tags">
-          <a class="article-tag" href="../articles.html?tag=technology">Technology</a>
           <a class="article-tag" href="../articles.html?tag=growth">Growth</a>
+          <a class="article-tag" href="../articles.html?tag=technology">Technology</a>
         </div>
       </section>
 
       <article class="article-body">
 
-        <p>You made the investment. The platform is built. The integrations work. You may have gone out and hired salespeople with tech backgrounds specifically to bring this to market &mdash; people who understand the product cold.</p>
+        <div class="article-tldr">
+          <p class="article-tldr-label">TL;DR</p>
+          <p>Tech-enabled BPOs rarely lose AI deals for one reason. The comp plan often still pays reps far less to sell tech than seats, the sales process wasn&rsquo;t built for a multi-stakeholder purchase, account managers are fielding tech questions with no training, and the narrative leads with features instead of outcomes. Fixing one of these without the others won&rsquo;t move the numbers &mdash; diagnosing which combination is actually blocking your deals is the starting point.</p>
+        </div>
 
-        <p>They still can&rsquo;t close a BPO deal.</p>
+        <p>You&rsquo;ve got the technology. Maybe you built it in-house. Maybe you partnered with a vendor to bring it to market.</p>
 
-        <p>If that&rsquo;s where you are, the instinct is to look at the sales team. Better training. Sharper demos. A different comp plan. Maybe the reps just aren&rsquo;t closers. That instinct is wrong, and it&rsquo;s an expensive place to spend the next two quarters finding out.</p>
+        <p>What&rsquo;s much less certain is whether you&rsquo;ve turned that capability into a story yet &mdash; a clear reason a client should buy it from you, told in a way that actually lands. And whether your team can speak to the technology itself with real confidence in front of a client, rather than reciting features from a slide, is its own open question.</p>
 
-        <p>The problem isn&rsquo;t the pitch. It&rsquo;s the motion.</p>
+        <p>Either way, it&rsquo;s not converting into signed BPO deals at the rate it should.</p>
 
-        <p>Your team knows the product. That was never the gap. The gap is that they&rsquo;re selling it the way a technology company sells technology &mdash; features, integrations, a roadmap, a demo that shows the platform doing what it&rsquo;s built to do.</p>
+        <h2>It&rsquo;s rarely just one thing</h2>
 
-        <p>BPO buyers aren&rsquo;t evaluating a platform. They&rsquo;re evaluating whether you can be trusted with their operation. Those are different purchases, and they get sold in different motions.</p>
+        <p>When a tech-enabled BPO can&rsquo;t close on its own capability, it&rsquo;s almost never a single broken part. It&rsquo;s usually some combination of the following:</p>
+
+        <ul>
+          <li>A sales team &mdash; and an account management team &mdash; that hasn&rsquo;t built real fluency with the technology yet, so conversations default to features instead of confidence.</li>
+          <li>No formal process for this kind of sale, because BPO sales has traditionally been relationship-driven and instinct-guided, and that motion breaks down against a multi-stakeholder technology purchase.</li>
+          <li>A comp plan that still rewards headcount and seat growth, with no real incentive to sell the tech-enabled offering.</li>
+          <li>No outcomes-based narrative &mdash; the pitch defaults to describing the platform instead of what changes for the client.</li>
+          <li>No clear answer to &ldquo;why you, specifically&rdquo; &mdash; what your combination of people and technology unlocks that a pure-play software vendor, a competitor, or the client&rsquo;s status quo doesn&rsquo;t.</li>
+          <li>Little or no proof, from clients you&rsquo;ve already served, that the model actually delivers.</li>
+          <li>A segment of prospects who aren&rsquo;t ready for the tech conversation yet, for reasons that have nothing to do with your pitch.</li>
+        </ul>
+
+        <p>Treat this as a one-cause problem and you&rsquo;ll fix the wrong thing well. The useful question isn&rsquo;t &ldquo;what&rsquo;s broken&rdquo; &mdash; it&rsquo;s &ldquo;which of these, in what order.&rdquo;</p>
+
+        <div class="article-cta-box">
+          <p class="article-cta-box-label">See where your commercial motion stands</p>
+          <p>The Commercial Gap Check is a free, ten-question self-assessment across the four dimensions where this typically breaks down &mdash; go-to-market narrative, sales process, business strategy, and account management. Results shown immediately, no email required.</p>
+          <p><a href="../commercial-gap-check.html">Start the Gap Check &rarr;</a></p>
+        </div>
+
+        <h2>Fix the fundamentals &mdash; but aim them at the right target</h2>
+
+        <h3>Compensation structure</h3>
+
+        <p>Start with the comp plan, because it&rsquo;s the most concrete example of a well-intentioned structure working against you. Most BPOs still run a standard 3-2-1 commission structure &mdash; 3% of contract revenue in year one, 2% in year two, 1% in year three. That made sense when every deal was an outsourcing contract.</p>
+
+        <p>Run the same structure against a tech-enabled deal and the math breaks: a traditional 20-seat outsourcing contract might generate roughly $500,000 a year, earning a rep close to $15,000 at 3%. An AI-enabled solution priced per agent, per month, might generate a fraction of that in annual value &mdash; and the same commission structure can pay the rep 90%-plus less to sell your most strategic offering. You will get the behavior you incentivize, and an unchanged comp plan is still incentivizing seats.</p>
+
+        <h3>Sales process</h3>
+
+        <p>Next, the sales process itself. Selling outsourcing services is typically a relationship-driven motion &mdash; one department, a known buyer, a scope everyone already understands. Selling AI is a different animal: a higher-value, higher-risk purchase with a longer cycle and multiple stakeholders, each with different criteria. A CTO wants security and integration answers. A CFO wants ROI. An operations leader wants to understand workflow impact.</p>
+
+        <p>Your reps need to know how to identify the economic buyer, cultivate a champion who&rsquo;ll advocate when they&rsquo;re not in the room, and recognize the gatekeeper who can quietly kill a deal the end user loves. And they need to know when a demo helps and when it doesn&rsquo;t &mdash; showing one before requirements are fully understood is one of the fastest ways to kill a deal that had real potential.</p>
+
+        <h3>Training</h3>
+
+        <p>Finally, training &mdash; and it has to be real training, not exposure. The standard &ldquo;enablement&rdquo; for a new AI or technology solution in BPO is often a couple of one-hour vendor Zoom sessions and some collateral. That&rsquo;s not training, and the data on why it doesn&rsquo;t work is stark:</p>
+
+        <div class="article-stat-row">
+          <div class="article-stat">
+            <div class="article-stat-number">90%+</div>
+            <div class="article-stat-label">less commission paid on a typical tech-enabled deal under an unchanged 3-2-1 plan</div>
+          </div>
+          <div class="article-stat">
+            <div class="article-stat-number">87%</div>
+            <div class="article-stat-label">of new sales information B2B reps forget within a month of a one-time briefing</div>
+          </div>
+          <div class="article-stat">
+            <div class="article-stat-number">17%</div>
+            <div class="article-stat-label">of companies run training that actually moves sales performance</div>
+          </div>
+        </div>
+
+        <p>A one-time briefing doesn&rsquo;t build capability &mdash; it builds false confidence that collapses the moment a client asks a pointed integration question. Real enablement means scenario-based practice and ongoing reinforcement, not a slide deck and a single session.</p>
+
+        <p>None of this works in isolation. Trained reps with the right incentives still lose deals if there&rsquo;s no compelling reason for the buyer to choose you, and no proof you can deliver. Fundamentals create the capacity to sell well. They don&rsquo;t supply the narrative.</p>
+
+        <h2>Don&rsquo;t forget your account managers</h2>
+
+        <h3>The training gap AMs fall into</h3>
+
+        <p>Most of the conversation about fixing this defaults to the sales team. That skips the people who are often the first to hear about a client&rsquo;s interest in AI at all.</p>
+
+        <p>Your account managers already have the relationship, the access, and the intel. What most of them don&rsquo;t have is the framework to turn a client conversation into a qualified opportunity. That&rsquo;s a training gap, and it shows up in a familiar way: a client mentions &ldquo;Agentic AI&rdquo; in a QBR, the AM wants to help, so they book a demo with a tech partner &mdash; no real discovery, no understanding of what&rsquo;s actually driving the interest, no map of who else needs to be involved. Just motion. If the solution turns out to be the wrong fit, the client&rsquo;s trust in your BPO takes the hit, not just the deal.</p>
+
+        <h3>Three skills that make the difference</h3>
+
+        <p>The BPOs winning expansion revenue right now have account managers with three specific skills: business acumen (enough understanding of the client&rsquo;s business to recognize a real problem, not just nod along), discovery (asking open-ended, insight-led questions, distinguishing real intent from polite interest, and documenting what they learn in a way a salesperson can actually use), and relationship stewardship (staying in the room once a rep is engaged, surfacing intel the client will share with them but not a new face, and helping the deal navigate the client&rsquo;s internal politics).</p>
+
+        <p>This isn&rsquo;t a large lift, but it is a deliberate one. It starts with deciding that your account managers are part of the growth strategy, not just the retention strategy.</p>
+
+        <h2>Give buyers a reason it&rsquo;s you</h2>
+
+        <p>Once the fundamentals are aimed correctly, this is where the real gap usually lives. Buyers who are technology-ready aren&rsquo;t just asking whether the platform works. They&rsquo;re asking why they should buy this capability bundled with you instead of building it, buying it from a pure-play vendor, or sticking with what they have.</p>
+
+        <h3>Diagnose before you demonstrate</h3>
+
+        <p>The instinct is to lead with a capabilities deck &mdash; a full list of everything you can do. Prospects go quiet after those. What they&rsquo;re actually evaluating isn&rsquo;t your service menu, it&rsquo;s your credibility: have you solved this exact problem before, and can you prove it? Diagnose before you demonstrate. Ask questions specific enough to show you understand their situation, then lead with what you&rsquo;ve already solved for someone like them, not a general pitch of what you&rsquo;re capable of.</p>
+
+        <h3>What the narrative needs</h3>
+
+        <ul>
+          <li>An outcomes-based narrative &mdash; leading with what changes for the client&rsquo;s business, not with what you built.</li>
+          <li>A specific, differentiated case for the combination &mdash; what does having the technology and the operational expertise together unlock that either one alone doesn&rsquo;t?</li>
+          <li>Proof points from existing clients &mdash; real, specific results, even if the account stays anonymized, showing the model has already worked.</li>
+        </ul>
+
+        <h2>Not every buyer is ready &mdash; and that&rsquo;s not a failure</h2>
+
+        <h3>It&rsquo;s a trust test</h3>
+
+        <p>Right now, plenty of BPOs are winning new business for capacity, coverage, and incremental help getting through a backlog &mdash; not for AI. It&rsquo;s tempting to read that as a sign AI doesn&rsquo;t matter in the sales conversation. That&rsquo;s the wrong read.</p>
 
         <blockquote>
-          BPO buyers don&rsquo;t buy infrastructure. They buy certainty. The gap between what your team is selling and what your clients are willing to purchase is not a people problem. It&rsquo;s a structural one.
+          Brands aren&rsquo;t saying no to AI. They&rsquo;re saying &ldquo;prove it first.&rdquo;
           <cite>&mdash; Amanda Quinn, Principal, Evostr</cite>
         </blockquote>
 
-        <h2>Why the usual fixes don&rsquo;t work</h2>
+        <p>What&rsquo;s actually happening is a trust test. The client isn&rsquo;t ready to hand you a technology transformation, but they want to know whether you&rsquo;re the kind of partner who could handle one. Your comfort with technology, your sales approach, your delivery &mdash; all of it is being evaluated before the real conversation ever starts.</p>
 
-        <p>The most common advice for this exact situation &mdash; better demos, risk-reversal pricing, a faster proof-of-concept &mdash; treats the symptom. It assumes the buyer isn&rsquo;t convinced yet, and that more proof will close the gap.</p>
+        <p>Some of that hesitation is about trust and sequencing. Some of it is a legitimate reason a brand doesn&rsquo;t want a capability this central to their operation tied to a single vendor relationship, or isn&rsquo;t ready to make any move on the technology front right now, regardless of how strong the pitch is.</p>
 
-        <p>But the buyer often <em>is</em> convinced the technology works. What they&rsquo;re not convinced of is that buying it from you, structured the way you&rsquo;re proposing, is the safer choice versus staying with what they know or going to a specialist who&rsquo;s already made this exact case a hundred times. Risk-reversal pricing on a broken commercial motion doesn&rsquo;t fix the motion. It just makes the first broken deal cheaper.</p>
+        <h3>What that means for your approach</h3>
 
-        <h2>What&rsquo;s actually missing</h2>
+        <p>Either way, forcing the tech narrative on a buyer who isn&rsquo;t there yet wastes the deal and the relationship. Two things need to be true instead: AI has to be a credible part of your story, not a throwaway slide at the end of the deck, and your account management team needs to be ready to quarterback that conversation when the client signals they&rsquo;re ready to go deeper. The BPOs that win the next wave of technology business won&rsquo;t be the ones who waited for the RFP. They&rsquo;ll be the ones who were already trusted.</p>
 
-        <p>Three things, usually, and none of them are a people problem:</p>
+        <h2>Where this comes together</h2>
 
-        <ul>
-          <li><strong>A narrative that leads with the client&rsquo;s outcome, not your architecture.</strong> If the first fifteen minutes of a sales conversation are about what you built, you&rsquo;ve already lost the buyer who wanted to hear about what changes for them.</li>
-          <li><strong>A pricing and contract structure built for what you&rsquo;re actually selling.</strong> Seat-based and project-based pricing models don&rsquo;t hold up when the value you&rsquo;re delivering is outcome-based. If your commercial terms still look like a staffing contract, the buyer will price you like one &mdash; platform or not.</li>
-          <li><strong>An account management motion that proves the certainty, not just claims it.</strong> Buyers who are nervous about handing over their operation need to see how you manage risk after the contract is signed, not just how confident you sound before it.</li>
-        </ul>
+        <p>Sorting out which combination of causes is actually at work &mdash; team fluency, process, incentives, narrative, proof, or buyer readiness &mdash; is exactly what Commercial Architecture is built to diagnose.</p>
 
-        <p>This is what we mean by a structural diagnosis instead of another sales hire. The fix isn&rsquo;t a better version of the current motion. It&rsquo;s a different motion &mdash; built around what BPO buyers are actually purchasing when they say yes.</p>
+        <div class="article-cta-box">
+          <p class="article-cta-box-label">What is Commercial Architecture?</p>
+          <p>One of the four dimensions of Evostr&rsquo;s transformation work &mdash; sales process design, pricing strategy, contract structure, and account management, sequenced against where a BPO actually sits on the <a href="../evolution-ladder.html">BPO Evolution Ladder</a>. It&rsquo;s the work of turning a positioning decision into a sales motion that closes.</p>
+        </div>
 
-        <h2>What this looks like in practice</h2>
-
-        <p>This is exactly the situation the second entry point on our qualification page describes: you&rsquo;ve built the capability, and the team that knows the product can&rsquo;t close the deal. It&rsquo;s also one of the four dimensions of the work we do with every client &mdash; what we call Commercial Architecture: sales process design, pricing strategy, contract structure, and account management transformation, sequenced against where you actually sit on the <a href="../evolution-ladder.html">BPO Evolution Ladder</a>.</p>
-
-        <p>Crossing from a tech-enabled capability to a valuation-changing one &mdash; what the Ladder calls the widening rift between rungs three and four &mdash; is a commercial redesign, not a hiring decision. Most operators try to solve it with the second before they&rsquo;ve done the first.</p>
+        <p>Crossing from a tech-enabled capability to a valuation-changing one &mdash; the widening rift between rungs three and four &mdash; takes more than a training session or a new hire. It takes knowing which fixes matter first, and making sure the people already inside your client relationships are equipped to carry the conversation forward.</p>
 
         <h2>Where to start</h2>
 
-        <p>If this is the wall you&rsquo;ve hit, the starting point isn&rsquo;t a new sales hire or a new deck. It&rsquo;s a clear diagnosis of where the commercial breakdown is actually occurring &mdash; which is what the <a href="../assessment.html">Strategic Growth Assessment</a> is built to produce: a Ladder placement, a market position scan, and a prioritized roadmap of what to fix and in what order.</p>
+        <p>The starting point is a clear, honest look at which of these factors is actually blocking your deals. Start by taking our free <a href="../commercial-gap-check.html">Commercial Gap Check</a> &mdash; a short quiz designed to give you a directional read on what is holding your firm back from moving from providing labor to providing solutions.</p>
 
-        <p>You already know the product works. The next question is whether the way you&rsquo;re selling it matches what your buyers are actually willing to purchase.</p>
+        <p>It&rsquo;s based on our <a href="../assessment.html">Strategic Growth Assessment</a>, a six-week, outside-in diagnosis that places you on the BPO Evolution Ladder, scans your market position independently, and hands you a prioritized roadmap for increasing your valuation and market positioning as quickly as possible.</p>
 
-        <p><a href="../qualification.html">See if this is your situation &rarr;</a> &nbsp;&nbsp; <a href="../assessment.html">Request the assessment &rarr;</a></p>
+        <p>You already have the capability. The next question is which piece of the commercial motion is actually standing between it and revenue.</p>
+
+        <p><a href="../commercial-gap-check.html">Start the Commercial Gap Check &rarr;</a> &nbsp;&nbsp; <a href="../qualification.html">Is Evostr the right fit? &rarr;</a></p>
 
         <div class="article-faq">
           <h3 class="article-faq-heading">FAQ: Selling AI Capabilities in BPO</h3>
 
           <div class="article-faq-item">
-            <p class="article-faq-q">Why can&rsquo;t BPO sales teams sell AI platforms they&rsquo;ve already built?</p>
-            <p class="article-faq-a">The capability gap isn&rsquo;t the problem. The sales motion still runs like a technology sale — features, demos, integrations — but BPO buyers aren&rsquo;t evaluating a platform. They&rsquo;re evaluating whether you can be trusted with their operation. Those are different purchases that require a fundamentally different selling approach.</p>
+            <p class="article-faq-q">Why can&rsquo;t my sales team close deals on the AI platform we built?</p>
+            <p class="article-faq-a">Usually it&rsquo;s not one cause. The most common combination is a comp plan that still rewards seats over tech-enabled deals, a sales process built for relationship-driven outsourcing rather than multi-stakeholder technology purchases, and reps or account managers who haven&rsquo;t been trained to sell the offering with real fluency. Diagnosing which of these is actually blocking your deals &mdash; and in what order to fix them &mdash; matters more than any single fix on its own.</p>
           </div>
 
           <div class="article-faq-item">
-            <p class="article-faq-q">Why don&rsquo;t better demos or risk-reversal pricing fix the problem?</p>
-            <p class="article-faq-a">Better demos assume the buyer isn&rsquo;t convinced the technology works. Most BPO buyers already believe it works. What they&rsquo;re not convinced of is that buying it from you — structured the way you&rsquo;re proposing — is safer than staying with what they know. A better demo doesn&rsquo;t address that. Neither does a cheaper proof-of-concept on a motion that&rsquo;s already broken.</p>
+            <p class="article-faq-q">Should I fix training, the comp plan, or the sales narrative first?</p>
+            <p class="article-faq-a">It depends on which is actually broken, which is why a diagnostic step matters before committing to a fix &mdash; the free <a href="../commercial-gap-check.html">Commercial Gap Check</a> is a fast way to see a directional read across all four areas. That said, a broken comp plan will undercut even well-trained reps, since people repeat what they&rsquo;re paid to repeat &mdash; so incentive structure is often the fastest, cheapest first move, with process and narrative work following close behind.</p>
           </div>
 
           <div class="article-faq-item">
-            <p class="article-faq-q">What is Commercial Architecture in BPO?</p>
-            <p class="article-faq-a">Commercial Architecture is the combination of sales process design, pricing strategy, contract structure, and account management — built around what BPO buyers are actually purchasing, not just what you&rsquo;re delivering. When any of those four elements is misaligned with what a buyer is evaluating, the deal stalls or goes to price.</p>
+            <p class="article-faq-q">Do account managers need AI sales training, or just the sales team?</p>
+            <p class="article-faq-a">Both. Account managers are typically the first people to hear about a client&rsquo;s interest in AI, since they already hold the relationship. Without training in business acumen, discovery, and relationship stewardship, an AM&rsquo;s instinct to &ldquo;help&rdquo; by booking a demo can do more damage to trust than saying nothing at all.</p>
           </div>
 
           <div class="article-faq-item">
-            <p class="article-faq-q">What does it mean to sell certainty instead of capability?</p>
-            <p class="article-faq-a">BPO buyers don&rsquo;t buy infrastructure. They buy certainty that their operation will run without disruption. The sales motion that closes deals is the one that builds and proves that certainty — through how you price, how you structure risk, and how you communicate what happens after the contract is signed. Capability is the entry requirement. Certainty is what gets bought.</p>
+            <p class="article-faq-q">What if my clients aren&rsquo;t ready to buy AI from us yet?</p>
+            <p class="article-faq-a">That&rsquo;s common, and it isn&rsquo;t a sales failure. Most brands are running a trust test &mdash; winning you business for capacity or coverage while they evaluate whether you&rsquo;re the kind of partner who could handle a real technology transformation. The right response is to keep AI credibly part of your story without forcing the conversation, and make sure your account team can recognize the signal when a client is ready to go deeper.</p>
           </div>
 
           <div class="article-faq-item">
-            <p class="article-faq-q">How does the BPO Evolution Ladder relate to this problem?</p>
-            <p class="article-faq-a">The Ladder identifies where a BPO sits in its commercial maturity — from selling hours, to selling outcomes, to selling certainty. The gap between rungs three and four, from tech-enabled to valuation-changing, is where most operators get stuck. Crossing it requires a commercial redesign, not another technology investment or a new sales hire.</p>
+            <p class="article-faq-q">What&rsquo;s different about selling an AI-enabled solution versus selling BPO seats?</p>
+            <p class="article-faq-a">Seat-based BPO sales are typically a single-department, relationship-driven motion with a buyer who already understands what they&rsquo;re purchasing. Selling an AI-enabled solution is a higher-value, higher-risk, multi-stakeholder sale &mdash; it usually involves IT, finance, and operations, each with different criteria, and requires identifying the economic buyer, cultivating a champion, and navigating a gatekeeper who can quietly stall the deal.</p>
           </div>
+        </div>
+
+        <div class="article-more-links">
+          <p class="article-more-links-label">More from Evostr</p>
+          <ul>
+            <li><a href="../commercial-gap-check.html">Take the Commercial Gap Check &rarr;</a></li>
+            <li><a href="../evolution-ladder.html">Where does your BPO sit today? &rarr;</a></li>
+            <li><a href="../qualification.html">Is Evostr the right fit for your situation? &rarr;</a></li>
+            <li><a href="../assessment.html">See what the Strategic Growth Assessment delivers &rarr;</a></li>
+          </ul>
         </div>
 
       </article>
     </div>
   </main>
 
-<!-- CTA -->
+
+  <!-- CTA -->
   <section class="navy">
     <div class="container">
       <h2 style="max-width:520px; color:var(--white); margin-bottom:28px;">When the conversation makes sense, you&rsquo;ll know. We&rsquo;ll be here.</h2>
@@ -250,7 +461,8 @@
     </div>
   </section>
 
-<!-- FOOTER -->
+
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top">

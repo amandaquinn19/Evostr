@@ -81,51 +81,6 @@
 
     .article-body ul li { margin-bottom: 12px; }
 
-    .article-body blockquote {
-      position: relative;
-      background: var(--cream);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      overflow: hidden;
-      margin: 36px 0;
-      padding: 32px 32px 28px;
-      font-family: var(--font-serif);
-      font-style: italic;
-      font-size: 20px;
-      line-height: 1.55;
-      color: var(--navy);
-    }
-
-    .article-body blockquote::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(to right, var(--oak-bright, #D4AB52), var(--navy, #20294F));
-    }
-
-    .article-body blockquote::before {
-      content: 'KEY INSIGHT';
-      display: block;
-      font-family: var(--font-sans);
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--oak, #886D34);
-      margin-bottom: 14px;
-      font-style: normal;
-    }
-
-    .article-body a {
-      color: var(--navy);
-      font-weight: 600;
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-
     .article-back {
       font-family: var(--font-sans);
       font-size: 14px;
@@ -185,8 +140,7 @@
     </nav>
   </header>
 
-
-  <!-- ARTICLE -->
+<!-- ARTICLE -->
   <main>
     <div class="container">
       <a class="article-back" href="../articles.html">&larr; Back to Articles</a>
@@ -285,32 +239,40 @@
 
         <p>The next time a prospect hands you a number, are you going to quote it, or find out why it's the number they picked?</p>
 
-        <p><strong></strong></p>
+        <div class="article-faq">
+          <h3 class="article-faq-heading">FAQ: BPO Sales Discovery and Differentiation</h3>
 
-        <p><strong></strong></p>
+          <div class="article-faq-item">
+            <p class="article-faq-q">Why do BPO sales conversations turn into price wars?</p>
+            <p class="article-faq-a">Price wars happen when a BPO quotes against a prospect's stated request, like a specific headcount, without first understanding what's actually driving that request. Once the brief defines the conversation, every proposal looks the same on paper, leaving price as the only point of comparison.</p>
+          </div>
 
-        <p><strong></strong></p>
+          <div class="article-faq-item">
+            <p class="article-faq-q">What does it mean to be a &ldquo;vendor&rdquo; instead of a &ldquo;strategic partner&rdquo; in BPO sales?</p>
+            <p class="article-faq-a">A vendor delivers exactly what a client asks for without questioning the underlying problem. A strategic partner asks why the request exists before agreeing to it. Clients categorize a BPO based on how the first few conversations go, then manage that BPO accordingly for the life of the contract.</p>
+          </div>
 
-        <p><strong></strong></p>
+          <div class="article-faq-item">
+            <p class="article-faq-q">What questions should a BPO salesperson ask before quoting a price?</p>
+            <p class="article-faq-a">Useful discovery questions include what recently changed to make this the right time to address the issue, who else weighs in on the decision, and whether a similar fix has been tried before internally or with another provider. Each should change the proposal depending on the answer; if it wouldn&rsquo;t, it isn&rsquo;t a real discovery question.</p>
+          </div>
 
-        <h3><strong>FAQ: BPO Sales Discovery and Differentiation</strong></h3>
+          <div class="article-faq-item">
+            <p class="article-faq-q">Why does discovery matter more in BPO sales now than it used to?</p>
+            <p class="article-faq-a">B2B buyers now do most of their research independently before ever speaking with a salesperson, so the limited time they do spend with a BPO rep needs to deliver something they couldn&rsquo;t find on their own. Research backs this up: sellers who teach buyers something new about their own problem consistently outperform those who simply respond to a stated need.</p>
+          </div>
 
-        <p><strong>Why do BPO sales conversations turn into price wars?</strong> Price wars happen when a BPO quotes against a prospect's stated request, like a specific headcount, without first understanding what's actually driving that request. Once the brief defines the conversation, every proposal looks the same on paper, leaving price as the only point of comparison.</p>
-
-        <p><strong>What does it mean to be a "vendor" instead of a "strategic partner" in BPO sales?</strong> A vendor delivers exactly what a client asks for without questioning the underlying problem. A strategic partner asks why the request exists before agreeing to it. Clients categorize a BPO based on how the first few conversations go, then manage that BPO accordingly for the life of the contract.</p>
-
-        <p><strong>What questions should a BPO salesperson ask before quoting a price?</strong> Useful discovery questions include what recently changed to make this the right time to address the issue, who else weighs in on the decision, and whether a similar fix has been tried before internally or with another provider. Each should change the proposal depending on the answer; if it wouldn't, it isn't a real discovery question.</p>
-
-        <p><strong>Why does discovery matter more in BPO sales now than it used to?</strong> B2B buyers now do most of their research independently before ever speaking with a salesperson, so the limited time they do spend with a BPO rep needs to deliver something they couldn't find on their own. Research backs this up: sellers who teach buyers something new about their own problem consistently outperform those who simply respond to a stated need.</p>
-
-        <p><strong>How can a BPO make its sales process a differentiator?</strong> By treating a prospect's request as the start of a conversation rather than a finished brief, asking about the business driver behind a request, bringing in the right stakeholders early, and proposing a solution based on the actual root cause rather than the headcount initially requested. This builds the case for being treated as a partner rather than a commodity vendor before a contract is ever signed.</p>
+          <div class="article-faq-item">
+            <p class="article-faq-q">How can a BPO make its sales process a differentiator?</p>
+            <p class="article-faq-a">By treating a prospect&rsquo;s request as the start of a conversation rather than a finished brief, asking about the business driver behind a request, bringing in the right stakeholders early, and proposing a solution based on the actual root cause rather than the headcount initially requested. This builds the case for being treated as a partner rather than a commodity vendor before a contract is ever signed.</p>
+          </div>
+        </div>
 
       </article>
     </div>
   </main>
 
-
-  <!-- CTA -->
+<!-- CTA -->
   <section class="navy">
     <div class="container">
       <h2 style="max-width:520px; color:var(--white); margin-bottom:28px;">When the conversation makes sense, you'll know. We'll be here.</h2>
@@ -318,8 +280,7 @@
     </div>
   </section>
 
-
-  <!-- FOOTER -->
+<!-- FOOTER -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top">

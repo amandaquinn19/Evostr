@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-MK5CJCPJBT"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'G-MK5CJCPJBT');</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A 5-minute self-assessment for BPOs that built the AI/tech capability but can't convert it into revenue. Directional read across four commercial dimensions — free, no email required to see your result.">
+  <title>The Commercial Gap Check | Free BPO Diagnostic | Evostr</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;0,800;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <style>
+    /* ---- Gap Check page ---- */
+
+    /* Hero */
+    .gc-hero {
+      max-width: 760px;
+    }
+
+    .gc-hero h1 {
+      max-width: 720px;
+    }
+
+    .gc-hero .hero-subhead {
+      max-width: 620px;
+    }
+
+    /* Intro section */
+     .gc-intro-section {
+      padding-bottom: 0px !important;
+    }    
+     .gc-intro-section p.section-intro:first-of-type {
+      margin-top: 24px;
+      margin-bottom: 0px;
+    }
+
+    /* Progress bar */
+    .gc-progress-bar {
+      position: sticky;
+      top: 18px;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 9px 0 14px;
+      margin-bottom: 8px;
+    }
+
+    .gc-progress-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .gc-progress-text {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0.01em;
+    }
+
+    .gc-progress-text strong {
+      color: var(--navy);
+      font-weight: 700;
+    }
+
+    .gc-progress-track {
+      flex: 1;
+      max-width: 220px;
+      height: 3px;
+      background: var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .gc-progress-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--navy);
+      transition: width 0.2s ease;
+    }
+
+    /* Dimension groups */
+    .gc-dimension {
+      margin-top: 40px;
+    }
+
+    .gc-dimension:first-child {
+      margin-top: 40px;
+    }
+
+    .gc-dimension-label {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--oak);
+      margin-bottom: 28px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Question block */
+    .gc-question {
+      padding: 00px 0 50px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .gc-question:first-of-type {
+      padding-top: 50;
+    }
+
+    .gc-q-num {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-light);
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+    }
+
+    .gc-q-text {
+      font-family: var(--font-serif);
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--text);
+      max-width: 720px;
+      line-height: 1.4;
+      margin-bottom: 20px;
+    }
+
+    fieldset.gc-question {
+      border: none;
+    }
+
+    legend.gc-q-text {
+      padding: 0;
+    }
+
+    .gc-options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 720px;
+    }
+
+    .gc-option {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px 18px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--white);
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .gc-option:hover {
+      border-color: var(--text-light);
+    }
+
+    .gc-option-input {
+      margin-top: 3px;
+      accent-color: var(--navy);
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    .gc-option-input:checked ~ .gc-option-content .gc-option-tag {
+      color: var(--navy);
+    }
+
+    .gc-option-input:checked ~ .gc-option-content {
+      color: var(--text);
+    }
+
+    .gc-option:has(.gc-option-input:checked) {
+      border-color: var(--navy);
+      background: var(--cream);
+    }
+
+    .gc-option-content {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .gc-option-tag {
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-light);
+    }
+
+    .gc-option-text {
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--text-muted);
+    }
+
+    /* Submit */
+    .gc-submit-block {
+      margin-top: 10px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .gc-submit-note {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .btn-primary:disabled {
+      background: var(--border);
+      color: var(--text-light);
+      cursor: not-allowed;
+    }
+    .btn-primary:disabled:hover {
+      background: var(--border);
+    }
+
+    /* Result section */
+    .gc-result {
+      display: none;
+    }
+
+    .gc-result.is-visible {
+      display: block;
+    }
+
+    .gc-result-score {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .gc-result-number {
+      font-family: var(--font-serif);
+      font-size: clamp(48px, 6vw, 72px);
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    .gc-result-outof {
+      font-family: var(--font-sans);
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .gc-result-band {
+      max-width: 700px;
+      margin-bottom: 16px;
+    }
+
+    .gc-result-band-copy {
+      max-width: 700px;
+      font-size: 18px;
+      line-height: 1.75;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .gc-dim-scores {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      max-width: 900px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--border);
+      margin-bottom: 24px;
+    }
+
+    .gc-dim-score {
+      background: var(--white);
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .gc-dim-score-name {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    .gc-dim-score-value {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .gc-dim-score.level-reactive {
+      background: rgba(192, 67, 47, 0.1);
+    }
+
+    .gc-dim-score.level-reactive .gc-dim-score-value {
+      color: rgba(192, 67, 47, 1);
+    }
+
+    .gc-dim-score.level-developing {
+      background: #F5F3EE;
+    }
+
+    .gc-dim-score.level-developing .gc-dim-score-value {
+      color: #886D34;
+    }
+
+    .gc-dim-score.level-structured {
+      background: rgba(82, 168, 126, 0.1);
+    }
+
+    .gc-dim-score.level-structured .gc-dim-score-value {
+      color: #52A87E;
+    }
+
+    .gc-result-next h3 {
+      font-size: 20px;
+      margin-bottom: 16px;
+      max-width: 640px;
+    }
+
+    .gc-result-next p {
+      max-width: 660px;
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .gc-result-cta {
+      margin-top: 28px;
+      text-decoration: underline;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .gc-result-secondaries {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    /* Responsive */
+    @media (max-width: 760px) {
+      .gc-dim-scores {
+        grid-template-columns: 1fr 1fr;
+      }
+      .gc-progress-track {
+        display: none;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .gc-option {
+        padding: 14px;
+      }
+    }
+  </style>
+<!-- Start of HubSpot Embed Code -->
+<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44733462.js"></script>
+<!-- End of HubSpot Embed Code -->
+</head>
+
+<body>
+
+  <!-- =====================
+       NAVIGATION
+       ===================== -->
+  <header class="site-header">
+    <nav class="nav container" id="main-nav">
+      <a href="index.html" class="nav-logo" aria-label="Evostr – Home">
+        <img src="assets/logo-leila-h.svg" alt="Evostr" class="nav-logo-img" height="34" width="127">
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="evolution-ladder.html">Evolution Ladder</a></li>
+        <li><a href="how-we-work.html">How We Work</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="resources.html">Resources</a></li>
+      </ul>
+
+      <a href="book.html" class="btn btn-primary">Book a Conversation</a>
+
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+
+  <!-- =====================
+       HERO
+       ===================== -->
+  <section class="hero grey">
+    <div class="container">
+      <div class="gc-hero">
+
+        <h1>You have the AI capability. This self-assessment shows you why it isn't converting.</h1>
+        <p class="hero-subhead">Ten questions across the four dimensions where a technology-enabled sale typically breaks down. Answer them, and see exactly where your commercial motion is structured, where it's developing, and where it's still reactive.</p>
+        <div class="hero-cta">
+          <a href="#quiz" class="btn btn-primary">Start the Gap Check &rarr;</a>
+          <span class="hero-cta-note">5 minutes. No email required to see your result.</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================
+       THE QUESTIONS
+       ===================== -->
+<section class="gc-intro-section">
+<div class="container">
+<h3>Taking the Self-Assessment</h3>
+      <p class="section-intro">For each question, choose the answer that describes what's actually happening in your business today. If none of the three options feels quite right, pick the one closest to true. The result is only useful if the input is honest.</p>
+   </div>
+  </section>  
+<section id="quiz">
+    </div>
+    <div class="gc-progress-bar">
+      <div class="container gc-progress-inner">
+        <span class="gc-progress-text"><strong id="gcAnsweredCount">0</strong> of 10 answered</span>
+        <div class="gc-progress-track"><div class="gc-progress-fill" id="gcProgressFill"></div></div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <form id="gcForm">
+
+        <!-- Dimension 1 -->
+        <div class="gc-dimension">
+          <span class="gc-dimension-label">Dimension 1 — Go-to-Market Narrative</span>
+
+          <fieldset class="gc-question" data-q="1" data-dim="1">
+            <span class="gc-q-num">Question 1 of 10</span>
+            <legend class="gc-q-text">When your team pitches the tech-enabled offering, what do they lead with?</legend>
+            <div class="gc-options">
+              <label class="gc-option">
+                <input class="gc-option-input" type="radio" name="q1" value="0">
+                <span class="gc-option-content">
+                  <span class="gc-option-tag">Reactive</span>
+                  <span class="gc-option-text">The technology — what it does, how it works, unique features.</span>
+                </span>
+              </label>
+              <label class="gc-option">
+                <input class="gc-option-input" type="radio" name="q1" value="1">
+                <span class="gc-option-content">
+                  <span class="gc-option-tag">Developing</span>
+                  <span class="gc-option-text">A mix — some capability talk, some client context, depending on the rep.</span>
+                </span>
+              </label>
+              <label class="gc-option">
+                <input class="gc-option-input" type="radio" name="q1" value="2">
+                <span class="gc-option-content">
+                  <span class="gc-option-tag">Structured</span>
+                  <span class="gc-option-text">The client's specific outcome, arrived at through discovery before the pitch is built.</span>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="gc-question" data-q="2" data-dim="1">
+            <span class="gc-q-num">Question 2 of 10</span>
+            <legend class="gc-q-text">Do you have proof — real client results — you can point to in a sales conversation?</legend>
+            <div class="gc-options">
+              <label class="gc-option">
+                <input class="gc-option-input" type="radio" name="q2" value="0">
+                <span class="gc-option-content">
+                  <span class="gc-option-tag">Reactive</span>
+                  <span class="gc-option-text">Not really. It's a new enough offering that we don't have case examples yet, or we've never systematized what we have.</span>
+                </span>
+              </label>
+              <label class="gc-option">
+                <input class="gc-option-input" type="radio" name="q2" value="1">
+                <span class="gc-option-content">
+                  <span class="gc-option-tag">Developing</span>
+                  <span class="gc-option-text">A couple of examples exist, but they live in someone's head or aren't fully documented.</span>
+                </span>
+              </label>
+              <label class="gc-option">
+                <input class="gc-option-input" type="radio" name="q2" value="2">
+                <span class="gc-option-content">
+                  <span class="gc-option-tag">Structured</span>
+                  <span class="gc-option-text">Documented, specific, referenceable outcomes reps can cite by name (even if anonymized).</span>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="gc-question" data-q="3" data-dim="1">
+            <span class="gc-q-num">Question 3 of 10</span>
+            <legend class="gc-q-text">Can your reps clearly answer "why buy this from you, specifically" — versus a pure-play software vendor, a competitor, or doing nothing?</legend>
+            <div class="gc-options">
+              <label class="gc-option">
+                <input class="gc-option-input" type="radio" name="q3" value="0">
+                <span class="gc-option-content">
+                  <span class="gc-option-tag">Reactive</span>
+                  <span class="gc-option-text">No. We don't have a talk track around why they should buy from us.</span>
+                </span>
+              </label>
+              <label class="gc-option">
+                <input class="gc-option-input" type="radio" name="q3" value="1">
+                <span class="gc-option-content">
+                  <span class="gc-option-tag">Developing</span>
+                  <span class="gc-option-text">Some reps have a good answer. It's not consistent across the team.</span>
+                </span>
+              </label>
+              <label class="gc-option">
+                <input class="gc-option-input" type="radio" name="q3" value="2">
+                <span class="gc-option-content">
+                  <span class="gc-option-tag">Structured</span>
+                  <span class="gc-option-text">We have a codified response to that question and every rep is trained and expected to deliver it.</span>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+        </div>
+
+        <!-- Dimension 2 -->
+        <div class="gc-dimension">
+          <span class="gc-dimension-label">Dimension 2 — Sales Process &amp; Team Fluency</span>
+
+          <fieldset class="gc-question" data-q="4" data-dim="2">
+            <span class="gc-q-num">Question 4 of 10</span>
+            <legend class="gc-q-text">Is there inclusion of your technology in your sales process?</legend>
+            <div class="gc-options">
+              <label class="gc-option">
+                <input class="gc-option-input" type="radio" name="q4" value="0">
+                <span class="gc-option-content">
+                  <span class="gc-option-tag">Reactive</span>
+                  <span class="gc-option-text">The sales rep only talks about technology when the prospect brings it up.</span>
+                </span>
+              </label>
+              <label class="gc-option">
+                <input class="gc-option-input" type="radio" name="q4" value="1">
+                <span class="gc-option-content">
+                  <span class="gc-option-tag">Developing</span>
+                  <span class="gc-option-text">Informally, yes — experienced reps have figured out their own version.</span>
+                </span>
+              </label>
+              <label class="gc-option">
+                <input class="gc-option-input" type="radio" name="q4" value="2">
+                <span class="gc-option-content">
+                  <span class="gc-option-tag">Structured</span>
+                  <span class="gc-option-text">We have a documented sales process for hybrid (sales + technology) opportunities.</span>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="gc-question" data-q="5" data-dim="2">
+            <span class="gc-q-num">Question 5 of 10</span>
+            <legend class="gc-q-text">How confident is your team fielding a pointed technical question (security, integration, ROI) in the room, without punting to an engineer?</legend>
+            <div class="gc-options">
+              <label class="gc-option">
+                <input class="gc-option-input" type="radio" name="q5" value="0">
+                <span class="gc-option-content">
+                  <span class="gc-option-tag">Reactive</span>
+                  <span class="gc-option-text">Not confident. Technical questions usually stall the conversation or get escalated.</span>
+                </span>
+              </label>
+              <label class="gc-option">
+                <input class="gc-option-input" type="radio" name="q5" value="1">
+                <span class="gc-option-content">
+                  <span class="gc-option-tag">Developing</span>
+                  <span class="gc-option-text">Somewhat — depends on the rep and the question.</span>
+                </span>
+              </label>
+              <label class="gc-option">
+                <input class="gc-option-input" type="radio" name="q5" value="2">
+                <span class="gc-option-content">
+                  <span class="gc-option-tag">Structured</span>
+                  <span class="gc-option-text">Confident. The team can hold the technical thread without losing credibility.</span>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="gc-question" data-q="6" data-dim="2">
+            <span class="gc-q-num">Question 6 of 10</span>
+            <legend class="gc-q-text">How was your team trained on this specific offering?</legend>
+            <div class="gc-options">
+              <label class="gc-option">
+                <input class="gc-option-input" type="radio" name="q6" value="0">
+                <span class="gc-option-content">
+                  <span class="gc-option-tag">Reactive</span>
+                  <span class="gc-option-text">A vendor Zoom session or two, plus some collateral.</span>
+                </span>
+              </label>
+              <label class="gc-option">
+                <input class="gc-option-input" type="radio" name="q6" value="1">
+                <span class="gc-option-content">
+                  <span class="gc-option-tag">Developing</span>
+                  <span class="gc-option-text">Some initial training, with occasional follow-up, but nothing ongoing or scenario-based.</span>
+                </span>
+              </label>
+              <label class="gc-option">
+                <input class="gc-option-input" type="radio" name="q6" value="2">
+                <span class="gc-option-content">
+                  <span class="gc-option-tag">Structured</span>
+                  <span class="gc-option-text">Structured, scenario-based training with real reinforcement over time.</span>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+        </div>
+
+        <!-- Dimension 3 -->
+        <div class="gc-dimension">
+          <span class="gc-dimension-label">Dimension 3 — Business Strategy (Comp &amp; Pricing)</span>
+
+          <fieldset class="gc-question" data-q="7" data-dim="3">
+            <span class="gc-q-num">Question 7 of 10</span>
+            <legend class="gc-q-text">Does your comp plan pay reps meaningfully to sell the tech-enabled offering, or does it still reward headcount/seat-based deals more?</legend>
+            <div class="gc-options">
+              <label class="gc-option">
+                <input class="gc-option-input" type="radio" name="q7" value="0">
+                <span class="gc-option-content">
+                  <span class="gc-option-tag">Reactive</span>
+                  <span class="gc-option-text">It still favors traditional seat-based deals. Nobody's changed the plan.</span>
+                </span>
+              </label>
+              <label class="gc-option">
+                <input class="gc-option-input" type="radio" name="q7" value="1">
+                <span class="gc-option-content">
+                  <span class="gc-option-tag">Developing</span>
+                  <span class="gc-option-text">We've talked about changing it, or made a partial adjustment, but the incentive gap is still real.</span>
+                </span>
+              </label>
+              <label class="gc-option">
+                <input class="gc-option-input" type="radio" name="q7" value="2">
+                <span class="gc-option-content">
+                  <span class="gc-option-tag">Structured</span>
+                  <span class="gc-option-text">The comp plan pays meaningfully for the tech-enabled offering — the incentive matches the strategic priority.</span>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="gc-question" data-q="8" data-dim="3">
+            <span class="gc-q-num">Question 8 of 10</span>
+            <legend class="gc-q-text">Does your pricing and contract structure reflect outcome-based value, or does it still look like a staffing contract?</legend>
+            <div class="gc-options">
+              <label class="gc-option">
+                <input class="gc-option-input" type="radio" name="q8" value="0">
+                <span class="gc-option-content">
+                  <span class="gc-option-tag">Reactive</span>
+                  <span class="gc-option-text">It's still structured like a seat/staffing contract, technology or not.</span>
+                </span>
+              </label>
+              <label class="gc-option">
+                <input class="gc-option-input" type="radio" name="q8" value="1">
+                <span class="gc-option-content">
+                  <span class="gc-option-tag">Developing</span>
+                  <span class="gc-option-text">We've adjusted some terms, but the underlying structure hasn't fundamentally changed.</span>
+                </span>
+              </label>
+              <label class="gc-option">
+                <input class="gc-option-input" type="radio" name="q8" value="2">
+                <span class="gc-option-content">
+                  <span class="gc-option-tag">Structured</span>
+                  <span class="gc-option-text">Pricing and contract terms are built around the outcome you're delivering, not seats or hours.</span>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+        </div>
+
+        <!-- Dimension 4 -->
+        <div class="gc-dimension">
+          <span class="gc-dimension-label">Dimension 4 — Account Management</span>
+
+          <fieldset class="gc-question" data-q="9" data-dim="4">
+            <span class="gc-q-num">Question 9 of 10</span>
+            <legend class="gc-q-text">When a client mentions AI/technology interest, what typically happens next?</legend>
+            <div class="gc-options">
+              <label class="gc-option">
+                <input class="gc-option-input" type="radio" name="q9" value="0">
+                <span class="gc-option-content">
+                  <span class="gc-option-tag">Reactive</span>
+                  <span class="gc-option-text">The AM tries to help — usually booking a demo with the technology team or tech partner without real discovery done.</span>
+                </span>
+              </label>
+              <label class="gc-option">
+                <input class="gc-option-input" type="radio" name="q9" value="1">
+                <span class="gc-option-content">
+                  <span class="gc-option-tag">Developing</span>
+                  <span class="gc-option-text">The AM asks, or brings in a salesperson to ask, some follow-up questions, but there's no consistent framework for it.</span>
+                </span>
+              </label>
+              <label class="gc-option">
+                <input class="gc-option-input" type="radio" name="q9" value="2">
+                <span class="gc-option-content">
+                  <span class="gc-option-tag">Structured</span>
+                  <span class="gc-option-text">The AM runs or brings in someone who runs structured discovery, documents what's actually driving the interest, and maps who else needs to be involved — before anyone else is looped in.</span>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="gc-question" data-q="10" data-dim="4">
+            <span class="gc-q-num">Question 10 of 10</span>
+            <legend class="gc-q-text">Can your account managers confidently lead a conversation about strategy and outcomes with a client, not just day-to-day performance?</legend>
+            <div class="gc-options">
+              <label class="gc-option">
+                <input class="gc-option-input" type="radio" name="q10" value="0">
+                <span class="gc-option-content">
+                  <span class="gc-option-tag">Reactive</span>
+                  <span class="gc-option-text">No. The conversations AMs have with clients are largely tactical — what's going on with the campaign, what needs to change, putting out fires, performance issues.</span>
+                </span>
+              </label>
+              <label class="gc-option">
+                <input class="gc-option-input" type="radio" name="q10" value="1">
+                <span class="gc-option-content">
+                  <span class="gc-option-tag">Developing</span>
+                  <span class="gc-option-text">Some AMs can have more strategic conversations with clients, but not all. We're trying to be seen as a strategic partner to our clients, but it's a work in progress.</span>
+                </span>
+              </label>
+              <label class="gc-option">
+                <input class="gc-option-input" type="radio" name="q10" value="2">
+                <span class="gc-option-content">
+                  <span class="gc-option-tag">Structured</span>
+                  <span class="gc-option-text">Our team has been trained to speak outcomes first, and can confidently talk about how our technology can enable those outcomes.</span>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="gc-submit-block">
+          <button type="submit" class="btn btn-primary" id="gcSubmitBtn" disabled>See Your Result</button>
+          <span class="gc-submit-note" id="gcSubmitNote">Answer all 10 questions to see your result — 10 remaining.</span>
+        </div>
+
+      </form>
+
+    </div>
+  </section>
+
+
+  <!-- =====================
+       RESULT
+       ===================== -->
+  <section class="gc-result grey" id="result">
+    <div class="container">
+
+      <span class="section-label">Your Result</span>
+
+      <div class="gc-result-score">
+        <span class="gc-result-number" id="gcResultNumber">0</span>
+        <span class="gc-result-outof">out of 20</span>
+      </div>
+
+      <h2 class="gc-result-band" id="gcResultBand">&nbsp;</h2>
+      <p class="gc-result-band-copy" id="gcResultBandCopy"></p>
+
+      <div class="gc-dim-scores" id="gcDimScores"></div>
+
+      <div class="gc-result-next">
+        <p>This is a directional read, not a diagnosis. It's built entirely on how you see your own business: useful, and also its limit. It can't scan your market from the outside, question your leadership team without you in the room, or catch the blind spot that's invisible because you're standing inside it.</p>
+        <p>The Strategic Growth Assessment does that work. Six weeks: an outside read on your market position, a placement on the BPO Evolution Ladder, and a prioritized roadmap of what to fix first. Not a self-report. An independent one.</p>
+
+        <div class="gc-result-cta">
+          <a href="assessment.html">Learn about the Strategic Growth Assessment &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================
+       FINAL CTA
+       ===================== -->
+  <section class="final-cta navy">
+    <div class="container">
+
+      <h2>A self-assessment tells you what you already suspect. It can't tell you what you can't see from inside your own business.</h2>
+
+      <div class="final-cta-actions">
+        <a href="assessment.html" class="btn btn-white">Learn about the Strategic Growth Assessment &rarr;</a>
+        <a href="book.html" class="cta-secondary">Book a conversation &rarr;</a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =====================
+       FOOTER
+       ===================== -->
+  <footer class="site-footer">
+    <div class="container">
+
+      <div class="footer-top">
+
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo-link" aria-label="Evostr – Home">
+            <img src="assets/logo-leila-h.svg" alt="Evostr" class="footer-logo-img" height="32" width="120">
+          </a>
+          <p class="footer-tagline">Strategic growth consulting for mid-sized BPOs navigating the shift from selling hours to selling outcomes.</p>
+        </div>
+
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <h4 class="footer-col-heading">Navigate</h4>
+          <ul>
+            <li><a href="evolution-ladder.html">Evolution Ladder</a></li>
+            <li><a href="how-we-work.html">How We Work</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="assessment.html">Assessment</a></li>
+            <li><a href="gap-check.html">Gap Check</a></li>
+            <li><a href="qualification.html">Is This For You?</a></li>
+            <li><a href="book.html">Book a Conversation</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer-newsletter">
+          <h4 class="footer-col-heading">Newsletter</h4>
+          <p>Market intelligence for BPO operators. Straight signal — no filler.</p>
+          <form class="newsletter-form" id="mc-form" novalidate>
+            <label for="footer-email" class="sr-only">Email address</label>
+            <input
+              type="email"
+              id="footer-email"
+              name="EMAIL"
+              placeholder="your@email.com"
+              autocomplete="email"
+              required
+            >
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+          </form>
+          <p id="mc-message" style="display:none; margin-top:12px; font-size:14px; font-family:var(--font-sans);"></p>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 Evostr. All rights reserved.</p>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- =====================
+       SCRIPTS
+       ===================== -->
+  <script>
+    function toggleNav() {
+      document.getElementById('main-nav').classList.toggle('open');
+    }
+
+    document.querySelectorAll('.nav-links a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        document.getElementById('main-nav').classList.remove('open');
+      });
+    });
+  </script>
+
+  <script src="js/newsletter.js"></script>
+  <script src="js/gap-check.js"></script>
+</body>
+</html>

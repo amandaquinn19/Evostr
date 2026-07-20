@@ -1168,7 +1168,7 @@ a.article-tag:hover {
   border-radius: 0;
   overflow: hidden;
   margin: 48px 0;
-  background: var(--white);
+  background: var(--matte-steel);
 }
 
 .article-faq-heading {

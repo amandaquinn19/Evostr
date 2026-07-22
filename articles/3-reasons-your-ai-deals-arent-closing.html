@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-MK5CJCPJBT"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'G-MK5CJCPJBT');</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Your AI-enabled offering is real. Your pipeline doesn't reflect it. Here are the three structural problems — comp plans, sales process, and training — quietly killing your tech deals.">
+  <title>3 Reasons Your AI Deals Aren't Closing | Evostr</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;0,800;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../css/styles.css">
+
+  <style>
+    .article-hero {
+      padding-top: 64px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .article-meta span + span::before {
+      content: '·';
+      margin-right: 8px;
+    }
+
+    .article-hero h1 {
+      max-width: 720px;
+      font-size: clamp(28px, 5vw, 48px);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .article-excerpt {
+      max-width: 640px;
+      font-size: 19px;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+
+    .article-body {
+      max-width: 680px;
+      font-size: 18px;
+      line-height: 1.85;
+      color: var(--text);
+      padding: 56px 0 80px;
+    }
+
+    .article-body h2 {
+      font-size: 26px;
+      margin-top: 48px;
+      margin-bottom: 16px;
+    }
+
+    .article-body h3 {
+      font-size: 21px;
+      margin-top: 36px;
+      margin-bottom: 12px;
+    }
+
+    .article-body p { margin-bottom: 24px; }
+
+    .article-body ul {
+      margin-bottom: 24px;
+      padding-left: 28px;
+    }
+
+    .article-body ul li { margin-bottom: 16px; }
+
+    .article-back {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 40px;
+    }
+
+    .article-back:hover { color: var(--navy); }
+
+    .article-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
+    .article-tag {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 4px 12px;
+    }
+
+    .article-stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin: 36px 0;
+    }
+
+    .article-tldr {
+      background: rgba(58, 99, 200, 0.07);
+      border: 1px solid rgba(58, 99, 200, 0.15);
+      padding: 24px 28px;
+      margin-bottom: 40px;
+    }
+
+    .article-tldr-label {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--liela-shade, #3A63C8);
+      margin-bottom: 10px;
+    }
+
+    .article-tldr p {
+      font-size: 16px;
+      color: var(--text);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .article-stat {
+      background: var(--navy);
+      padding: 24px 20px;
+    }
+
+    .article-stat-number {
+      font-family: var(--font-serif);
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--oak-bright, #D4AB52);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .article-stat-label {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .article-cta-box {
+      border: 1px solid var(--border);
+      background: var(--matte-steel);
+      padding: 28px 32px;
+      margin: 40px 0;
+    }
+
+    .article-cta-box-label {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--oak, #886D34);
+      margin-bottom: 12px;
+    }
+
+    .article-cta-box p {
+      margin-bottom: 16px;
+      font-size: 16px;
+      color: var(--text-muted);
+    }
+
+    .article-cta-box p:last-child { margin-bottom: 0; }
+
+    @media (max-width: 560px) {
+      .article-stat-row { grid-template-columns: 1fr; }
+    }
+  </style>
+<!-- Start of HubSpot Embed Code -->
+<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44733462.js"></script>
+<!-- End of HubSpot Embed Code -->
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <header class="site-header">
+    <nav class="nav container" id="main-nav">
+      <a href="../index.html" class="nav-logo" aria-label="Evostr – Home">
+        <img src="../assets/logo-leila-h.svg" alt="Evostr" class="nav-logo-img" height="34" width="127">
+      </a>
+      <ul class="nav-links">
+        <li><a href="../evolution-ladder.html">Evolution Ladder</a></li>
+        <li><a href="../how-we-work.html">How We Work</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../resources.html">Resources</a></li>
+      </ul>
+      <a href="../book.html" class="btn btn-primary">Book a Conversation</a>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ARTICLE -->
+  <main>
+    <div class="container">
+      <a class="article-back" href="../articles.html">&larr; Back to Articles</a>
+
+      <section class="article-hero">
+        <div class="article-meta">
+          <span>March 2026</span>
+          <span>Amanda Quinn</span>
+        </div>
+        <h1>3 Reasons Your AI Deals Aren't Closing</h1>
+        <p class="article-excerpt">You made the AI bet. Your pipeline hasn't caught up. Here are the three structural problems — compensation, sales process, and training — that are quietly working against every tech-enabled deal your team is trying to close.</p>
+        <div class="article-tags">
+          <a class="article-tag" href="../articles.html?tag=technology">Technology</a>
+          <a class="article-tag" href="../articles.html?tag=growth">Growth</a>
+        </div>
+      </section>
+
+      <article class="article-body">
+
+        <p>Many BPO leaders have looked at the trajectory of this industry — where AI is taking transaction volumes, where enterprise buyers are heading — and they've made the call: <em>we're building a Human+Technology offering.</em></p>
+
+        <p>That's not a small thing. Not everyone has gotten there yet. Some operators are still running the quiet calculation: <em>"If I help clients automate, I'm selling away my own seats."</em> That fear is rational in the short term, even if it's a losing long game.</p>
+
+        <p>But this piece isn't for them.</p>
+
+        <p>It's for the leaders who've already decided — who are actively trying to sell AI-enabled solutions, but aren't seeing the pipeline results they expected.</p>
+
+        <h2>The 3 Reasons Your AI Partnerships Aren't Generating Revenue</h2>
+
+        <p>In working with BPOs at all stages, we've uncovered three structural problems that are causing the gap between strategy and revenue. Here's what they are — and why they're so hard to see from the inside.</p>
+
+        <h3>1. Your Comp Plan Is Working Against You</h3>
+
+        <p>Most BPOs use a standard commission structure: 3% of contract revenue in year one, 2% in year two, 1% in year three. It's an industry norm, and it made sense when every deal was an outsourcing contract.</p>
+
+        <p>Let's run the math on what that structure actually produces for a tech-enabled deal.</p>
+
+        <p>A traditional 20-seat outsourcing contract at $12/hour generates roughly $498,000 a year. At 3%, your rep earns $14,947 in year one.</p>
+
+        <p>Your new AI-enabled solution priced at $150 per agent per month? At 20 agents, that's $36,000 annually. Same commission structure. Same rep earns $1,080.</p>
+
+        <p>You've engineered a plan that pays your salespeople <strong>93% less</strong> to sell your most strategic offering.</p>
+
+        <p>You will get the behavior you incentivize, and right now, you're rewarding selling seats. If the comp architecture hasn't changed, the sales behavior won't either.</p>
+
+        <p>Fixing this isn't complicated in concept: you just need a different compensation structure for tech-enabled deals — higher commission rates, accelerators for new solution categories, or SPIFs tied to AI deal milestones. The specifics will vary. But leaving a 3-2-1 structure untouched while expecting a different sales outcome is the definition of wishful thinking.</p>
+
+        <h3>2. You Don't Have a Sales Process Built for This Kind of Sale</h3>
+
+        <p>Here's something that's true of most BPOs, and there's no judgment in saying it: your salespeople don't have a formal sales process. They never really needed one.</p>
+
+        <p>BPO sales has traditionally been a relationship-driven, instinct-guided motion. Your rep knows the VP of Operations. They get the call when the prospect is considering changing providers. That skill set built real businesses.</p>
+
+        <p>But it breaks down completely when you try to sell AI.</p>
+
+        <p>Selling outsourcing services typically involves one department, a limited number of stakeholders, and a buyer who already understands what they're buying. Selling AI is a fundamentally different animal — a high-value, high-risk transaction with a longer cycle and multiple decision-makers. Suddenly you're navigating IT, Finance, Operations, and sometimes Legal, all at once, and each stakeholder has different criteria: a CTO needs security and integration answers; a CFO wants a detailed ROI analysis; an operations leader needs to understand workflow impact.</p>
+
+        <p>Your rep needs to identify the economic buyer, cultivate a champion who'll advocate when they're not in the room, and know when to bring in technical resources — and critically, when <em>not</em> to. Showing a demo before requirements are fully understood is one of the fastest ways to kill a deal that has real potential.</p>
+
+        <p>The fix is a playbook. Not a 40-page binder no one reads, but a clear, practical guide that defines the stages of your AI sales process, the stakeholders your reps should be mapping at each account, and the triggers that determine when to accelerate or slow down. Without that foundation, you're sending experienced salespeople into a fundamentally new kind of fight without a game plan.</p>
+
+        <h3>3. Your Team Hasn't Been Trained to Sell It</h3>
+
+        <p>Let's be direct: selling BPO services and selling technology solutions are not the same skill set. Assuming your salespeople will naturally make that transition because they're talented and experienced is a well-intentioned, but costly assumption.</p>
+
+        <p>Consultative selling — what AI solution sales requires — means deeply understanding a prospect's business context, asking the right diagnostic questions, and positioning yourself as a trusted advisor, not a vendor pitching a product. That's a learned discipline, and this is where the industry falls short: the standard "enablement" for a new AI solution in BPO is a couple of one-hour vendor Zoom sessions and some marketing collateral.</p>
+
+        <p>That's not training. That's exposure.</p>
+
+        <div class="article-stat-row">
+          <div class="article-stat">
+            <div class="article-stat-number">70%</div>
+            <div class="article-stat-label">of new information B2B reps forget within a week of a one-time briefing</div>
+          </div>
+          <div class="article-stat">
+            <div class="article-stat-number">17%</div>
+            <div class="article-stat-label">of companies have training programs that actually move the needle on performance</div>
+          </div>
+          <div class="article-stat">
+            <div class="article-stat-number">81%</div>
+            <div class="article-stat-label">better sales effectiveness among the firms whose training does</div>
+          </div>
+        </div>
+
+        <p>Real enablement means scenario-based practice, not slide decks — ongoing reinforcement, not a single session — and reps who can handle the specific objections that come up in AI conversations, about job displacement, data security, and integration complexity, with confidence and credibility.</p>
+
+        <h2>These Three Problems Compound Each Other</h2>
+
+        <p>A rep who isn't compensated to care, doesn't have a process to follow, and wasn't trained to lead this kind of sale doesn't have a pipeline problem. They have a structural problem, and structural problems don't get fixed by telling people to work harder or believe in the vision more.</p>
+
+        <p>The global AI-in-BPO market is projected to reach $49.6 billion by 2033. Your clients are ready to buy. The window is open. Unfortunately, revenue doesn't follow vision — it follows infrastructure, and right now, for most BPOs, the infrastructure hasn't caught up to the announcement.</p>
+
+        <div class="article-cta-box">
+          <p class="article-cta-box-label">Where to Start</p>
+          <p>We work with a limited number of BPO clients at a time to evolve their sales story, engineer a consultative sales process, and train their teams to sell solutions, not just services.</p>
+          <p><a href="../book.html">Book a conversation &rarr;</a></p>
+        </div>
+
+      </article>
+    </div>
+  </main>
+
+  <!-- CTA -->
+  <section class="navy">
+    <div class="container">
+      <h2 style="max-width:520px; color:var(--white); margin-bottom:28px;">When the conversation makes sense, you&rsquo;ll know. We&rsquo;ll be here.</h2>
+      <a href="../book.html" class="btn btn-white">Book a Conversation</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="../index.html" class="footer-logo-link" aria-label="Evostr – Home">
+            <img src="../assets/logo-leila-h.svg" alt="Evostr" class="footer-logo-img" height="32" width="120">
+          </a>
+          <p class="footer-tagline">Strategic growth consulting for mid-sized BPOs navigating the shift from selling hours to selling outcomes.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <h4 class="footer-col-heading">Navigate</h4>
+          <ul>
+            <li><a href="../evolution-ladder.html">Evolution Ladder</a></li>
+            <li><a href="../how-we-work.html">How We Work</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../resources.html">Resources</a></li>
+            <li><a href="../assessment.html">Assessment</a></li>
+            <li><a href="../qualification.html">Is This For You?</a></li>
+            <li><a href="../book.html">Book a Conversation</a></li>
+          </ul>
+        </nav>
+        <div class="footer-newsletter">
+          <h4 class="footer-col-heading">Newsletter</h4>
+          <p>Market intelligence for BPO operators. Straight signal — no filler.</p>
+          <form class="newsletter-form" action="#" method="post" novalidate>
+            <label for="footer-email" class="sr-only">Email address</label>
+            <input type="email" id="footer-email" name="email" placeholder="your@email.com" autocomplete="email" required>
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 Evostr. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('main-nav').classList.toggle('open');
+    }
+    document.querySelectorAll('.nav-links a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        document.getElementById('main-nav').classList.remove('open');
+      });
+    });
+  </script>
+
+</body>
+</html>

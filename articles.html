@@ -300,13 +300,6 @@
       });
     });
 
-    // Activate filter from URL query param (?tag=growth)
-    var initialTag = new URLSearchParams(window.location.search).get('tag');
-    if (initialTag) {
-      var initialBtn = document.querySelector('.filter-btn[data-tag="' + initialTag + '"]');
-      if (initialBtn) initialBtn.click();
-    }
-
     // Tag filter
     document.getElementById('filter-bar').addEventListener('click', function(e) {
       var btn = e.target.closest('.filter-btn');
@@ -322,6 +315,14 @@
         }
       });
     });
+
+    // Activate filter from URL query param (?tag=growth) — must run after the
+    // listener above is registered, since .click() dispatches synchronously
+    var initialTag = new URLSearchParams(window.location.search).get('tag');
+    if (initialTag) {
+      var initialBtn = document.querySelector('.filter-btn[data-tag="' + initialTag + '"]');
+      if (initialBtn) initialBtn.click();
+    }
   </script>
 
 </body>

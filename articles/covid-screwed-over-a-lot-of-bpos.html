@@ -125,13 +125,16 @@
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container">
+
       <div class="footer-top">
+
         <div class="footer-brand">
           <a href="../index.html" class="footer-logo-link" aria-label="Evostr – Home">
             <img src="../assets/logo-leila-h.svg" alt="Evostr" class="footer-logo-img" height="32" width="120">
           </a>
-          <p class="footer-tagline">Strategic growth consulting for mid-sized BPOs navigating the shift from selling hours to selling outcomes.</p>
+          <p class="footer-tagline">Strategic growth consulting for BPO operators answering to a board — architecting the shift from selling hours to selling outcomes.</p>
         </div>
+
         <nav class="footer-nav" aria-label="Footer navigation">
           <h4 class="footer-col-heading">Navigate</h4>
           <ul>
@@ -144,19 +147,31 @@
             <li><a href="../book.html">Book a Conversation</a></li>
           </ul>
         </nav>
+
         <div class="footer-newsletter">
           <h4 class="footer-col-heading">Newsletter</h4>
           <p>Market intelligence for BPO operators. Straight signal — no filler.</p>
-          <form class="newsletter-form" action="#" method="post" novalidate>
+          <form class="newsletter-form" id="mc-form" novalidate>
             <label for="footer-email" class="sr-only">Email address</label>
-            <input type="email" id="footer-email" name="email" placeholder="your@email.com" autocomplete="email" required>
+            <input
+              type="email"
+              id="footer-email"
+              name="EMAIL"
+              placeholder="your@email.com"
+              autocomplete="email"
+              required
+            >
             <button type="submit" class="btn btn-primary">Subscribe</button>
           </form>
+          <p id="mc-message" style="display:none; margin-top:12px; font-size:14px; font-family:var(--font-sans);"></p>
         </div>
+
       </div>
+
       <div class="footer-bottom">
         <p class="footer-copy">&copy; 2026 Evostr. All rights reserved.</p>
       </div>
+
     </div>
   </footer>
 
@@ -171,5 +186,6 @@
     });
   </script>
 
+  <script src="../js/newsletter.js"></script>
 </body>
 </html>

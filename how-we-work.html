@@ -263,6 +263,47 @@
       color: var(--text-muted);
     }
 
+
+    /* Board alignment */
+    .board-section h2 { max-width: 620px; margin-bottom: 24px; }
+
+    .board-intro {
+      max-width: 720px; font-size: 17px; line-height: 1.75;
+      color: var(--text-muted); margin-bottom: 52px;
+    }
+
+    .board-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 36px; max-width: 1000px;
+    }
+
+    .board-item { padding-top: 22px; border-top: 2px solid var(--oak); }
+
+    .board-stage {
+      display: block; font-family: var(--font-sans); font-size: 11px;
+      font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--oak); margin-bottom: 14px;
+    }
+
+    .board-item h3 {
+      font-size: 19px; line-height: 1.35; margin-bottom: 12px;
+    }
+
+    .board-item p {
+      font-size: 15px; line-height: 1.7; color: var(--text-muted); margin: 0;
+    }
+
+    .board-close {
+      max-width: 720px; margin-top: 48px; padding-left: 24px;
+      border-left: 3px solid var(--oak);
+      font-family: var(--font-serif); font-size: 18px; font-style: italic;
+      line-height: 1.6; color: var(--text);
+    }
+
+    @media (max-width: 820px) {
+      .board-grid { grid-template-columns: 1fr; gap: 32px; }
+    }
+
     /* Assessment two-column grid */
     .assessment-grid {
       display: grid;
@@ -403,7 +444,7 @@
           <span class="flow-num">02</span>
           <span class="flow-step-label">Custom Roadmap</span>
           <h3>The assessment defines what comes next.</h3>
-          <p>We build a tailored roadmap across the four architectural domains — strategic, organizational, commercial, and operational — sequenced to your starting position and the rift you need to cross. You know exactly what the work is, what it costs, and what it produces before it begins.</p>
+          <p>We build a tailored roadmap across the four architectural domains — strategic, organizational, commercial, and operational — sequenced to your starting position and the rift you need to cross. That includes the build, partner, or buy call, taken client type by client type and solution by solution rather than as one blanket decision. You know exactly what the work is, what it costs, and what it produces before it begins.</p>
           <div class="flow-bar flow-bar-2"></div>
         </div>
 
@@ -418,6 +459,45 @@
         </div>
 
       </div>
+
+    </div>
+  </section>
+
+
+  <!-- =====================
+       BOARD ALIGNMENT
+       ===================== -->
+  <section class="board-section cream">
+    <div class="container">
+
+      <span class="section-label">Board Alignment</span>
+      <h2>Every stage produces something that can leave the room.</h2>
+
+      <p class="board-intro">You are not the only person who has to be convinced. If the business is backed, the decision to fund a transformation — and the patience to hold it through the dip — belongs to people who don't sit in your operating meetings and don't see what you see. Most consulting output is written for the operator. Ours is built to survive being forwarded.</p>
+
+      <div class="board-grid">
+
+        <div class="board-item">
+          <span class="board-stage">From the assessment</span>
+          <h3>An independent read of where the business stands.</h3>
+          <p>Placement on the Evolution Ladder, what the market currently pays for that position, and what the next rung is worth — sourced against comparable companies rather than asserted. It carries weight in a board meeting for one reason: it isn't your account of your own business.</p>
+        </div>
+
+        <div class="board-item">
+          <span class="board-stage">From the roadmap</span>
+          <h3>The shape of the curve, before it happens.</h3>
+          <p>The sequence, the cost, and the dip — how far revenue is expected to move before it recovers, across what period, and what has to be true at each checkpoint. A board that has seen the curve in advance reads quarter two as the plan working rather than the plan failing.</p>
+        </div>
+
+        <div class="board-item">
+          <span class="board-stage">From the implementation</span>
+          <h3>Progress against the measures that actually move the number.</h3>
+          <p>Part of this work is shifting the conversation away from revenue growth alone and toward mix and margin — what share of revenue is technology-led, and what that share is worth. Boards measure what they are given. Changing the measure is part of the engagement.</p>
+        </div>
+
+      </div>
+
+      <p class="board-close">None of this replaces your relationship with your sponsors. It gives that relationship something to work from that isn't your own account of it.</p>
 
     </div>
   </section>
@@ -495,7 +575,7 @@
         <div class="principle">
           <div class="principle-accent"></div>
           <h3>Architect-led. Team-executed.</h3>
-          <p>Evostr designs the structure and leads the implementation. Your team executes inside what we build. We don't compete with internal capability — we build it.</p>
+          <p>Evostr designs the structure and leads the implementation. Your team executes inside what we build. We don't compete with internal capability — we build it. Usually in the same two places: a sales team that has never had to sell technology, and a comp plan that still pays better for seats. <a href="commercial-gap-check.html">The Commercial Gap Check</a> shows you which of those is costing you more.</p>
         </div>
 
         <div class="principle">

@@ -195,7 +195,7 @@
 
     .rung-meta-pair {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr 0.8fr;
       border: 1px solid var(--border);
       border-radius: var(--radius);
       overflow: hidden;
@@ -206,8 +206,28 @@
       padding: 16px 20px;
     }
 
-    .rung-meta-item:first-child {
+    .rung-meta-item:not(:last-child) {
       border-right: 1px solid var(--border);
+    }
+
+    .rung-meta-value.rung-multiple {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--oak);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .rung-multiple-note {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-top: 2px;
+      letter-spacing: 0;
+      text-transform: none;
     }
 
     .rung-meta-label {
@@ -256,6 +276,121 @@
 
     .rung-harder strong {
       color: var(--navy);
+    }
+
+
+    /* Market evidence table */
+    .evidence-section h2 { max-width: 620px; margin-bottom: 24px; }
+
+    .evidence-intro {
+      max-width: 720px; font-size: 17px; line-height: 1.75;
+      color: var(--text-muted); margin-bottom: 40px;
+    }
+
+    .evidence-table-wrap {
+      overflow-x: auto; border: 1px solid var(--border);
+      border-radius: var(--radius); background: var(--white);
+    }
+
+    .evidence-table { border-collapse: collapse; width: 100%; min-width: 680px; }
+
+    .evidence-table th {
+      text-align: left; padding: 14px 18px;
+      font-family: var(--font-sans); font-size: 10px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted);
+      border-bottom: 1px solid var(--border); background: var(--cream-dark);
+      white-space: nowrap;
+    }
+
+    .evidence-table td {
+      padding: 16px 18px; font-size: 15px; line-height: 1.6;
+      color: var(--text-muted); border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .evidence-table tbody tr:last-child td { border-bottom: none; }
+    .evidence-table td:first-child { color: var(--text); white-space: nowrap; }
+
+    .evidence-table .tick {
+      display: inline-block; font-family: var(--font-sans); font-size: 10px;
+      font-weight: 700; letter-spacing: 0.08em; color: var(--text-muted);
+      border: 1px solid var(--border); border-radius: 3px;
+      padding: 1px 5px; margin-left: 6px; vertical-align: middle;
+    }
+
+    .evidence-table .num {
+      font-family: var(--font-serif); font-size: 19px; font-weight: 800;
+      color: var(--oak); letter-spacing: -0.02em;
+      font-variant-numeric: tabular-nums; white-space: nowrap;
+    }
+
+    .evidence-table .row-emphasis { background: rgba(136, 109, 52, 0.06); }
+
+    .evidence-callout {
+      max-width: 760px; margin-top: 40px; padding: 24px 28px;
+      border-left: 3px solid var(--oak); background: rgba(136, 109, 52, 0.05);
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+
+    .evidence-callout-label {
+      display: block; font-family: var(--font-sans); font-size: 11px;
+      font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--oak); margin-bottom: 10px;
+    }
+
+    .evidence-callout p {
+      font-size: 17px; line-height: 1.75; color: var(--text); margin: 0;
+    }
+
+    .evidence-note {
+      max-width: 760px; margin-top: 28px; font-size: 13px;
+      line-height: 1.7; color: var(--text-muted);
+    }
+
+
+    /* Buy-side section */
+    .buyside-section h2 { color: var(--white); max-width: 640px; margin-bottom: 24px; }
+
+    .buyside-intro {
+      max-width: 720px; font-size: 17px; line-height: 1.75;
+      color: rgba(255,255,255,0.72); margin-bottom: 48px;
+    }
+
+    .buyside-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 32px; max-width: 960px;
+    }
+
+    .buyside-item {
+      padding-top: 20px; border-top: 2px solid var(--oak-bright);
+    }
+
+    .buyside-label {
+      display: block; font-family: var(--font-sans); font-size: 11px;
+      font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--oak-bright); margin-bottom: 12px;
+    }
+
+    .buyside-item p {
+      font-size: 15px; line-height: 1.7; color: rgba(255,255,255,0.72); margin: 0;
+    }
+
+    .buyside-close {
+      max-width: 760px; margin-top: 48px; padding-left: 24px;
+      border-left: 3px solid var(--oak-bright);
+      font-family: var(--font-serif); font-size: 18px; font-style: italic;
+      line-height: 1.6; color: rgba(255,255,255,0.85);
+    }
+
+    @media (max-width: 820px) {
+      .buyside-grid { grid-template-columns: 1fr; gap: 28px; }
+    }
+
+
+    .how-close {
+      max-width: 720px; margin-top: 48px; padding-top: 28px;
+      border-top: 1px solid var(--border);
+      font-size: 17px; line-height: 1.75; color: var(--text-muted);
     }
 
     /* Rift sections */
@@ -519,7 +654,7 @@
         grid-template-columns: 1fr;
       }
 
-      .rung-meta-item:first-child {
+      .rung-meta-item:not(:last-child) {
         border-right: none;
         border-bottom: 1px solid var(--border);
       }
@@ -767,6 +902,12 @@
             <span class="rung-meta-label">How you're valued</span>
             <span class="rung-meta-value">As a cost line on someone else's P&L.</span>
           </div>
+        
+          <div class="rung-meta-item">
+            <span class="rung-meta-label">What the market pays</span>
+            <span class="rung-meta-value rung-multiple">3–5x</span>
+            <span class="rung-multiple-note">EV/EBITDA · Observed</span>
+          </div>
         </div>
         <p>You're here if the value proposition is cost savings. Teams are concentrated in one geographic location. Employee-of-record and staff-leasing models fit here. Pricing is per headcount, per hour, or per month. The competitive set is whoever shows up cheapest in the next RFP.</p>
         <div class="rung-harder">
@@ -788,6 +929,12 @@
           <div class="rung-meta-item">
             <span class="rung-meta-label">How you're valued</span>
             <span class="rung-meta-value">As a reliable execution partner — which the market increasingly treats as table stakes.</span>
+          </div>
+        
+          <div class="rung-meta-item">
+            <span class="rung-meta-label">What the market pays</span>
+            <span class="rung-meta-value rung-multiple">4–6x</span>
+            <span class="rung-multiple-note">EV/EBITDA · Observed</span>
           </div>
         </div>
         <p>You're here if you compete on operational maturity, geographic footprint, or breadth of services. You likely have certifications, SLAs, and a story about scale. But buyers still treat you as interchangeable with most BPOs.</p>
@@ -838,6 +985,12 @@
             <span class="rung-meta-label">How you're valued</span>
             <span class="rung-meta-value">At a premium — what you do is harder to replicate and harder to commoditize.</span>
           </div>
+        
+          <div class="rung-meta-item">
+            <span class="rung-meta-label">What the market pays</span>
+            <span class="rung-meta-value rung-multiple">6–8x</span>
+            <span class="rung-multiple-note">EV/EBITDA · Observed</span>
+          </div>
         </div>
         <p>You're here if you serve a defined vertical with depth — claims processing for insurtech, member services for healthcare, KYC for fintech. Your team has domain knowledge that can't be Googled, and processes built out for industry-specific workflows.</p>
         <p>What changes here: you exit the labor pricing curve. Multiples expand. Contract stickiness increases. The buyer's question shifts from "how much" to "are you the right team."</p>
@@ -885,6 +1038,12 @@
             <span class="rung-meta-label">How you're valued</span>
             <span class="rung-meta-value">As a differentiated partner leveraging technology to produce leverage, not just output.</span>
           </div>
+        
+          <div class="rung-meta-item">
+            <span class="rung-meta-label">What the market pays</span>
+            <span class="rung-meta-value rung-multiple">8–14x</span>
+            <span class="rung-multiple-note">EV/EBITDA · Observed</span>
+          </div>
         </div>
         <p>You're here if your delivery is materially augmented by technology that's been purposefully chosen and integrated — engineered to solve client problems better, faster, cheaper, or at lower risk. Where off-the-shelf tooling falls short, you fill the gap with proprietary solutions or with humans. The product is humans plus technology, solving very specific problems for a very specific market.</p>
         <p>Commercial flexibility opens up at this rung. Pricing stretches beyond pure labor structures, with technology functioning as a force-multiplier that drives additional client value. Top-line revenue may compress as technology displaces some of the labor it replaces, but margins expand — the business now profits from operational efficiency, not just from hours sold.</p>
@@ -908,6 +1067,12 @@
             <span class="rung-meta-label">How you're valued</span>
             <span class="rung-meta-value">On the financial impact of your work, not the cost of producing it.</span>
           </div>
+        
+          <div class="rung-meta-item">
+            <span class="rung-meta-label">What the market pays</span>
+            <span class="rung-meta-value rung-multiple">12–16x</span>
+            <span class="rung-multiple-note">EV/EBITDA · Estimated</span>
+          </div>
         </div>
         <p>You're here if a meaningful share of contracts are outcome-based or resolution-based. The client no longer manages a team — they manage a KPI. You take on operational risk and align incentives with the client's results. The business model requires continuous review.</p>
         <p>Pricing decouples from labor entirely; expertise and partnership confidence are felt across the client's organization, not just at the buying level. Internally, the focus shifts from counting time to delivering results, and decentralized management emerges if it hasn't already.</p>
@@ -930,6 +1095,12 @@
           <div class="rung-meta-item">
             <span class="rung-meta-label">How you're valued</span>
             <span class="rung-meta-value">With valuation surge — buyers price you on what your platform can do, not what your seats can do.</span>
+          </div>
+        
+          <div class="rung-meta-item">
+            <span class="rung-meta-label">What the market pays</span>
+            <span class="rung-meta-value rung-multiple">15–20x</span>
+            <span class="rung-multiple-note">EV/EBITDA · Estimated</span>
           </div>
         </div>
         <p>You're here if AI is structurally inside your service, not a layer on top of it. The unit economics break the labor curve completely.</p>
@@ -955,6 +1126,12 @@
             <span class="rung-meta-label">How you're valued</span>
             <span class="rung-meta-value">As irreplaceable. Switching costs are prohibitive.</span>
           </div>
+        
+          <div class="rung-meta-item">
+            <span class="rung-meta-label">What the market pays</span>
+            <span class="rung-meta-value rung-multiple">18x+</span>
+            <span class="rung-multiple-note">EV/EBITDA · Estimated</span>
+          </div>
         </div>
         <p>You're here if you don't sell a service to a department — you operate a function on the client's behalf. You manage strategic planning, execution, performance optimization, and continuous improvement. You act as a fiduciary for the client.</p>
         <p>The team is no longer made up of "agents." They're domain architects — CPAs, nurses, lawyers, licensed agents. Their job is to tell the AI why a new regulation changes how a specific case should be handled. Engagements are structured as managed services.</p>
@@ -967,12 +1144,112 @@
   </section>
 
 
+  <!-- ===================== MARKET EVIDENCE ===================== -->
+  <section class="evidence-section cream">
+    <div class="container">
+
+      <span class="section-label">The Evidence</span>
+      <h2>What the market is actually paying, by name.</h2>
+
+      <p class="evidence-intro">The ranges above aren't modelled. They're taken from where public BPO and outsourcing companies trade today. Below the first rift, the market's largest pure-play is priced no better than a much smaller one — scale doesn't rescue a labor multiple. Above the second rift, the spread opens to roughly three times.</p>
+
+      <div class="evidence-table-wrap">
+        <table class="evidence-table">
+          <thead>
+            <tr><th>Company</th><th>EV/EBITDA</th><th>Where it sits</th><th>What it shows</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Teleperformance</strong> <span class="tick">TEP</span></td>
+              <td class="num">3.8–4.3x</td>
+              <td>Rung 1–2</td>
+              <td>The world's largest pure-play CX provider, near a five-year low and roughly a third of its own ten-year median. Scale is not a defence.</td>
+            </tr>
+            <tr>
+              <td><strong>TaskUs</strong> <span class="tick">TASK</span></td>
+              <td class="num">4.9x</td>
+              <td>Rung 1–2</td>
+              <td>AI services growing 36% year on year — and still priced as labor, because the mix hasn't shifted yet.</td>
+            </tr>
+            <tr>
+              <td><strong>Maximus</strong> <span class="tick">MMS</span></td>
+              <td class="num">6.7x</td>
+              <td>Rung 3</td>
+              <td>A genuine vertical specialist. Niching lifted it clear of the labor pack — but on its own it has not repriced the business into technology territory.</td>
+            </tr>
+            <tr>
+              <td><strong>Genpact</strong> <span class="tick">G</span></td>
+              <td class="num">8.2x</td>
+              <td>Rung 4</td>
+              <td>Advanced technology is 27% of revenue. The re-rating has started and is not finished.</td>
+            </tr>
+            <tr>
+              <td><strong>SS&amp;C</strong> <span class="tick">SSNC</span></td>
+              <td class="num">11.4x</td>
+              <td>Rung 4–5</td>
+              <td>Financial operations run as a platform, at a 39% EBITDA margin. Priced closer to software than to services.</td>
+            </tr>
+            <tr class="row-emphasis">
+              <td><strong>EXL Service</strong> <span class="tick">EXLS</span></td>
+              <td class="num">13.8x</td>
+              <td>Rung 4</td>
+              <td>Data and AI-led work is 61% of revenue, growing 30%, with guidance raised twice this year. The conversion finished.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="evidence-callout">
+        <span class="evidence-callout-label">The number that matters</span>
+        <p>Genpact and EXL sell comparable capability. Genpact is at 27% technology-led revenue and 8.2x. EXL is at 61% and 13.8x. The multiple is not tracking whether you have the capability — it is tracking how much of the revenue has actually moved onto it. That ratio is the number to manage, and it is the one your board can be taught to watch.</p>
+      </div>
+
+      <p class="evidence-note">EV/EBITDA as at 30–31 July 2026, S&amp;P Global Market Intelligence. Multiples move with earnings and price; treat these as a dated snapshot rather than a fixed fact. Rungs 1 through 4 are drawn from the companies above. Rungs 5 through 7 are marked <em>Estimated</em> because no public pure-play sits there — businesses that reach those rungs stop being priced as outsourcers at all, which is the point of the climb.</p>
+
+    </div>
+  </section>
+
+
+  <!-- ===================== BUY SIDE ===================== -->
+  <section class="buyside-section navy">
+    <div class="container">
+
+      <span class="section-label">The Other Direction</span>
+      <h2>The ladder prices what you buy, not just what you own.</h2>
+
+      <p class="buyside-intro">Most operators read the ladder upward — where am I, what's next. There is a second reading, and for anyone acquiring it is the more valuable one. The rungs below you are priced at their rung, not at yours. That difference is not a rounding error. It is the arbitrage.</p>
+
+      <div class="buyside-grid">
+
+        <div class="buyside-item">
+          <span class="buyside-label">What you pay</span>
+          <p>A book of business sitting on rung 1 or 2 is priced as labor — call it four to six times. That is what the seller's own position earns them, and it is what a rational process will clear at.</p>
+        </div>
+
+        <div class="buyside-item">
+          <span class="buyside-label">What it becomes</span>
+          <p>Converted onto a platform that already sits above the second rift, the same revenue is valued the way your business is valued, not the way theirs was. You did not buy revenue. You bought the gap between two rungs.</p>
+        </div>
+
+        <div class="buyside-item">
+          <span class="buyside-label">What has to be true</span>
+          <p>The conversion has to be real. Buying a labor book and leaving it as a labor book adds revenue at your blended multiple and dilutes it. The re-rating only happens if the acquired work genuinely moves onto the platform.</p>
+        </div>
+
+      </div>
+
+      <p class="buyside-close">This is why the climb and the roll-up are the same piece of work. You cannot buy at rung 2 and reprice at rung 4 unless you are credibly at rung 4 yourself — which makes your own position the precondition for the acquisition strategy, not an alternative to it.</p>
+
+    </div>
+  </section>
+
+
   <!-- ===================== HOW TO USE ===================== -->
   <section class="how-to-section grey">
     <div class="container">
 
       <span class="section-label">How to Use the Framework</span>
-      <h2>Three steps. None of them require a consultant.</h2>
+      <h2>Three steps. You can do all of them yourself.</h2>
 
       <div class="how-steps">
 
@@ -1001,6 +1278,8 @@
         </div>
 
       </div>
+
+      <p class="how-close">All three are yours to do, and most operators who read this will place themselves correctly. The part that doesn't work alone is the fourth step: getting a board or an ownership group to accept the placement, fund the crossing, and hold their nerve through the period where revenue dips before the multiple moves. A self-assessment carries no weight in that room. An independent one does.</p>
 
     </div>
   </section>
@@ -1053,7 +1332,8 @@
         <details>
           <summary>Can a BPO skip rungs on the Ladder?</summary>
           <div class="faq-answer">
-            <p>No. Each rung builds the organizational capability required to sustain the next one. Attempting to market yourself as rung 4 without the operational reality of rung 3 is the most common failure mode — and the market prices it immediately. The climb is sequential; what changes is the pace.</p>
+            <p>Not organically. Each rung builds the operational capability the next one depends on, and marketing yourself at rung 4 without the reality of rung 3 is the most common failure mode — the market prices the gap almost immediately.</p>
+            <p>Acquisition is the exception, and it is a real one. Buying a business that already operates a rung above you is a legitimate way to skip the build, and it is how several of the fastest re-ratings in this market have happened. What it does not do is skip the integration. The acquired capability has to be genuinely absorbed — same delivery model, same commercial motion, same story to the market — or you end up holding two businesses at two rungs and getting priced at the lower one. The climb is sequential. The route through it does not have to be organic.</p>
           </div>
         </details>
 

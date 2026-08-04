@@ -77,7 +77,9 @@ section {
   padding: 96px 0;
 }
 
-section.cream { background: var(--matte-steel); }
+/* Section grounds. Each class paints the token it is named after. */
+section.grey  { background: var(--matte-steel); }
+section.cream { background: var(--cream); }
 section.navy  { background: var(--navy); color: var(--white); }
 
 /* ---- Typography Scale ---- */

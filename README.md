@@ -8,7 +8,6 @@ Marketing and consulting website for Evostr, built as a static HTML/CSS site.
 
 - **Frontend:** HTML / CSS (static, no build step)
 - **Hosting:** Netlify (auto-deploys on push to `main`)
-- **CMS:** Sanity.io (for resources and dynamic content)
 
 ---
 
@@ -25,18 +24,6 @@ python3 -m http.server 8000
 # Then visit http://localhost:8000
 ```
 
-### Sanity Studio
-
-If working with CMS content, navigate to the Sanity studio folder and run:
-
-```bash
-cd studio
-npm install
-npm run dev
-```
-
-The studio will be available at `http://localhost:3333`.
-
 ---
 
 ## Deployment
@@ -45,19 +32,6 @@ Deploys are handled automatically by Netlify. Any push to the `main` branch trig
 
 ---
 
-## Environment Variables
-
-The following variables are required for Sanity integration. Set them in Netlify's environment variable settings — never commit actual values to the repo.
-
-| Variable | Description |
-|----------|-------------|
-| `SANITY_PROJECT_ID` | Found in your Sanity project dashboard |
-| `SANITY_DATASET` | Typically `production` |
-| `SANITY_API_TOKEN` | Read token from Sanity API settings |
-
-For local development, create a `.env.local` file in the root (already gitignored) and add the same variables.
-
----
 
 ## Project Structure
 
@@ -72,7 +46,7 @@ For local development, create a `.env.local` file in the root (already gitignore
 │   ├── images/             # Site images
 │   └── brand samples/      # Brand reference PDFs (not deployed)
 ├── _memory/                # Internal reference docs (not deployed)
-└── studio/                 # Sanity studio (if applicable)
+└── resources.html/          
 ```
 
 ---

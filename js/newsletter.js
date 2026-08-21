@@ -46,6 +46,9 @@
             msg.textContent = "You're subscribed.";
             msg.style.color = 'var(--oak)';
             form.reset();
+            document.dispatchEvent(new CustomEvent('evostr:newsletter_subscribe', {
+              detail: { form: formId }
+            }));
           } else {
             // Strip HTML tags and the "0 - " prefix Mailchimp sometimes includes
             msg.textContent = data.msg

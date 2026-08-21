@@ -132,6 +132,10 @@
     resultSection.setAttribute('data-score', results.total);
     resultSection.setAttribute('data-band', band.name);
 
+    document.dispatchEvent(new CustomEvent('evostr:gap_check_complete', {
+      detail: { score: results.total, band: band.name }
+    }));
+
     resultSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
@@ -184,6 +188,9 @@
             msg.textContent = "You're on the list — check your inbox.";
             msg.style.color = 'var(--oak)';
             emailForm.reset();
+            document.dispatchEvent(new CustomEvent('evostr:newsletter_subscribe', {
+              detail: { form: 'gap_check_result', score: score, band: band }
+            }));
           } else {
             msg.textContent = data.msg
               .replace(/<[^>]+>/g, '')

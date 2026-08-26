@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /articles/_template.html
 
 Sitemap: https://evostr.com/sitemap.xml

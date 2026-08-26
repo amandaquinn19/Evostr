@@ -256,6 +256,12 @@
 
       <div class="articles-grid">
 
+        <a class="article-card" href="articles/your-slas-are-table-stakes-your-insights-are-too.html">
+          <span class="article-date">August 2026</span>
+          <span class="article-title">Your SLAs are table stakes. Your insights are too.</span>
+          <span class="article-read">Read &rarr;</span>
+        </a>
+
         <a class="article-card" href="articles/you-built-the-ai-platform-your-sales-team-still-cant-sell-it.html">
           <span class="article-date">July 2026</span>
           <span class="article-title">You Built the AI Platform. Your Sales Team Still Can't Sell It.</span>
@@ -271,12 +277,6 @@
         <a class="article-card" href="articles/5-signals-that-every-bpo-leader-needs-to-heed.html">
           <span class="article-date">June 2026</span>
           <span class="article-title">5 Signals That Every BPO Leader Needs to Heed</span>
-          <span class="article-read">Read &rarr;</span>
-        </a>
-
-        <a class="article-card" href="articles/what-enterprise-buyers-want-2026.html">
-          <span class="article-date">May 2026</span>
-          <span class="article-title">What Enterprise Buyers Want from BPO Partners in 2026</span>
           <span class="article-read">Read &rarr;</span>
         </a>
 
@@ -415,6 +415,66 @@
         document.getElementById('main-nav').classList.remove('open');
       });
     });
+
+    /* Latest-articles grid.
+       articles.html is the single source of truth for article order — its
+       #articles-list is hand-ordered newest-first. This pulls the top 4 from
+       there so this page never has to be updated when an article ships.
+
+       Progressive enhancement on purpose: the four cards in the markup are a
+       real fallback, not a placeholder. If the fetch fails, JS is off, or the
+       parse finds nothing, whatever is already in the grid simply stays put.
+       Nothing is cleared until replacement cards have been built. */
+    (function () {
+      var grid = document.querySelector('.articles-grid');
+      if (!grid || !window.fetch || !window.DOMParser) return;
+
+      fetch('articles.html', { credentials: 'same-origin' })
+        .then(function (r) { return r.ok ? r.text() : Promise.reject(r.status); })
+        .then(function (html) {
+          var doc  = new DOMParser().parseFromString(html, 'text/html');
+          var rows = doc.querySelectorAll('#articles-list .article-row');
+          if (!rows.length) return;
+
+          var cards = [];
+          for (var i = 0; i < rows.length && cards.length < 4; i++) {
+            var row   = rows[i];
+            var href  = row.getAttribute('href');
+            var title = row.querySelector('.article-row-title');
+            var meta  = row.querySelector('.article-row-meta');
+            if (!href || !title) continue;
+
+            /* meta reads "August 2026 · Amanda Quinn" — keep the date only */
+            var date = meta ? meta.textContent.split('·')[0].trim() : '';
+
+            var a = document.createElement('a');
+            a.className = 'article-card';
+            a.setAttribute('href', href);
+
+            var d = document.createElement('span');
+            d.className = 'article-date';
+            d.textContent = date;
+
+            var t = document.createElement('span');
+            t.className = 'article-title';
+            t.textContent = title.textContent.trim();
+
+            var r2 = document.createElement('span');
+            r2.className = 'article-read';
+            r2.innerHTML = 'Read &rarr;';
+
+            a.appendChild(d);
+            a.appendChild(t);
+            a.appendChild(r2);
+            cards.push(a);
+          }
+
+          if (!cards.length) return;
+          grid.textContent = '';
+          cards.forEach(function (c) { grid.appendChild(c); });
+        })
+        .catch(function () { /* keep the markup fallback */ });
+    })();
 
   </script>
 

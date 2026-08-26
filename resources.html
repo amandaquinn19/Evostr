@@ -258,7 +258,7 @@
 
         <a class="article-card" href="articles/your-slas-are-table-stakes-your-insights-are-too.html">
           <span class="article-date">August 2026</span>
-          <span class="article-title">Your SLAs are table stakes. Your insights are too.</span>
+          <span class="article-title">Your SLAs Are Table Stakes. Your Insights Are Too.</span>
           <span class="article-read">Read &rarr;</span>
         </a>
 
@@ -429,7 +429,11 @@
       var grid = document.querySelector('.articles-grid');
       if (!grid || !window.fetch || !window.DOMParser) return;
 
-      fetch('articles.html', { credentials: 'same-origin' })
+      /* no-cache = revalidate with the server before using a cached copy.
+         articles.html changes every time an article ships, and a stale cached
+         copy would quietly show an out-of-date grid — the exact failure this
+         script exists to prevent. */
+      fetch('articles.html', { credentials: 'same-origin', cache: 'no-cache' })
         .then(function (r) { return r.ok ? r.text() : Promise.reject(r.status); })
         .then(function (html) {
           var doc  = new DOMParser().parseFromString(html, 'text/html');

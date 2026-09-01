@@ -1,0 +1,36 @@
+# Netlify redirects — evostr.com
+# Place at the root of the publish directory. This site has no build step;
+# the repo root is what gets deployed, so this file belongs here beside index.html.
+#
+# Rules are evaluated top to bottom; the first match wins.
+# The trailing "!" forces the redirect even when a file exists at that path.
+# It is required here because articles/5-signals-that-every-bpo-leader-needs-to-heed.html
+# still exists on disk as a fallback stub, and without the force flag Netlify
+# would serve that file instead of redirecting.
+
+
+# --- 2026-09-01 · CXOutsourcers article consolidation -------------------------
+# "5 Signals That Every BPO Leader Needs to Heed" (June 2026) covered the same
+# panel and the same five signals as "What Enterprise Buyers Want from BPO
+# Partners in 2026" (May 2026). The two pages were competing for the same
+# queries, so the June content was merged into the May article.
+#
+# Both URL forms are redirected: the site serves .html and extensionless
+# variants of every page, so both need a rule or one form keeps returning 200.
+
+/articles/5-signals-that-every-bpo-leader-needs-to-heed.html   /articles/what-enterprise-buyers-want-2026.html   301!
+/articles/5-signals-that-every-bpo-leader-needs-to-heed        /articles/what-enterprise-buyers-want-2026.html   301!
+
+
+# --- Optional: single-URL canonicalization ----------------------------------
+# Not enabled. Today every page answers on both /page and /page.html with
+# identical content, while canonical tags and sitemap.xml both declare the
+# .html form. The redirects above therefore target .html, so nothing points at
+# a URL that declares itself non-canonical.
+#
+# The 2026-09-01 audit recommends collapsing to one form. If you adopt
+# extensionless URLs, uncomment the rule below AND update all 55 canonical
+# tags plus sitemap.xml in the same deploy — doing one without the other
+# creates a redirect loop or a canonical conflict.
+#
+# /articles/what-enterprise-buyers-want-2026.html   /articles/what-enterprise-buyers-want-2026   301!

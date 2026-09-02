@@ -11,14 +11,13 @@
   --navy:          #20294F;   /* Alias for --liela */
   --navy-dark:     #161D3B;
   --navy-light:    #2D3A6B;
-  --matte-steel:   #E0E4E5;   /* Secondary · Canvas — canvas, backgrounds */
+  --matte-steel:   #E0E4E5;   /* Secondary · Canvas — the site's default background, on every page */
   --liela-shade:   #3A63C8;   /* Primary Shade — charts, data accents */
-  --paper:         #FFFFFF;   /* Neutral · Borderless — plates, cards, ticks */
-  --white:         #FFFFFF;   /* Alias for --paper */
-
-  /* Site Backgrounds */
-  --cream:         #F5F3EE;
-  --cream-dark:    #EDE9E2;
+  --paper:         #F1EEE6;   /* Neutral — plates, cards, ticks: the lifted surface that sits ON Matte Steel.
+                                  Renamed from --cream 2026-09 and corrected to the Figma-exact value (was #F5F3EE). */
+  --paper-dark:    #E2DFD6;   /* Darker Paper, decorative use only. Renamed from --cream-dark (was #EDE9E2). */
+  --white:         #FFFFFF;   /* Pure white — on-navy text and small UI details (buttons, focus rings) only.
+                                  No longer aliased to --paper: Paper and white are different colors now. */
 
   /* Body Text */
   --body-light:    #4B4B4B;   /* Text on Matte Steel / Paper */
@@ -29,15 +28,19 @@
 
   /* Accents · Context-Bound */
   --oak-bright:    #D4AB52;   /* Bright Oak Brown — accent ON Liela (#20294F) only */
-  --oak:           #886D34;   /* Oak Brown — accent ON Matte Steel (#E0E4E5) only */
+  --oak:           #886D34;   /* Oak Brown — accent ON Matte Steel (#E0E4E5) only. Large text (>=~19px bold) and UI only — see --oak-text for small labels. */
+  --oak-text:      #6E5729;   /* Darkened Oak, for small-text roles (overlines, captions) where --oak dips below WCAG AA (3.8:1 on Matte Steel). Passes AA (>=5.3:1) on Matte Steel and Paper. Added 2026-09, design review. */
 
   /* Feedback */
   --caution:       #C0432F;   /* Warning · Analysis — risks, errors, negative deltas */
-  --safe-zone:     #52A87E;   /* Success · Positive — confirmations, positive deltas */
+  --safe-zone:     #3A7D5E;   /* Success · Positive — confirmations, positive deltas. Corrected 2026-09 to the
+                                  Figma-exact value (was #52A87E) after the two brand sources were found to disagree. */
 
-  /* Borders */
-  --border:        #DDD9D3;
-  --border-light:  #EDEAE5;
+  /* Borders — the brand's tinted-navy hairline system, per the Figma design system.
+     Replaces the flat warm-grey values (#DDD9D3 / #EDEAE5) previously here. */
+  --border:        rgba(32, 41, 79, 0.12);
+  --border-light:  rgba(32, 41, 79, 0.08);
+  --border-dark:   rgba(255, 255, 255, 0.1);  /* hairline for content sitting on navy/Liela */
 
   /* Typography */
   --font-serif: 'Noto Serif', Georgia, 'Times New Roman', serif;
@@ -46,7 +49,7 @@
   /* Layout */
   --max-width:   1160px;
   --gap:         40px;
-  --radius:      3px;
+  --radius:      0px;      /* Sharp corners everywhere — buttons, cards, inputs, containers. The brand guide's Framework Containers section (18-24px card radii) was itself an error; Amanda confirmed 2026-09-01 it should be 0px sitewide. Was 3px, briefly 18px for a subset of article components during the design-review pass — both reverted. */
 }
 
 /* ---- Reset ---- */
@@ -57,7 +60,7 @@ body {
   font-size: 18px;
   line-height: 1.75;
   color: var(--text);
-  background: var(--white);
+  background: var(--matte-steel);  /* the site's one default background — see --matte-steel */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -77,9 +80,13 @@ section {
   padding: 96px 0;
 }
 
-/* Section grounds. Each class paints the token it is named after. */
+/* Section grounds. Matte Steel is the site default (see body, above), so .grey and
+   .cream both now resolve to it too — collapsed 2026-09 per the brand's "two
+   backgrounds per artefact, maximum" rule (previously three light grounds: white,
+   cream and matte-steel, in rotation). Classes are kept, unchanged in markup, so nothing
+   in the 50+ pages referencing them needs to be touched. */
 section.grey  { background: var(--matte-steel); }
-section.cream { background: var(--cream); }
+section.cream { background: var(--matte-steel); }
 section.navy  { background: var(--navy); color: var(--white); }
 
 /* ---- Typography Scale ---- */
@@ -90,8 +97,10 @@ h1, h2, h3, h4 {
   color: var(--navy);
 }
 
+/* Display role — true <h1>, one per page: the hero moment only. Capped at the brand's
+   64px Display ceiling (was clamp(44px, 6vw, 80px), overshooting it). Weight 800 unchanged. */
 h1 {
-  font-size: clamp(44px, 6vw, 80px);
+  font-size: clamp(44px, 6vw, 64px);
   font-weight: 800;
   line-height: 1.05;
 }
@@ -112,6 +121,28 @@ h4 {
   font-weight: 700;
 }
 
+/* H1 role, as a utility rather than an overloaded element selector — for a recurring
+   section heading that wants H1 weight without claiming the page's one Display spot.
+   48px/700, per the brand type scale. */
+.h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--navy);
+}
+
+/* Overline role — one canonical treatment (13px / 600 / 0.1em tracking / uppercase)
+   for every label that previously hand-rolled its own size and tracking. */
+.overline {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
 p {
   font-family: var(--font-sans);
   font-size: 18px;
@@ -123,12 +154,28 @@ p + p { margin-top: 20px; }
 
 strong { font-weight: 600; }
 
+/* Body roles, per the brand type scale — additive utilities; the sitewide <p> default
+   above is untouched. Apply .body to copy that should read at the documented 16px/1.6
+   Body size instead of the current default, or .body-lg for the 18px/1.65 Body Lg lead
+   size (close to, but not identical to, the current <p> default's looser 1.75 leading). */
+.body {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.body-lg {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 1.65;
+}
+
 .section-label {
   display: block;
   font-family: var(--font-sans);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--oak);
   margin-bottom: 20px;
@@ -153,12 +200,21 @@ strong { font-weight: 600; }
   white-space: nowrap;
 }
 
-.btn-primary {
-  background: var(--navy);
-  color: var(--white);
+/* Primary CTA — solid Oak Brown fill, navy label, per the brand guide's canonical
+   dark-surface pairing (Liela + Bright Oak Brown) and CTA spec. Merged 2026-09: this
+   used to be solid navy/white, with the correct oak treatment sitting unused as
+   .btn-accent on a single mockup page. .btn-primary now IS that treatment everywhere
+   it's already used (124 live call sites, no markup changes needed); .btn-accent is
+   kept as an alias. Label is navy, not white: --oak-bright is a light gold and white
+   text on it fails contrast (~2.2:1) — navy on --oak-bright is ~6.5:1 (AA). */
+.btn-primary,
+.btn-accent {
+  background: var(--oak-bright);
+  color: var(--navy);
   padding: 11px 22px;
 }
-.btn-primary:hover { background: var(--navy-dark); }
+.btn-primary:hover,
+.btn-accent:hover { background: #C69A44; }
 
 .btn-outline {
   border: 1.5px solid var(--navy);
@@ -192,7 +248,8 @@ strong { font-weight: 600; }
 .navy p,
 .navy h1,
 .navy h2,
-.navy h3 { color: var(--white); }
+.navy h3,
+.navy .h1 { color: var(--white); }
 
 .navy .cta-link { border-bottom-color: rgba(255,255,255,0.5); }
 
@@ -203,7 +260,7 @@ strong { font-weight: 600; }
   position: sticky;
   top: 0;
   z-index: 200;
-  background: var(--white);
+  background: var(--matte-steel);
   border-bottom: 1px solid var(--border);
 }
 
@@ -258,7 +315,7 @@ strong { font-weight: 600; }
 /* ---- Hero ---- */
 .hero {
   padding: 104px 0 96px;
-  background: var(--white);
+  background: var(--matte-steel);
 }
 
 .hero h1 {
@@ -318,7 +375,7 @@ strong { font-weight: 600; }
 }
 
 .stat {
-  background: var(--cream);
+  background: var(--paper);
   padding: 36px 32px;
 }
 
@@ -374,14 +431,14 @@ strong { font-weight: 600; }
   gap: 20px;
   padding: 17px 28px;
   border-bottom: 1px solid var(--border-light);
-  background: var(--white);
+  background: var(--paper);
   transition: background 0.1s;
 }
 
 .ladder-rung:last-child { border-bottom: none; }
 
-.ladder-rung.rung-above { background: var(--white); }
-.ladder-rung.rung-below { background: var(--white); }
+.ladder-rung.rung-above { background: var(--paper); }
+.ladder-rung.rung-below { background: var(--paper); }
 
 .rung-num {
   font-family: var(--font-sans);
@@ -497,7 +554,7 @@ strong { font-weight: 600; }
 .domain {
   padding: 32px 36px;
   border-bottom: 1px solid var(--border);
-  background: var(--white);
+  background: var(--paper);
 }
 
 .domain:last-child { border-bottom: none; }
@@ -570,7 +627,7 @@ strong { font-weight: 600; }
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 36px;
-  background: var(--white);
+  background: var(--paper);
   display: flex;
   flex-direction: column;
 }
@@ -620,7 +677,7 @@ strong { font-weight: 600; }
 
 .why-point {
   padding: 32px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.12);
+  border-bottom: 1px solid var(--border-dark);
 }
 
 .why-point:first-child { padding-top: 0; }
@@ -652,7 +709,7 @@ strong { font-weight: 600; }
   font-family: var(--font-serif);
   font-size: 80px;
   line-height: 0.6;
-  color: var(--cream-dark);
+  color: var(--paper-dark);
   margin-bottom: 24px;
   display: block;
 }
@@ -715,7 +772,7 @@ blockquote p {
 
 /* ---- Footer ---- */
 .site-footer {
-  background: var(--cream);
+  background: var(--matte-steel);
   border-top: 1px solid var(--border);
   padding: 64px 0 40px;
 }
@@ -749,8 +806,8 @@ blockquote p {
 
 .footer-col-heading {
   font-family: var(--font-sans);
-  font-size: 11px;
-  font-weight: 700;
+  font-size: 13px;
+  font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-light);
@@ -793,7 +850,7 @@ blockquote p {
   font-size: 15px;
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  background: var(--white);
+  background: var(--paper);
   color: var(--text);
   outline: none;
   transition: border-color 0.15s;
@@ -883,9 +940,6 @@ blockquote p {
   flex-wrap: wrap;
 }
 
-/* ---- Market Reality on cream ---- */
-.market-reality.cream .stat { background: var(--white); }
-
 /* ---- Section photo strip ---- */
 .section-photo {
   height: 440px;
@@ -905,8 +959,8 @@ blockquote p {
 .proof-client-header {
   display: block;
   font-family: var(--font-sans);
-  font-size: 12px;
-  font-weight: 700;
+  font-size: 13px;
+  font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--navy);
@@ -984,7 +1038,7 @@ blockquote.proof-quote-featured .attribution span {
   font-size: 15px;
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  background: var(--white);
+  background: var(--paper);
   color: var(--text);
   outline: none;
   transition: border-color 0.15s;
@@ -1008,7 +1062,7 @@ blockquote.proof-quote-featured .attribution span {
     flex-direction: column;
     position: fixed;
     inset: 68px 0 0 0;
-    background: var(--white);
+    background: var(--matte-steel);
     padding: 40px 24px;
     gap: 32px;
     border-top: 1px solid var(--border);
@@ -1103,7 +1157,6 @@ blockquote.proof-quote-featured .attribution span {
   margin: 36px 0;
   padding: 32px 32px 28px;
   font-family: var(--font-serif);
-  font-style: italic;
   font-size: 28px;
   font-weight: 800;
   line-height: 1.45;
@@ -1122,7 +1175,7 @@ blockquote.proof-quote-featured .attribution span {
   content: 'KEY INSIGHT';
   display: block;
   font-family: var(--font-sans);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -1137,7 +1190,7 @@ blockquote.proof-quote-featured .attribution span {
   font-style: normal;
   font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-muted);
   margin-top: 16px;
@@ -1170,14 +1223,14 @@ a.article-tag:hover {
   border-radius: 0;
   overflow: hidden;
   margin: 48px 0;
-  background: var(--matte-steel);
+  background: var(--paper);  /* was --matte-steel — now the page's own default, so this card needs the lifted-surface token instead to stay visible */
 }
 
 .article-faq-heading {
   font-family: var(--font-sans);
   font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-muted);
   padding: 20px 28px;

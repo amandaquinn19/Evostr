@@ -1,0 +1,580 @@
+/* ============================================================
+   Article page shared styles — Evostr
+
+   Canonical definitions for every article-page component. Extracted
+   2026-09-01 (content audit) from what-enterprise-buyers-want-2026.html,
+   the first article built on the current pattern.
+
+   A new article should link this file — see articles/_template.html —
+   instead of pasting a local <style> block. Existing articles still
+   carry their own inline copies; those have NOT been touched by this
+   extraction and are a separate retrofit (top pages by traffic first,
+   not all 45 at once — see the 2026-09-01 audit, Part 2 sequencing).
+
+   2026-09 design review: label contrast, stat-sentiment color, the KEY
+   INSIGHT callout, and .next-step were reworked against the brand guide
+   (_Brand/visual/reference_visual_identity.md) and mocked up on
+   articles/_template.html. Not yet applied to what-enterprise-buyers-
+   want-2026.html's actual content (e.g. its data-block stats aren't
+   tagged with a sentiment class yet) — that's a separate, deliberate
+   next step once the mockup is approved.
+
+   Two rounds of correction since, both from Amanda directly, both now
+   reflected below and in the reference doc:
+   - Container radius (--radius-lg, 18px) reverted to 0 — the guide's
+     rounded-container spec was itself wrong. Everything here uses
+     --radius (0), not a separate token.
+   - Callout Panel tint/border reverted again (3% not 8%, solid
+     var(--border) not an oak-tinted rgba one) — an earlier pass here
+     misread the guide's percentage and overcorrected the border past
+     what "every non-Leila box has a defined border" calls for. Also
+     added .article-quote (a literal third-party quote, no KEY INSIGHT
+     label) and dropped the width breakout on .data-block/.article-wide
+     — every box is the same width as the rest of the article now.
+   ============================================================ */
+
+/* ---- Article shell: hero, meta, body, tags, back link ---- */
+
+.article-hero {
+  padding-top: 64px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--border);
+}
+
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.article-meta span + span::before {
+  content: '·';
+  margin-right: 8px;
+}
+
+.article-hero h1 {
+  max-width: 720px;
+  font-size: clamp(28px, 5vw, 48px);
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.article-excerpt {
+  max-width: 640px;
+  font-size: 19px;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+.article-body {
+  max-width: 680px;
+  font-size: 18px;
+  line-height: 1.85;
+  color: var(--text);
+  padding: 56px 0 80px;
+}
+
+.article-body h2 {
+  font-size: 26px;
+  margin-top: 48px;
+  margin-bottom: 16px;
+}
+
+.article-body h3 {
+  font-size: 21px;
+  margin-top: 36px;
+  margin-bottom: 12px;
+}
+
+.article-body p { margin-bottom: 24px; }
+
+.article-body ul,
+.article-body ol {
+  margin: 0 0 24px;
+  padding-left: 24px;
+}
+
+.article-body li { margin-bottom: 10px; }
+.article-body li::marker { color: var(--oak); }
+
+.article-back {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 40px;
+}
+
+.article-back:hover { color: var(--navy); }
+
+.article-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.article-tag {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 4px 12px;
+}
+
+/* ---- In-article contents (jump nav) ---- */
+/* Grey backdrop is deliberate — keeps this distinct from the cream
+   .data-block below it; both appearing cream read as one visual system. */
+
+.article-toc {
+  background: rgba(32,41,79,0.04);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  margin: 40px 0 8px;
+}
+
+.article-toc-heading {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--oak-text);
+  margin: 0 0 14px;
+}
+
+.article-toc ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.article-toc a {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--navy);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.article-toc a:hover { color: var(--navy-dark); border-bottom-color: var(--oak); }
+
+@media (max-width: 600px) {
+  .article-toc { padding: 20px 20px; }
+}
+
+/* ---- Wide blocks (name is legacy — see note) ---- */
+
+/* Used to break out to 940px so wide content (the comparison table) stayed
+   fully visible without scrolling. Reverted 2026-09-01: Amanda wants every
+   box the same width as the rest of the article, no exceptions — so this no
+   longer sets a width at all and content just sits in the normal 680px
+   .article-body measure. cmp-table (min-width: 720px, below) is now wider
+   than that measure and scrolls inside .article-wide-scroll — expected. */
+.article-wide {
+  margin: 48px 0;
+}
+
+.article-wide-scroll {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  -webkit-overflow-scrolling: touch;
+}
+
+.article-wide-caption {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 12px 0 0;
+  font-style: italic;
+}
+
+.cmp-table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 720px;
+  background: var(--paper);
+  font-family: var(--font-sans);
+}
+
+.cmp-table th,
+.cmp-table td {
+  text-align: left;
+  padding: 16px 18px;
+  border-bottom: 1px solid var(--border-light);
+  font-size: 15px;
+  line-height: 1.55;
+  vertical-align: top;
+}
+
+.cmp-table thead th {
+  /* Matte Steel here, not Paper — the table itself is already a Paper card (see
+     .cmp-table below); the header row needs a second tone to stay legible against
+     its own body, which is the one place a Matte Steel/Paper pairing sits nested
+     inside a single component rather than at page level. */
+  background: var(--matte-steel);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--navy);
+  border-bottom: 1px solid var(--border);
+}
+
+.cmp-table tbody th {
+  width: 152px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: var(--matte-steel);
+  white-space: nowrap;
+}
+
+.cmp-table tbody tr:last-child th,
+.cmp-table tbody tr:last-child td { border-bottom: none; }
+
+/* ---- Sourced data block ---- */
+
+.data-block {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px 32px 12px;
+  margin: 48px 0;
+}
+
+.data-block-label {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--oak-text);
+  margin: 0 0 10px;
+}
+
+.data-block h2 {
+  font-size: 24px !important;
+  margin: 0 0 12px !important;
+}
+
+.data-block-sample {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text-muted);
+  margin: 0 0 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.data-group { margin-bottom: 24px; }
+
+.data-group-title {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin: 0 0 12px;
+}
+
+.data-row {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 10px 0;
+  border-top: 1px solid var(--border-light);
+}
+
+.data-row .fig {
+  font-family: var(--font-serif);
+  font-weight: 800;
+  font-size: 26px;
+  line-height: 1.1;
+  color: var(--oak);
+  min-width: 76px;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Stat color signals sentiment, per the brand guide's "Color-Coded Stat
+   Numbers by Sentiment" pattern — never color every stat in a group the
+   same when they mean different things. Default (.fig, no modifier) =
+   aspiration/positive, matching the guide's Oak Brown mapping. Add
+   .caution or .neutral to a .data-row for a problem metric or a plain
+   market/industry figure. All three pass WCAG AA at this size (26px
+   bold clears the "large text" 3:1 floor with room to spare). */
+.data-row.caution .fig { color: var(--caution); }
+.data-row.neutral .fig { color: var(--liela-shade); }
+
+.data-row .what {
+  font-family: var(--font-sans);
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--text);
+  margin: 0;
+}
+
+.data-cite {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+  padding: 18px 0 20px;
+  margin: 8px 0 0;
+}
+
+/* ---- Source note ---- */
+/* Deliberately not a <blockquote> — that tag carries the sitewide
+   "KEY INSIGHT" pull-quote treatment (see .article-body blockquote in
+   styles.css), which a citation line should not get. */
+
+.source-note {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 32px 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.source-note a { color: var(--text-muted); }
+
+/* ---- Author block ---- */
+
+.author-block {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  border-top: 1px solid var(--border);
+  margin-top: 48px;
+  padding-top: 32px;
+  max-width: 680px;
+}
+
+.author-block img {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: var(--paper);
+}
+
+.author-block .who {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0 0 6px;
+}
+
+.author-block .bio {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-muted);
+  margin: 0 0 10px;
+}
+
+.author-block .links {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.author-block .links a { margin-right: 16px; }
+
+/* ---- KEY INSIGHT callout (overrides styles.css .article-body blockquote) ---- */
+/* Keeps styles.css's original 3% tint and solid var(--border) border — that
+   IS the Callout Panel spec (Amanda confirmed 2026-09-01: 3%, not the 8% an
+   earlier pass here read off the guide; and "every box that isn't Leila has
+   a defined border" in our style guide, which a 25%-opacity tinted border
+   doesn't read as, so it stays the same solid border every other box uses).
+   Only real override left: the label color, for AA contrast at 12px — see
+   --oak-text in styles.css. Deliberately placed here rather than edited in
+   styles.css: that file's rule drives every live article's pull-quotes
+   today, and this pass is scoped to the pages that load article.css (this
+   template + what-enterprise-buyers-want-2026.html). Same selector, loaded
+   after styles.css, so it wins the cascade here only. */
+.article-body blockquote {
+  border: 1px solid var(--border);
+}
+
+.article-body blockquote::before {
+  color: var(--oak-text);
+}
+
+/* ---- Quotation (literal third-party quote — no KEY INSIGHT label) ---- */
+/* <blockquote class="article-quote"> — for an actual quote from someone
+   else, in their words. KEY INSIGHT is for the author's own synthesized
+   claim; labeling someone else's quote "KEY INSIGHT" was a mismatch (found
+   2026-09, design review). This strips the label and top bar and drops the
+   oak tint so it doesn't compete with or get confused for a real callout —
+   just the quote, in a plain bordered box like everything else on the page. */
+.article-body blockquote.article-quote {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  font-style: italic;
+}
+
+.article-body blockquote.article-quote::before,
+.article-body blockquote.article-quote::after {
+  content: none;
+}
+
+@media (max-width: 640px) {
+  .data-block { padding: 24px 20px 8px; }
+  .data-row { flex-direction: column; gap: 2px; }
+  .data-row .fig { min-width: 0; }
+  .author-block { flex-direction: column; gap: 16px; }
+}
+
+/* ============================================================
+   Legacy optional components, plus one now-required one
+   article-tldr, article-stat-row and article-cta-box are still optional
+   (in active use on 5+ published articles each). article-more-links is
+   REQUIRED as of 2026-09-02 — it's now the "Related reading" module (see
+   articles/_template.html): a pillar link, 3 hand-picked cluster siblings,
+   and a Commercial Gap Check link, all on this same plain top-border-list
+   look. .next-step (a boxed Surface Card variant that served a similar
+   purpose) is retired as of the same date — its rules have been removed
+   from this file; don't reintroduce that class.
+   ============================================================ */
+
+.article-tldr {
+  background: rgba(58, 99, 200, 0.07);
+  border: 1px solid rgba(58, 99, 200, 0.15);
+  padding: 24px 28px;
+  margin-bottom: 40px;
+}
+
+.article-tldr-label {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--liela-shade, #3A63C8);
+  margin-bottom: 10px;
+}
+
+.article-tldr p {
+  font-size: 16px;
+  color: var(--text);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.article-stat-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin: 36px 0;
+}
+
+.article-stat {
+  background: var(--navy);
+  padding: 24px 20px;
+}
+
+.article-stat-number {
+  font-family: var(--font-serif);
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--oak-bright, #D4AB52);
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.article-stat-label {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.article-cta-box {
+  border: 1px solid var(--border);
+  background: var(--paper);  /* was --matte-steel — page default now, so this needs the lifted-surface token to stay visible */
+  padding: 28px 32px;
+  margin: 40px 0;
+}
+
+.article-cta-box-label {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--oak, #886D34);
+  margin-bottom: 12px;
+}
+
+.article-cta-box p {
+  margin-bottom: 16px;
+  font-size: 16px;
+  color: var(--text-muted);
+}
+
+.article-cta-box p:last-child { margin-bottom: 0; }
+
+.article-more-links {
+  border-top: 1px solid var(--border);
+  margin-top: 48px;
+  padding-top: 32px;
+}
+
+.article-more-links-label {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.article-more-links ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.article-more-links ul li {
+  margin-bottom: 10px;
+}
+
+@media (max-width: 560px) {
+  .article-stat-row { grid-template-columns: 1fr; }
+}

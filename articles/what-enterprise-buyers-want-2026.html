@@ -64,386 +64,41 @@
   }
   </script>
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "We don’t have outcome-based pricing today, and the article says even buyers admit the mechanics are unsettled — where do we actually start?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Start with the metric where the outcome-to-revenue link is easiest to draw — retention, CSAT, or productivity you already report — and structure a shared-risk pilot on one account rather than rewriting your commercial model all at once. Buyers in this research were more interested in providers willing to move in this direction than in providers who had already perfected the mechanics." }
+      },
+      {
+        "@type": "Question",
+        "name": "The data shows $100M–$999M providers rated above $1B-plus giants — does that mean we should stop chasing the largest enterprise accounts?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No, it means scale isn’t the disqualifier some mid-sized operators assume it is, and it isn’t the differentiator either. The 16,000-seat buyer in this research still wanted rigorous governance and incremental access — the opening is being specific and credible at whatever scale you compete, not out-sizing the largest name in the room." }
+      },
+      {
+        "@type": "Question",
+        "name": "How fast can a generalist BPO credibly claim vertical expertise if it doesn’t have deep history in that niche yet?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Not by claiming it in a pitch deck. Buyers are asking for industry-specific case studies and operational proof points, which means you need at least one reference account and a documented result before the claim survives due diligence. Pick one vertical, build the proof there first, and resist claiming depth in three verticals at once." }
+      },
+      {
+        "@type": "Question",
+        "name": "What does “0 reactive days” actually look like day to day, not just as a slogan?",
+        "acceptedAnswer": { "@type": "Answer", "text": "It means someone on the account is reviewing your own operational data — volume trends, complaint patterns, churn signals — before the client asks about them, and bringing a finding or recommendation to every touchpoint rather than waiting to be asked. It’s a discipline and a cadence, not a single technology purchase." }
+      }
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;0,800;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;0,800;1,400&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
   <link rel="stylesheet" href="../css/styles.css">
-
-  <style>
-    /* NOTE: these article styles are duplicated across all 45 article files.
-       Next step from the 2026-09-01 audit is to lift them into css/article.css. */
-
-    .article-hero {
-      padding-top: 64px;
-      padding-bottom: 40px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .article-meta {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-      font-family: var(--font-sans);
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 24px;
-    }
-
-    .article-meta span + span::before {
-      content: '·';
-      margin-right: 8px;
-    }
-
-    .article-hero h1 {
-      max-width: 720px;
-      font-size: clamp(28px, 5vw, 48px);
-      line-height: 1.2;
-      margin-bottom: 20px;
-    }
-
-    .article-excerpt {
-      max-width: 640px;
-      font-size: 19px;
-      line-height: 1.7;
-      color: var(--text-muted);
-    }
-
-    .article-body {
-      max-width: 680px;
-      font-size: 18px;
-      line-height: 1.85;
-      color: var(--text);
-      padding: 56px 0 80px;
-    }
-
-    .article-body h2 {
-      font-size: 26px;
-      margin-top: 48px;
-      margin-bottom: 16px;
-    }
-
-    .article-body h3 {
-      font-size: 21px;
-      margin-top: 36px;
-      margin-bottom: 12px;
-    }
-
-    .article-body p { margin-bottom: 24px; }
-
-    .article-body ul,
-    .article-body ol {
-      margin: 0 0 24px;
-      padding-left: 24px;
-    }
-
-    .article-body li { margin-bottom: 10px; }
-    .article-body li::marker { color: var(--oak); }
-
-    .article-back {
-      font-family: var(--font-sans);
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text-muted);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-bottom: 40px;
-    }
-
-    .article-back:hover { color: var(--navy); }
-
-    .article-tags {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-top: 24px;
-    }
-
-    .article-tag {
-      font-family: var(--font-sans);
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      border: 1px solid var(--border);
-      border-radius: 100px;
-      padding: 4px 12px;
-    }
-
-    /* ---- In-article contents ---- */
-
-    .article-toc {
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 24px 0;
-      margin: 40px 0 8px;
-    }
-
-    .article-toc-heading {
-      font-family: var(--font-sans);
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--oak);
-      margin: 0 0 14px;
-    }
-
-    .article-toc ol {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: grid;
-      gap: 8px;
-    }
-
-    .article-toc a {
-      font-family: var(--font-sans);
-      font-size: 16px;
-      color: var(--text);
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-    }
-
-    .article-toc a:hover { border-bottom-color: var(--oak); }
-
-    /* ---- Wide blocks that break the 680px measure ---- */
-
-    /* Breaks out of the 680px article measure so the table is fully visible on
-       desktop; clamped to the viewport so it never causes page-level scroll. */
-    .article-wide {
-      width: 940px;
-      max-width: calc(100vw - 64px);
-      margin: 48px 0;
-    }
-
-    .article-wide-scroll {
-      overflow-x: auto;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .article-wide-caption {
-      font-family: var(--font-sans);
-      font-size: 13px;
-      line-height: 1.6;
-      color: var(--text-muted);
-      margin: 12px 0 0;
-      font-style: italic;
-    }
-
-    .cmp-table {
-      border-collapse: collapse;
-      width: 100%;
-      min-width: 720px;
-      background: var(--paper);
-      font-family: var(--font-sans);
-    }
-
-    .cmp-table th,
-    .cmp-table td {
-      text-align: left;
-      padding: 16px 18px;
-      border-bottom: 1px solid var(--border-light);
-      font-size: 15px;
-      line-height: 1.55;
-      vertical-align: top;
-    }
-
-    .cmp-table thead th {
-      background: var(--cream);
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--navy);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .cmp-table tbody th {
-      width: 152px;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      background: var(--cream);
-      white-space: nowrap;
-    }
-
-    .cmp-table tbody tr:last-child th,
-    .cmp-table tbody tr:last-child td { border-bottom: none; }
-
-    /* ---- Sourced data block ---- */
-
-    .data-block {
-      background: var(--cream);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 32px 32px 12px;
-      margin: 48px 0;
-      width: 940px;
-      max-width: calc(100vw - 64px);
-    }
-
-    .data-block-label {
-      font-family: var(--font-sans);
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--oak);
-      margin: 0 0 10px;
-    }
-
-    .data-block h2 {
-      font-size: 24px !important;
-      margin: 0 0 12px !important;
-    }
-
-    .data-block-sample {
-      font-family: var(--font-sans);
-      font-size: 14px;
-      line-height: 1.65;
-      color: var(--text-muted);
-      margin: 0 0 24px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .data-group { margin-bottom: 24px; }
-
-    .data-group-title {
-      font-family: var(--font-sans);
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--navy);
-      margin: 0 0 12px;
-    }
-
-    .data-row {
-      display: flex;
-      align-items: baseline;
-      gap: 16px;
-      padding: 10px 0;
-      border-top: 1px solid var(--border-light);
-    }
-
-    .data-row .fig {
-      font-family: var(--font-serif);
-      font-weight: 800;
-      font-size: 26px;
-      line-height: 1.1;
-      color: var(--oak);
-      min-width: 76px;
-      letter-spacing: -0.02em;
-      font-variant-numeric: tabular-nums;
-    }
-
-    .data-row .what {
-      font-family: var(--font-sans);
-      font-size: 15.5px;
-      line-height: 1.6;
-      color: var(--text);
-      margin: 0;
-    }
-
-    .data-cite {
-      font-family: var(--font-sans);
-      font-size: 13px;
-      line-height: 1.65;
-      color: var(--text-muted);
-      border-top: 1px solid var(--border);
-      padding: 18px 0 20px;
-      margin: 8px 0 0;
-    }
-
-    /* ---- Closing next-step block ---- */
-
-    .next-step {
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--oak);
-      border-radius: var(--radius);
-      background: var(--paper);
-      padding: 28px 30px 12px;
-      margin: 44px 0 8px;
-    }
-
-    .next-step-label {
-      font-family: var(--font-sans);
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--oak);
-      margin: 0 0 12px;
-    }
-
-    .next-step p { font-size: 17px; }
-
-    /* ---- Author block ---- */
-
-    .author-block {
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
-      border-top: 1px solid var(--border);
-      margin-top: 48px;
-      padding-top: 32px;
-      max-width: 680px;
-    }
-
-    .author-block img {
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
-      object-fit: cover;
-      flex-shrink: 0;
-      background: var(--cream);
-    }
-
-    .author-block .who {
-      font-family: var(--font-serif);
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--navy);
-      margin: 0 0 6px;
-    }
-
-    .author-block .bio {
-      font-family: var(--font-sans);
-      font-size: 15px;
-      line-height: 1.65;
-      color: var(--text-muted);
-      margin: 0 0 10px;
-    }
-
-    .author-block .links {
-      font-family: var(--font-sans);
-      font-size: 14px;
-      font-weight: 600;
-      margin: 0;
-    }
-
-    .author-block .links a { margin-right: 16px; }
-
-    @media (max-width: 640px) {
-      .data-block { padding: 24px 20px 8px; }
-      .data-row { flex-direction: column; gap: 2px; }
-      .data-row .fig { min-width: 0; }
-      .author-block { flex-direction: column; gap: 16px; }
-    }
-  </style>
+  <link rel="stylesheet" href="../css/article.css">
 <!-- Start of HubSpot Embed Code -->
 <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44733462.js"></script>
 <!-- End of HubSpot Embed Code -->
@@ -484,9 +139,11 @@
         <h1>What Enterprise Buyers Want from BPO Partners in 2026</h1>
         <p class="article-excerpt">Three buyers &mdash; 16,000 seats, 2,000 seats, 10 seats &mdash; described three different partners at CXOutsourcers 2026. What they agreed on was narrower and more expensive than any of them said out loud: the thing you are selling is no longer the thing they are buying.</p>
         <div class="article-tags">
+          <a class="article-tag" href="../articles.html?tag=specialization">Specialization</a>
+          <a class="article-tag" href="../articles.html?tag=sales">Sales</a>
+          <a class="article-tag" href="../articles.html?tag=retention">Retention</a>
+          <a class="article-tag" href="../articles.html?tag=ai-technology">AI &amp; Technology</a>
           <a class="article-tag" href="../articles.html?tag=leadership">Leadership</a>
-          <a class="article-tag" href="../articles.html?tag=growth">Growth</a>
-          <a class="article-tag" href="../articles.html?tag=expertise">Expertise</a>
         </div>
       </section>
 
@@ -537,7 +194,7 @@
 
         <p>Cybersecurity maturity is now evaluated <em>before</em> commercial sourcing discussions begin. Seventy-one percent of buyers prioritize cybersecurity during vendor selection, 63% require formal AI governance frameworks, and 46% are adding stricter data residency rules. Asked to rank the competitive advantages a provider must have to win their business, buyers put information security and compliance expertise <em>above</em> price.</p>
 
-        <p>Not every brand is ready to buy AI today, but all of them want to know their partner can deliver it when they are. Having an AI capability is not enough: 62% require human oversight safeguards, 61% mandate explainable AI governance controls, and 49% are actively delaying high-risk autonomous deployments. Enterprises will fund AI-enabled service delivery. They will not fund ungoverned autonomy. This is not a small lift &mdash; new processes, new roles, agent and manager training &mdash; but the BPOs treating AI governance as a sales asset will take share from those treating it as a compliance task. It is also, more often than capability, <a href="3-reasons-your-ai-deals-arent-closing.html">where AI deals actually stall</a>.</p>
+        <p>Not every brand is ready to buy AI today, but all of them want to know their partner can deliver it when they are — <a href="you-built-the-ai-platform-your-sales-team-still-cant-sell-it.html">the trust test playing out account by account, long before the RFP</a>. Having an AI capability is not enough: 62% require human oversight safeguards, 61% mandate explainable AI governance controls, and 49% are actively delaying high-risk autonomous deployments. Enterprises will fund AI-enabled service delivery. They will not fund ungoverned autonomy. This is not a small lift &mdash; new processes, new roles, agent and manager training &mdash; but the BPOs treating AI governance as a sales asset will take share from those treating it as a compliance task. It is also, more often than capability, <a href="3-reasons-your-ai-deals-arent-closing.html">where AI deals actually stall</a>.</p>
 
         <h3>5. Proactive transparency has replaced relationship chemistry as the primary trust currency.</h3>
 
@@ -676,7 +333,7 @@
           <li><strong>Supervisors as SMEs.</strong> Frontline leadership that coaches the &ldquo;why,&rdquo; identifies root causes and fixes process rather than just reporting metrics. The distinction: partners who find problems versus partners who report them.</li>
         </ul>
 
-        <blockquote>"We've moved past order takers. We need partners who find our internal flaws and friction points before we do."</blockquote>
+        <blockquote class="article-quote">"We've moved past order takers. We need partners who find our internal flaws and friction points before we do."</blockquote>
 
         <p>Partnership health is measured by proactive optimization &mdash; not by whether dashboards are green. This is the gap between <a href="from-order-taker-to-strategic-partner.html">being called a strategic partner and operating as one</a>.</p>
 
@@ -684,7 +341,7 @@
 
         <p>The smallest buyer in the room, and arguably the most forward-looking in how they are thinking about AI and the BPO's role in their growth.</p>
 
-        <p>Their priorities are organized around three layers: helping the team (agent efficiency), helping leadership (business intelligence) and helping customers (experience and retention). They are not looking for a support vendor &mdash; they are looking for a scaling partner who can operate across all three simultaneously.</p>
+        <p>Their priorities are organized around three layers: helping the team (agent efficiency), helping leadership (business intelligence) and helping customers (experience and retention). They are not looking for a support vendor &mdash; <a href="stop-quoting-against-their-brief-why-bpo-discovery-wins.html">the same vendor-versus-partner line that gets drawn the moment a BPO quotes without asking why</a> &mdash; they are looking for a scaling partner who can operate across all three simultaneously.</p>
 
         <p>Specific AI needs include summaries so agents have instant context, auto-suggested macros, real-time translation for new markets, tone-of-voice and brand consistency checks on every reply, and QA coaching rather than QA logging. At the leadership level: voice-of-customer analytics, end-to-end journey mapping, and business intelligence they can take to the leadership table.</p>
 
@@ -713,7 +370,7 @@
         <p>Outcome-based contracts are replacing staffing models. Buyers are holding providers responsible for results &mdash; service levels, staffing decisions, training costs. BPOs that still lead with headcount flexibility and cost-per-seat math are misaligned with how buyers now measure value. This holds across all three segments, and it changes what your revenue is worth as much as what it earns.</p>
 
         <h3 id="t3">3. Specialize deliberately, or compete on price indefinitely.</h3>
-        <p>Sixty-four percent of buyers prioritize vertical expertise. Generic capability claims are being filtered out before the shortlist. Pick the verticals where you have genuine depth, build verifiable proof points, and stop claiming expertise you cannot substantiate. For smaller buyers in particular, speaking the language of their industry &mdash; subscription mechanics, churn economics, brand protection &mdash; is what gets you in the door.</p>
+        <p>Sixty-four percent of buyers prioritize vertical expertise. Generic capability claims are being filtered out before the shortlist. Pick the verticals where you have genuine depth, build verifiable proof points, and stop claiming expertise you cannot substantiate — <a href="why-your-bpos-growth-is-stalled.html">the domain-specialization work that most BPOs skip past on the way to something shinier</a>. For smaller buyers in particular, speaking the language of their industry &mdash; subscription mechanics, churn economics, brand protection &mdash; is what gets you in the door.</p>
         <p>There is a demand-generation point buried in the same research, and it is the most actionable finding in the set. The single biggest pain point buyers report is <em>locating</em> service partners that can scale with AI-augmented human services (56%), followed by finding providers who can solve hiring shortages with top talent (51%) and insufficient market intelligence on providers (42%). Buyers are not struggling to choose between you and a competitor. They are struggling to find you at all.</p>
 
         <h3 id="t4">4. Treat AI governance as a market differentiator, not overhead.</h3>
@@ -723,7 +380,7 @@
         <p>Financial services and BFSI clients will not grant system access to unproven partners. Internal technology teams resist externally-driven tech agendas. The entry point is demonstrating value within constraints, then expanding from there. Arrive as a supporter of their tech agenda, not a replacement for it.</p>
 
         <h3 id="t6">6. The bar for &ldquo;proactive&rdquo; has been raised &mdash; across all segments.</h3>
-        <p>The telecom buyer said it plainly: 0 reactive days. Partnership health is proactive optimization, not green dashboards. The enterprise buyer wants navigation-style partnership &mdash; problems surfaced before they surface them. The startup wants a business intelligence partner, not a ticket handler. In every case the standard is the same: find the problem before the client does.</p>
+        <p>The telecom buyer said it plainly: 0 reactive days. Partnership health is proactive optimization, not green dashboards. The enterprise buyer wants navigation-style partnership &mdash; problems surfaced before they surface them. The startup wants a business intelligence partner, not a ticket handler. In every case the standard is the same: find the problem before the client does &mdash; <a href="your-slas-are-table-stakes-your-insights-are-too.html">the difference between reporting a problem and actually owning it</a>.</p>
 
         <h3 id="t7">7. Build for human-AI collaboration, not human replacement.</h3>
         <p>Contact center agents are becoming advisors, problem solvers and brand ambassadors. AI handles speed and volume; humans handle ambiguity, complexity and high-stakes decisions. BPOs that frame headcount reduction as the primary AI use case are misreading what buyers want.</p>
@@ -737,13 +394,48 @@
 
         <p>That is a positioning problem, not an operations problem, and the buyers who attended CXOutsourcers are already rewriting their vendor criteria around it. The questions have changed. The providers who come out of this well will be the ones who recognized the shift early and built for it deliberately &mdash; and the market has now told them, in numbers, exactly which criteria to build against.</p>
 
-        <div class="next-step">
-          <p class="next-step-label">Where this sits</p>
-          <p>Positioning of this kind is where most BPOs stall &mdash; between Rungs 3 and 5 of the <strong><a href="../evolution-ladder.html">BPO Evolution Ladder</a></strong>, the frame we use to locate where a business actually is before deciding what to change.</p>
-          <p>The eight questions above are the ones your next buyer will ask. The <strong><a href="../commercial-gap-check.html">Commercial Gap Check</a></strong> tells you how many of them you can currently answer &mdash; in about five minutes, with no call required.</p>
+        <div class="article-cta-box">
+          <p class="article-cta-box-label">Where to Start</p>
+          <p>The eight questions above are the ones your next buyer will ask. The Commercial Gap Check is a free, ten-question self-assessment across go-to-market narrative, sales process, business strategy, and account management &mdash; it tells you how many of them you can currently answer. Results shown immediately, no email required.</p>
+          <p><a href="../commercial-gap-check.html">Start the Gap Check &rarr;</a></p>
         </div>
 
-        <blockquote>Sources: buyer presentations and session notes, CXOutsourcers 2026, Ottawa. Survey data from the 2026 Buy-Side Demand Surveys conducted with <a href="https://gbs.world" rel="noopener">GBS.World</a> Marketplace buyers (n=815) and the 2026 Ryan Strategic Advisory CX Technology and Global Services Survey, presented by <a href="https://www.linkedin.com/in/peter-ryan-montreal/" rel="noopener">Peter Ryan</a> and <a href="https://www.linkedin.com/in/mark-angus/" rel="noopener">Mark Angus</a>. Full attribution in <a href="#buyer-data">the data block above</a>.</blockquote>
+        <p class="source-note">Sources: buyer presentations and session notes, CXOutsourcers 2026, Ottawa. Survey data from the 2026 Buy-Side Demand Surveys conducted with <a href="https://gbs.world" rel="noopener">GBS.World</a> Marketplace buyers (n=815) and the 2026 Ryan Strategic Advisory CX Technology and Global Services Survey, presented by <a href="https://www.linkedin.com/in/peter-ryan-montreal/" rel="noopener">Peter Ryan</a> and <a href="https://www.linkedin.com/in/mark-angus/" rel="noopener">Mark Angus</a>. Full attribution in <a href="#buyer-data">the data block above</a>.</p>
+
+        <div class="article-faq">
+          <h3 class="article-faq-heading">FAQ: Acting on What Enterprise Buyers Want in 2026</h3>
+
+          <div class="article-faq-item">
+            <p class="article-faq-q">We don&rsquo;t have outcome-based pricing today, and the article says even buyers admit the mechanics are unsettled &mdash; where do we actually start?</p>
+            <p class="article-faq-a">Start with the metric where the outcome-to-revenue link is easiest to draw &mdash; retention, CSAT, or productivity you already report &mdash; and structure a shared-risk pilot on one account rather than rewriting your commercial model all at once. Buyers in this research were more interested in providers willing to move in this direction than in providers who had already perfected the mechanics.</p>
+          </div>
+
+          <div class="article-faq-item">
+            <p class="article-faq-q">The data shows $100M&ndash;$999M providers rated above $1B-plus giants &mdash; does that mean we should stop chasing the largest enterprise accounts?</p>
+            <p class="article-faq-a">No, it means scale isn&rsquo;t the disqualifier some mid-sized operators assume it is, and it isn&rsquo;t the differentiator either. The 16,000-seat buyer in this research still wanted rigorous governance and incremental access &mdash; the opening is being specific and credible at whatever scale you compete, not out-sizing the largest name in the room.</p>
+          </div>
+
+          <div class="article-faq-item">
+            <p class="article-faq-q">How fast can a generalist BPO credibly claim vertical expertise if it doesn&rsquo;t have deep history in that niche yet?</p>
+            <p class="article-faq-a">Not by claiming it in a pitch deck. Buyers are asking for industry-specific case studies and operational proof points, which means you need at least one reference account and a documented result before the claim survives due diligence. Pick one vertical, build the proof there first, and resist claiming depth in three verticals at once.</p>
+          </div>
+
+          <div class="article-faq-item">
+            <p class="article-faq-q">What does &ldquo;0 reactive days&rdquo; actually look like day to day, not just as a slogan?</p>
+            <p class="article-faq-a">It means someone on the account is reviewing your own operational data &mdash; volume trends, complaint patterns, churn signals &mdash; before the client asks about them, and bringing a finding or recommendation to every touchpoint rather than waiting to be asked. It&rsquo;s a discipline and a cadence, not a single technology purchase.</p>
+          </div>
+        </div>
+
+        <div class="article-more-links">
+          <p class="article-more-links-label">Related reading</p>
+          <p>For the full case, see the <strong><a href="your-bpos-sales-strategy-needs-a-rewrite.html">sales pillar</a></strong> on why most BPO go-to-market motions need a rewrite, not a tweak.</p>
+          <ul>
+            <li><a href="your-slas-are-table-stakes-your-insights-are-too.html">the difference between reporting a problem and actually owning it</a></li>
+            <li><a href="why-your-bpos-growth-is-stalled.html">the domain-specialization work most BPOs skip past on the way to something shinier</a></li>
+            <li><a href="you-built-the-ai-platform-your-sales-team-still-cant-sell-it.html">the trust test playing out account by account, long before the RFP</a></li>
+          </ul>
+          <p><a href="../commercial-gap-check.html">Start the Commercial Gap Check &rarr;</a></p>
+        </div>
 
         <div class="author-block">
           <img src="../assets/images/photo-amanda.jpg" alt="Amanda Quinn" width="72" height="72" loading="lazy">

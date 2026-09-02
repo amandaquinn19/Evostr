@@ -40,221 +40,79 @@
   <meta name="twitter:image" content="https://evostr.com/assets/og/[slug].jpg">
   <meta name="twitter:image:alt" content="Evostr — [Article Title]">
 
+  <!-- Article + Person schema. Every live article should carry this — see
+       the 2026-09-01 audit, Part 4. Keep "citation" only if the article
+       actually cites named external sources; otherwise delete that key. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "[Article Title]",
+    "description": "[Meta description]",
+    "image": "https://evostr.com/assets/og/[slug].jpg",
+    "datePublished": "[YYYY-MM-DD]",
+    "dateModified": "[YYYY-MM-DD]",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://evostr.com/articles/[slug].html"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Amanda Quinn",
+      "jobTitle": "Founder",
+      "url": "https://evostr.com/about.html",
+      "sameAs": "https://www.linkedin.com/in/amandaquinnmalach/",
+      "worksFor": { "@type": "Organization", "name": "Evostr", "url": "https://evostr.com" }
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Evostr",
+      "url": "https://evostr.com",
+      "logo": { "@type": "ImageObject", "url": "https://evostr.com/assets/logo-leila-h.svg" }
+    },
+    "citation": [
+      "[Source name]"
+    ],
+    "about": ["[Topic]"]
+  }
+  </script>
+
+  <!-- FAQPage schema. Every live article should carry this — must mirror the
+       .article-faq section in the body exactly (same questions, same order,
+       same answer text). If the FAQ section changes, update this too; don't
+       let them drift apart. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "[Question]",
+        "acceptedAnswer": { "@type": "Answer", "text": "[Answer]" }
+      },
+      {
+        "@type": "Question",
+        "name": "[Question]",
+        "acceptedAnswer": { "@type": "Answer", "text": "[Answer]" }
+      }
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;0,800;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;0,800;1,400&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
   <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/article.css">
 
-  <style>
-    .article-hero {
-      padding-top: 64px;
-      padding-bottom: 40px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .article-meta {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-family: var(--font-sans);
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 24px;
-    }
-
-    .article-meta span + span::before {
-      content: '·';
-      margin-right: 8px;
-    }
-
-    .article-hero h1 {
-      max-width: 720px;
-      font-size: clamp(28px, 5vw, 48px);
-      line-height: 1.2;
-      margin-bottom: 20px;
-    }
-
-    .article-excerpt {
-      max-width: 640px;
-      font-size: 19px;
-      line-height: 1.7;
-      color: var(--text-muted);
-    }
-
-    .article-body {
-      max-width: 680px;
-      font-size: 18px;
-      line-height: 1.85;
-      color: var(--text);
-      padding: 56px 0 80px;
-    }
-
-    .article-body h2 {
-      font-size: 26px;
-      margin-top: 48px;
-      margin-bottom: 16px;
-    }
-
-    .article-body h3 {
-      font-size: 21px;
-      margin-top: 36px;
-      margin-bottom: 12px;
-    }
-
-    .article-body p { margin-bottom: 24px; }
-
-    .article-body ul {
-      margin-bottom: 24px;
-      padding-left: 28px;
-    }
-
-    .article-body ul li { margin-bottom: 16px; }
-
-    .article-back {
-      font-family: var(--font-sans);
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text-muted);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-bottom: 40px;
-    }
-
-    .article-back:hover { color: var(--navy); }
-
-    .article-tags {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-top: 24px;
-    }
-
-    .article-tag {
-      font-family: var(--font-sans);
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      border: 1px solid var(--border);
-      border-radius: 100px;
-      padding: 4px 12px;
-    }
-
-    .article-stat-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      margin: 36px 0;
-    }
-
-    .article-tldr {
-      background: rgba(58, 99, 200, 0.07);
-      border: 1px solid rgba(58, 99, 200, 0.15);
-      padding: 24px 28px;
-      margin-bottom: 40px;
-    }
-
-    .article-tldr-label {
-      font-family: var(--font-sans);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--liela-shade, #3A63C8);
-      margin-bottom: 10px;
-    }
-
-    .article-tldr p {
-      font-size: 16px;
-      color: var(--text);
-      line-height: 1.7;
-      margin: 0;
-    }
-
-    .article-stat {
-      background: var(--navy);
-      padding: 24px 20px;
-    }
-
-    .article-stat-number {
-      font-family: var(--font-serif);
-      font-size: 36px;
-      font-weight: 800;
-      color: var(--oak-bright, #D4AB52);
-      line-height: 1;
-      margin-bottom: 10px;
-    }
-
-    .article-stat-label {
-      font-family: var(--font-sans);
-      font-size: 13px;
-      line-height: 1.5;
-      color: rgba(255, 255, 255, 0.7);
-    }
-
-    .article-cta-box {
-      border: 1px solid var(--border);
-      background: var(--matte-steel);
-      padding: 28px 32px;
-      margin: 40px 0;
-    }
-
-    .article-cta-box-label {
-      font-family: var(--font-sans);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--oak, #886D34);
-      margin-bottom: 12px;
-    }
-
-    .article-cta-box p {
-      margin-bottom: 16px;
-      font-size: 16px;
-      color: var(--text-muted);
-    }
-
-    .article-cta-box p:last-child { margin-bottom: 0; }
-
-    .article-more-links {
-      border-top: 1px solid var(--border);
-      margin-top: 48px;
-      padding-top: 32px;
-    }
-
-    .article-more-links-label {
-      font-family: var(--font-sans);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 16px;
-    }
-
-    .article-more-links ul {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .article-more-links ul li {
-      margin-bottom: 10px;
-    }
-
-    @media (max-width: 560px) {
-      .article-stat-row { grid-template-columns: 1fr; }
-    }
-  </style>
+  <!-- All article-page component styles (hero, body, tags, in-article TOC,
+       data block, comparison table, next-step, source note, author block,
+       plus the legacy tldr/stat-row/cta-box/more-links components below)
+       live in css/article.css — see that file's header comment. Add a
+       page-specific <style> block here only for something genuinely
+       one-off; don't redefine a shared component. -->
 <!-- Start of HubSpot Embed Code -->
 <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/44733462.js"></script>
 <!-- End of HubSpot Embed Code -->
@@ -289,16 +147,22 @@
 
       <section class="article-hero">
         <div class="article-meta">
-          <span>[Month Year]</span>
-          <span>Amanda Quinn</span>
+          <span>[MONTH YEAR]</span>
+          <span>AMANDA QUINN</span>
+          <!-- Rough reading time — ~200 wpm on the article-body word count. -->
+          <span>[XX] MIN READ</span>
         </div>
         <h1>[Article Title]</h1>
         <p class="article-excerpt">[One to two sentence excerpt. Reused as the meta description above and as the preview text in articles.html's list — keep it under ~155 characters.]</p>
-        <!-- Pick 1-3 tags from the fixed set only: growth, expertise, leadership, evolution, technology, valuation.
-             A new tag requires adding a matching filter button to articles.html — don't add one silently. -->
+        <!-- Pick 1-4 tags from the fixed set only: specialization, sales, retention, ai-technology,
+             valuation, leadership, evolution. specialization/sales/retention/ai-technology/valuation
+             double as the site's internal-linking clusters (see _backlog.md and the Sep 2026 audit) —
+             each has a designated pillar article to link up to. leadership/evolution are general-purpose
+             tags with no cluster or pillar. A new tag requires adding a matching filter button to
+             articles.html — don't add one silently. -->
         <div class="article-tags">
-          <a class="article-tag" href="../articles.html?tag=growth">Growth</a>
-          <a class="article-tag" href="../articles.html?tag=technology">Technology</a>
+          <a class="article-tag" href="../articles.html?tag=sales">Sales</a>
+          <a class="article-tag" href="../articles.html?tag=ai-technology">AI &amp; Technology</a>
         </div>
       </section>
 
@@ -312,7 +176,18 @@
 
         <p>[Opening paragraph.]</p>
 
-        <h2>[Section heading]</h2>
+        <!-- OPTIONAL COMPONENT — in-article jump nav. Give each <h2> below a
+             matching id and list it here. Worth adding once the article has
+             ~5 or more H2 sections; skip it on a short piece. Delete if not used. -->
+        <nav class="article-toc" aria-label="In this article">
+          <p class="article-toc-heading">In this article</p>
+          <ol>
+            <li><a href="#section-one">[Section heading]</a></li>
+            <li><a href="#section-two">[Second section heading]</a></li>
+          </ol>
+        </nav>
+
+        <h2 id="section-one">[Section heading]</h2>
 
         <p>[Body paragraph.]</p>
 
@@ -322,7 +197,10 @@
           <li>[List item.]</li>
         </ul>
 
-        <!-- OPTIONAL COMPONENT — CTA box linking to a lead-gen asset. Delete if not used. -->
+        <!-- REQUIRED — in-body CTA box linking to a lead-gen asset. Every live
+             article carries this. Place it wherever it lands naturally after
+             a section that's built the case for it (not necessarily here) —
+             but don't delete it outright. -->
         <div class="article-cta-box">
           <p class="article-cta-box-label">[CTA label]</p>
           <p>[CTA copy.]</p>
@@ -349,17 +227,59 @@
           </div>
         </div>
 
-        <!-- OPTIONAL COMPONENT — pull quote. Delete if not used. -->
+        <h2 id="section-two">[Second section heading]</h2>
+
+        <!-- OPTIONAL COMPONENT — KEY INSIGHT callout. The sitewide "KEY
+             INSIGHT" treatment (label, gold top bar, bold serif) — reserve
+             it for the author's OWN synthesized claim, not someone else's
+             quote (see .article-quote below for that). Do not reuse
+             <blockquote> for a source citation either; use .source-note
+             near the bottom instead. Delete if not used. -->
         <blockquote>
-          [Quote text.]
+          [The author's own one-line insight, not a quote from someone else.]
           <cite>&mdash; Amanda Quinn, Principal, Evostr</cite>
         </blockquote>
 
+        <!-- OPTIONAL COMPONENT — a literal quote from someone else, in their
+             words. No label, no top bar, no oak tint — just the quote in a
+             plain bordered box, so it doesn't read as the author's own KEY
+             INSIGHT. Delete if not used. -->
+        <blockquote class="article-quote">
+          [Quote text, attributed to someone other than the author.]
+          <cite>&mdash; Title, Company</cite>
+        </blockquote>
+
+        <!-- OPTIONAL COMPONENT — sourced data block. Use for a cluster of
+             attributed statistics — each figure needs its own source, not one
+             collective line at the end. Breaks out of the 680px measure, so
+             it can sit directly in the article flow. Delete if not used.
+
+             Sentiment coloring: add .caution or .neutral to a .data-row when
+             the figure is a problem metric or a plain market/industry number
+             — leave the default (no class) for a positive/aspiration figure.
+             Don't leave every stat in a group the same color if they don't
+             mean the same thing. See the three rows below for the pattern. -->
+        <div class="data-block article-wide" id="data">
+          <p class="data-block-label">The data</p>
+          <h2>[Data block heading]</h2>
+          <p class="data-block-sample">[Sample description — n, population, dates, methodology.]</p>
+
+          <div class="data-group">
+            <p class="data-group-title">[Group label]</p>
+            <div class="data-row"><span class="fig">[XX%]</span><p class="what">[Positive/aspiration figure — default color.]</p></div>
+            <div class="data-row caution"><span class="fig">[XX%]</span><p class="what">[Problem metric — .caution.]</p></div>
+            <div class="data-row neutral"><span class="fig">[XX%]</span><p class="what">[Plain market/industry figure — .neutral.]</p></div>
+          </div>
+
+          <p class="data-cite"><strong>Cite this data as:</strong> [Source name, publisher, year, methodology note.]</p>
+        </div>
+
         <p>[Closing paragraph, with a soft CTA into a relevant page.]</p>
 
-        <p><a href="../commercial-gap-check.html">Start the Commercial Gap Check &rarr;</a> &nbsp;&nbsp; <a href="../qualification.html">Is Evostr the right fit? &rarr;</a></p>
-
-        <!-- OPTIONAL COMPONENT — FAQ section. Delete if not used. -->
+        <!-- REQUIRED — FAQ section. Every live article carries this: 2-4 Q&As
+             that anticipate what a reader (or an AI answer engine) would ask
+             next, in the buyer's own language — not a recap of the article.
+             Don't delete it outright. -->
         <div class="article-faq">
           <h3 class="article-faq-heading">FAQ: [Topic]</h3>
 
@@ -374,15 +294,42 @@
           </div>
         </div>
 
-        <!-- OPTIONAL COMPONENT — related-links footer. Delete if not used. -->
+        <!-- REQUIRED — Related reading. Replaces the old separate .next-step
+             and .article-more-links footers (2026-09-02) with one hand-picked
+             module, kept on .article-more-links's existing look (plain top-
+             border list, no box) — .next-step is retired. Content: a line up
+             to this article's cluster pillar, 3 hand-picked sibling articles
+             from the SAME cluster (never tag-automated — see
+             _crosslink-plan.md and _backlog.md for the cluster roster this is
+             drawn from), and one line down to the Commercial Gap Check. If
+             this article IS a pillar, skip the pillar-link line and open
+             straight with the sibling list. -->
         <div class="article-more-links">
-          <p class="article-more-links-label">More from Evostr</p>
+          <p class="article-more-links-label">Related reading</p>
+          <p>[One sentence pointing up to this article's cluster pillar — e.g. the <strong><a href="why-clients-always-choose-specialists.html">specialization pillar</a></strong>.]</p>
           <ul>
-            <li><a href="../commercial-gap-check.html">Take the Commercial Gap Check &rarr;</a></li>
-            <li><a href="../evolution-ladder.html">Where does your BPO sit today? &rarr;</a></li>
-            <li><a href="../qualification.html">Is Evostr the right fit for your situation? &rarr;</a></li>
-            <li><a href="../assessment.html">See what the Strategic Growth Assessment delivers &rarr;</a></li>
+            <li><a href="[sibling-1-slug].html">[Natural paraphrase of sibling 1's core idea, not its literal title]</a></li>
+            <li><a href="[sibling-2-slug].html">[Natural paraphrase of sibling 2's core idea]</a></li>
+            <li><a href="[sibling-3-slug].html">[Natural paraphrase of sibling 3's core idea]</a></li>
           </ul>
+          <p><a href="../commercial-gap-check.html">Start the Commercial Gap Check &rarr;</a></p>
+        </div>
+
+        <!-- OPTIONAL COMPONENT — source note. For citations only, not a
+             pull quote — deliberately a <p>, not a <blockquote>. Delete if
+             the article cites nothing. -->
+        <p class="source-note">Sources: [source name and link], [source name and link]. [Any methodology or attribution note.]</p>
+
+        <!-- Author block. Every live article should carry this — it's also
+             the Person schema's visible counterpart (see the JSON-LD in
+             <head> above; keep the two in sync). -->
+        <div class="author-block">
+          <img src="../assets/images/photo-amanda.jpg" alt="Amanda Quinn" width="72" height="72" loading="lazy">
+          <div>
+            <p class="who">Amanda Quinn</p>
+            <p class="bio">[One to two sentence bio, tailored to this article if relevant — e.g. naming a talk, panel or client work the piece draws on.]</p>
+            <p class="links"><a href="../about.html">About Evostr</a> <a href="https://www.linkedin.com/in/amandaquinnmalach/" rel="noopener">LinkedIn</a></p>
+          </div>
         </div>
 
       </article>
@@ -391,10 +338,16 @@
 
 
   <!-- CTA -->
+  <!-- .btn-accent, not .btn-white — the brand guide's canonical dark-surface
+       pairing is Liela + Bright Oak Brown, and this is the single highest-
+       intent button on the page. This section is identical markup to the
+       one on every other page's navy CTA band (index.html, book.html, etc.)
+       — those still use .btn-white. 2026-09 design review: swap sitewide,
+       once this mockup is approved, not just here. -->
   <section class="navy">
     <div class="container">
       <h2 style="max-width:520px; color:var(--white); margin-bottom:28px;">When the conversation makes sense, you&rsquo;ll know. We&rsquo;ll be here.</h2>
-      <a href="../book.html" class="btn btn-white">Book a Conversation</a>
+      <a href="../book.html" class="btn btn-accent">Book a Conversation</a>
     </div>
   </section>
 

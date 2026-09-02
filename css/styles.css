@@ -13,11 +13,18 @@
   --navy-light:    #2D3A6B;
   --matte-steel:   #E0E4E5;   /* Secondary · Canvas — the site's default background, on every page */
   --liela-shade:   #3A63C8;   /* Primary Shade — charts, data accents */
-  --paper:         #F1EEE6;   /* Neutral — plates, cards, ticks: the lifted surface that sits ON Matte Steel.
-                                  Renamed from --cream 2026-09 and corrected to the Figma-exact value (was #F5F3EE). */
+  --paper:         #F1EEE6;   /* Neutral · Secondary surface only — sits ON WHITE, nested inside a white card
+                                  (e.g. a table header row). Never a page/section ground, never used directly on
+                                  Matte Steel or Liela. Corrected 2026-09-02, direct from Amanda: Paper was
+                                  being used as the primary card color on Matte Steel sections — White is that
+                                  role; Paper is secondary-only. Renamed from --cream 2026-09, Figma-exact value
+                                  (was #F5F3EE). */
   --paper-dark:    #E2DFD6;   /* Darker Paper, decorative use only. Renamed from --cream-dark (was #EDE9E2). */
-  --white:         #FFFFFF;   /* Pure white — on-navy text and small UI details (buttons, focus rings) only.
-                                  No longer aliased to --paper: Paper and white are different colors now. */
+  --white:         #FFFFFF;   /* Pure white — the site's primary lifted-surface card color: every card/tile/
+                                  block/input sitting directly on Matte Steel or Liela (stats, ladder rungs,
+                                  domain cards, engagement cards, form fields, article components) uses White,
+                                  not Paper — corrected 2026-09-02. Also on-navy text and small UI details
+                                  (buttons, focus rings). No longer aliased to --paper: different colors now. */
 
   /* Body Text */
   --body-light:    #4B4B4B;   /* Text on Matte Steel / Paper */
@@ -375,7 +382,7 @@ strong { font-weight: 600; }
 }
 
 .stat {
-  background: var(--paper);
+  background: var(--white);
   padding: 36px 32px;
 }
 
@@ -431,14 +438,14 @@ strong { font-weight: 600; }
   gap: 20px;
   padding: 17px 28px;
   border-bottom: 1px solid var(--border-light);
-  background: var(--paper);
+  background: var(--white);
   transition: background 0.1s;
 }
 
 .ladder-rung:last-child { border-bottom: none; }
 
-.ladder-rung.rung-above { background: var(--paper); }
-.ladder-rung.rung-below { background: var(--paper); }
+.ladder-rung.rung-above { background: var(--white); }
+.ladder-rung.rung-below { background: var(--white); }
 
 .rung-num {
   font-family: var(--font-sans);
@@ -554,7 +561,7 @@ strong { font-weight: 600; }
 .domain {
   padding: 32px 36px;
   border-bottom: 1px solid var(--border);
-  background: var(--paper);
+  background: var(--white);
 }
 
 .domain:last-child { border-bottom: none; }
@@ -627,7 +634,7 @@ strong { font-weight: 600; }
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 36px;
-  background: var(--paper);
+  background: var(--white);
   display: flex;
   flex-direction: column;
 }
@@ -850,7 +857,7 @@ blockquote p {
   font-size: 15px;
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  background: var(--paper);
+  background: var(--white);
   color: var(--text);
   outline: none;
   transition: border-color 0.15s;
@@ -1038,7 +1045,7 @@ blockquote.proof-quote-featured .attribution span {
   font-size: 15px;
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  background: var(--paper);
+  background: var(--white);
   color: var(--text);
   outline: none;
   transition: border-color 0.15s;
@@ -1223,7 +1230,7 @@ a.article-tag:hover {
   border-radius: 0;
   overflow: hidden;
   margin: 48px 0;
-  background: var(--paper);  /* was --matte-steel — now the page's own default, so this card needs the lifted-surface token instead to stay visible */
+  background: var(--white);  /* Paper is secondary-only (2026-09-02) — this card sits directly on the Matte Steel article body, so it uses White */
 }
 
 .article-faq-heading {

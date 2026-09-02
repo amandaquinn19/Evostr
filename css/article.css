@@ -215,7 +215,7 @@
   border-collapse: collapse;
   width: 100%;
   min-width: 720px;
-  background: var(--paper);
+  background: var(--white);
   font-family: var(--font-sans);
 }
 
@@ -230,11 +230,11 @@
 }
 
 .cmp-table thead th {
-  /* Matte Steel here, not Paper — the table itself is already a Paper card (see
-     .cmp-table below); the header row needs a second tone to stay legible against
-     its own body, which is the one place a Matte Steel/Paper pairing sits nested
-     inside a single component rather than at page level. */
-  background: var(--matte-steel);
+  /* Paper here, correctly used: secondary tone nested inside the table's own White
+     surface (see .cmp-table above), giving the header row contrast against its body.
+     This is the one legitimate Paper usage on the page — never on the Matte Steel
+     page ground itself. */
+  background: var(--paper);
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -250,7 +250,7 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-muted);
-  background: var(--matte-steel);
+  background: var(--paper);
   white-space: nowrap;
 }
 
@@ -260,7 +260,7 @@
 /* ---- Sourced data block ---- */
 
 .data-block {
-  background: var(--paper);
+  background: var(--white);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 32px 32px 12px;
@@ -386,7 +386,7 @@
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
-  background: var(--paper);
+  background: var(--white);
 }
 
 .author-block .who {
@@ -442,7 +442,7 @@
    oak tint so it doesn't compete with or get confused for a real callout —
    just the quote, in a plain bordered box like everything else on the page. */
 .article-body blockquote.article-quote {
-  background: var(--paper);
+  background: var(--white);
   border: 1px solid var(--border);
   font-style: italic;
 }
@@ -527,7 +527,7 @@
 
 .article-cta-box {
   border: 1px solid var(--border);
-  background: var(--paper);  /* was --matte-steel — page default now, so this needs the lifted-surface token to stay visible */
+  background: var(--white);  /* Paper is secondary-only (2026-09-02) — this card sits directly on the Matte Steel article body, so it uses White */
   padding: 28px 32px;
   margin: 40px 0;
 }

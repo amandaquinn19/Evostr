@@ -400,29 +400,35 @@
 
             <div class="form-row">
               <div class="form-field">
-                <label for="cf-name">Full name</label>
-                <input type="text" id="cf-name" name="name" required autocomplete="name">
+                <label for="cf-firstname">First name</label>
+                <input type="text" id="cf-firstname" name="firstname" required autocomplete="given-name">
               </div>
               <div class="form-field">
-                <label for="cf-email">Work email</label>
-                <input type="email" id="cf-email" name="email" required autocomplete="email">
+                <label for="cf-lastname">Last name</label>
+                <input type="text" id="cf-lastname" name="lastname" required autocomplete="family-name">
               </div>
             </div>
 
             <div class="form-row">
               <div class="form-field">
+                <label for="cf-email">Work email</label>
+                <input type="email" id="cf-email" name="email" required autocomplete="email">
+              </div>
+              <div class="form-field">
                 <label for="cf-company">Company name</label>
                 <input type="text" id="cf-company" name="company" required autocomplete="organization">
               </div>
+            </div>
+
+            <div class="form-row">
               <div class="form-field">
                 <label for="cf-title">Job Title</label>
                 <input type="text" id="cf-title" name="job_title" placeholder="e.g. Co-Founder & CCO" required>
               </div>
-            </div>
-
-            <div class="form-field">
-              <label for="cf-website">Company website <span class="optional">(optional)</span></label>
-              <input type="url" id="cf-website" name="website" placeholder="https://" autocomplete="url">
+              <div class="form-field">
+                <label for="cf-website">Company website <span class="optional">(optional)</span></label>
+                <input type="text" id="cf-website" name="website" placeholder="evostr.com" autocomplete="url">
+              </div>
             </div>
 
             <div class="form-field">
@@ -435,7 +441,7 @@
               <select id="cf-driver" name="driver" required>
                 <option value="" disabled selected>Select one</option>
                 <option>A board or sponsor is asking for a growth plan</option>
-                <option>We're preparing for a sale, raise, or exit</option>
+                <option>We’re preparing for a sale, raise, or exit</option>
                 <option>We've hit a wall and need an outside read</option>
                 <option>Just exploring — no immediate driver</option>
               </select>

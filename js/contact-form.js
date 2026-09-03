@@ -29,6 +29,13 @@
     var payload = {};
     formData.forEach(function (value, key) { payload[key] = value; });
 
+    // Company website is plain text so visitors can type "evostr.com" without
+    // a scheme (type="url" inputs reject that natively) — normalize to a full
+    // URL here so what lands in Netlify/HubSpot is still clickable.
+    if (payload.website && !/^https?:\/\//i.test(payload.website)) {
+      payload.website = 'https://' + payload.website;
+    }
+
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },

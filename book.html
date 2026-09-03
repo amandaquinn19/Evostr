@@ -4,7 +4,7 @@
 <!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-MK5CJCPJBT"></script><script>  window.dataLayer = window.dataLayer || [];  function gtag(){dataLayer.push(arguments);}  gtag('js', new Date());  gtag('config', 'G-MK5CJCPJBT');</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Book a 45-minute conversation with Evostr: where your BPO is priced today, what the next rung is worth, and what closing that gap would require. No deck, no pitch.">
+  <meta name="description" content="Tell us where your BPO stands today. We review every request personally and respond with either a time to talk or a direct answer on fit — no deck, no pitch, no auto-scheduling.">
   <title>Book a Conversation | Evostr</title>
   <link rel="canonical" href="https://evostr.com/book.html">
 
@@ -14,7 +14,7 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:url" content="https://evostr.com/book.html">
   <meta property="og:title" content="Book a Conversation">
-  <meta property="og:description" content="Book a 45-minute conversation with Evostr: where your BPO is priced today, what the next rung is worth, and what closing that gap would require. No deck, no pitch.">
+  <meta property="og:description" content="Tell us where your BPO stands today. We review every request personally and respond with either a time to talk or a direct answer on fit — no deck, no pitch, no auto-scheduling.">
   <meta property="og:image" content="https://evostr.com/assets/og/book.jpg">
   <meta property="og:image:secure_url" content="https://evostr.com/assets/og/book.jpg">
   <meta property="og:image:type" content="image/jpeg">
@@ -25,7 +25,7 @@
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Book a Conversation">
-  <meta name="twitter:description" content="Book a 45-minute conversation with Evostr: where your BPO is priced today, what the next rung is worth, and what closing that gap would require. No deck, no pitch.">
+  <meta name="twitter:description" content="Tell us where your BPO stands today. We review every request personally and respond with either a time to talk or a direct answer on fit — no deck, no pitch, no auto-scheduling.">
   <meta name="twitter:image" content="https://evostr.com/assets/og/book.jpg">
   <meta name="twitter:image:alt" content="Evostr — Book a Conversation">
 
@@ -167,17 +167,104 @@
 
     .book-contact a:hover { color: var(--navy); }
 
-    /* Right column — Calendly */
-    .book-calendly {
+    /* Right column — qualifying contact form (replaced Calendly, 2026-09:
+       inbound was booking time with unqualified, no-budget prospects). */
+    .book-form-panel {
       background: var(--white);
       border-radius: var(--radius);
       overflow: hidden;
       border: 1px solid var(--border);
+      padding: 40px;
     }
 
-    .calendly-inline-widget {
-      min-width: 320px;
-      height: 700px;
+    #contact-form-intro h2,
+    .form-success h2 {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    #contact-form-intro p {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+
+    .form-field label {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .form-field label .optional {
+      font-weight: 400;
+      color: var(--text-muted);
+    }
+
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      width: 100%;
+      padding: 10px 14px;
+      font-family: var(--font-sans);
+      font-size: 15px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--white);
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+      border-color: var(--navy);
+    }
+
+    .form-field textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .form-field select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2320294F' stroke-width='1.5' fill='none' fill-rule='evenodd'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+    }
+
+    .form-error {
+      font-family: var(--font-sans);
+      font-size: 14px;
+      color: var(--caution);
+      margin-bottom: 16px;
+    }
+
+    #contact-form button[type="submit"] {
+      width: 100%;
+      justify-content: center;
+      margin-top: 4px;
+    }
+
+    .form-success p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-muted);
     }
 
     /* Responsive */
@@ -187,12 +274,19 @@
         gap: 48px;
       }
 
-      .book-calendly {
+      .book-form-panel {
         order: -1;
       }
+    }
 
-      .calendly-inline-widget {
-        height: 660px;
+    @media (max-width: 560px) {
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .book-form-panel {
+        padding: 28px 24px;
       }
     }
   </style>
@@ -228,7 +322,7 @@
     <div class="container">
       <span class="section-label">Book a Conversation</span>
       <h1>Let's talk about what the business is worth.</h1>
-      <p class="hero-subhead">Forty-five minutes on where the business is priced today, what the next rung is worth, and whether the distance between them is one we can help you close.</p>
+      <p class="hero-subhead">Every request starts with the same information, not a calendar. Tell us where things stand, and we'll follow up directly — either with a time to talk or a clear answer on why now isn't the moment.</p>
     </div>
   </section>
 
@@ -268,21 +362,21 @@
 
           </div>
 
-          <p style="font-size: 15px; line-height: 1.75; color: var(--text-muted); margin-top: 28px;">There's no pitch deck and no obligation. There is one expectation: bring your actual numbers. Forty-five minutes spent on real figures beats an hour of positioning talk, and it is the fastest way for both of us to know whether this is a fit.</p>
+          <p style="font-size: 15px; line-height: 1.75; color: var(--text-muted); margin-top: 28px;">There's no pitch deck and no obligation either way. We read every request personally, usually within one business day, and respond with either a time to talk or a direct answer on why it isn't the right moment yet. If we do talk, bring your actual numbers — forty-five minutes on real figures beats an hour of positioning talk.</p>
           <p style="font-size: 15px; line-height: 1.75; color: var(--text-muted);">If we're aligned, we'll talk about next steps. If we're not, we'll tell you that too.</p>
 
           <div class="book-terms">
             <div class="book-term">
               <span class="book-term-dot"></span>
-              45 minutes via Google Meet or Teams
+              We respond within one business day
             </div>
             <div class="book-term">
               <span class="book-term-dot"></span>
-              Come with your current multiple and your target
+              Every request reviewed personally — no auto-scheduling
             </div>
             <div class="book-term">
               <span class="book-term-dot"></span>
-              No obligation to continue
+              If it's a fit: 45 minutes via Google Meet or Teams
             </div>
           </div>
 
@@ -290,13 +384,79 @@
 
         </div>
 
-        <!-- Right: Calendly embed -->
-        <!-- Calendly inline widget begin -->
-        <div class="book-calendly">
-          <div class="calendly-inline-widget" data-url="https://calendly.com/amandacquinn/discovery?hide_event_type_details=1&text_color=4b4b4b&primary_color=3a63c8" style="min-width:320px;height:700px;"></div>
-          <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        <!-- Right: qualifying contact form -->
+        <div class="book-form-panel">
+
+          <div id="contact-form-intro">
+            <h2>Tell us where things stand.</h2>
+            <p>This is what we read before we respond.</p>
+          </div>
+
+          <form name="contact-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html" id="contact-form">
+            <input type="hidden" name="form-name" value="contact-request">
+            <p hidden>
+              <label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+            </p>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="cf-name">Full name</label>
+                <input type="text" id="cf-name" name="name" required autocomplete="name">
+              </div>
+              <div class="form-field">
+                <label for="cf-email">Work email</label>
+                <input type="email" id="cf-email" name="email" required autocomplete="email">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="cf-company">Company name</label>
+                <input type="text" id="cf-company" name="company" required autocomplete="organization">
+              </div>
+              <div class="form-field">
+                <label for="cf-title">Job Title</label>
+                <input type="text" id="cf-title" name="job_title" placeholder="e.g. Co-Founder & CCO" required>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="cf-website">Company website <span class="optional">(optional)</span></label>
+              <input type="url" id="cf-website" name="website" placeholder="https://" autocomplete="url">
+            </div>
+
+            <div class="form-field">
+              <label for="cf-size">Approximate size (seats or agents)</label>
+              <input type="number" id="cf-size" name="company_size" min="1" step="1" placeholder="e.g. 250" required>
+            </div>
+
+            <div class="form-field">
+              <label for="cf-driver">What's driving this conversation right now?</label>
+              <select id="cf-driver" name="driver" required>
+                <option value="" disabled selected>Select one</option>
+                <option>A board or sponsor is asking for a growth plan</option>
+                <option>We're preparing for a sale, raise, or exit</option>
+                <option>We've hit a wall and need an outside read</option>
+                <option>Just exploring — no immediate driver</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="cf-problem">What are you trying to solve?</label>
+              <textarea id="cf-problem" name="problem" required placeholder="Be specific. This is what we read first."></textarea>
+            </div>
+
+            <div id="contact-form-error" class="form-error" role="alert" style="display:none;"></div>
+
+            <button type="submit" class="btn btn-primary">Send Request</button>
+          </form>
+
+          <div id="contact-form-success" class="form-success" style="display:none;" role="status">
+            <h2>Received.</h2>
+            <p>We read every request personally. Expect to hear from us within one business day — either with a time to talk or a direct answer on fit.</p>
+          </div>
+
         </div>
-        <!-- Calendly inline widget end -->
 
       </div>
     </div>
@@ -368,6 +528,7 @@
   </script>
 
   <script src="js/newsletter.js"></script>
+  <script src="js/contact-form.js"></script>
   <script src="js/analytics.js"></script>
 </body>
 </html>

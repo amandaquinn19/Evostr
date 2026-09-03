@@ -2,11 +2,18 @@
  * Evostr — GA4 conversion tracking.
  *
  * Everything downstream of a pageview: CTA clicks, newsletter subscribes,
- * Gap Check completions (with score), Calendly bookings, outbound clicks and
- * article read-through. Loaded on every page after gtag has been configured.
+ * Gap Check completions (with score), contact-request submissions, outbound
+ * clicks and article read-through. Loaded on every page after gtag has been
+ * configured.
  *
  * Key event to mark as a conversion in the GA4 admin UI: book_conversation.
  * Secondary: gap_check_complete, newsletter_subscribe.
+ *
+ * book_conversation used to fire on a Calendly booking (postMessage from the
+ * embedded widget). book.html dropped Calendly for a qualifying contact form
+ * 2026-09 — same event name preserved here so the existing GA4 conversion
+ * goal keeps working with no reconfiguration; it now fires on a successful
+ * form submission instead (see contact-form.js).
  *
  * Depends on nothing. Safe to load before or after the gtag snippet resolves —
  * calls queue on window.dataLayer either way.
@@ -91,22 +98,15 @@
     });
   });
 
-  /* ---------- 4. Calendly booking funnel ---------- */
+  /* ---------- 4. Contact request form (book.html) ---------- */
 
-  var CALENDLY_EVENTS = {
-    'calendly.event_type_viewed': 'booking_widget_viewed',
-    'calendly.date_and_time_selected': 'booking_time_selected',
-    'calendly.event_scheduled': 'book_conversation'
-  };
-
-  window.addEventListener('message', function (e) {
-    if (!e.data || typeof e.data.event !== 'string') return;
-    if (e.data.event.indexOf('calendly.') !== 0) return;
-
-    var name = CALENDLY_EVENTS[e.data.event];
-    if (!name) return;
-
-    track(name, name === 'book_conversation' ? { value: 1, currency: 'USD' } : {});
+  document.addEventListener('evostr:contact_request_submitted', function (e) {
+    track('book_conversation', {
+      value: 1,
+      currency: 'USD',
+      company_size: (e.detail && e.detail.company_size) || undefined,
+      driver: (e.detail && e.detail.driver) || undefined
+    });
   });
 
   /* ---------- 5. Article read-through ---------- */
